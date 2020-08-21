@@ -21,12 +21,12 @@ Caso deseje clonar uma branch específica, basta usar o seguinte padrão:
 
 ### Exemplo
 
-`git clone -b programacao_funcional_2019.1 SI_UFS`
+`git clone -b programacao_funcional_2019.1 https://github.com/kaellandrade/SI_UFS.git`
 
 Clona todas as branchs e, em seguida, muda para a branch `programacao_funcional_2019`
 
 ---
 
-`git clone -b programacao_funcional_2019 --single-branch SI_UFS`
+`git clone -b programacao_funcional_2019 --single-branch https://github.com/kaellandrade/SI_UFS.git`
 
 Clona **a penas** a branch, `programacao_funcional_2019`
