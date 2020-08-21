@@ -10,7 +10,7 @@ NOTA: Cada matéria está contida em uma branch, portanto caso deseje obter toda
 
 ## Dica
 
-Caso deseje clonar todas as branch e, em seguida, alternar para uma específica. Basta usar o seguinte padrão: 
+Caso deseje clonar todas as branch e, em seguida, alternar para uma específica. Basta usar o seguinte padrão:
 `git clone -b <nomeDaBranch> <nomeDoRepositorioRemoto>`
 
 Caso deseje clonar uma branch específica, basta usar o seguinte padrão:
