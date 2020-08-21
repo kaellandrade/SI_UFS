@@ -1,8 +1,6 @@
-# PI - Programação Funcional com *Haskell*
-Aqui está contido alguns dos scripts realizados
-dentro e fora da sala de aula. 
+# Sistemas De Informação — UFS
 
-- Semestre: 2019.1
-- Professor: GIOVANNY FERNANDO LUCERO PALMA
-- Formação: DOUTORADO
-- Departamento: DEPARTAMENTO DE COMPUTAÇÃO
+Um repositório com alguns dos Scripits das matérias específicas do cursos de Sistemas De informação ofertadas pelo Departamento De Computação — DCOMP. Até o momento foram a bordadas as seguintes linguagens/tecnologia
+
+- Haskel — Programação Funcional 2019.1 😥
+- C — Programação Imperativa 2019.2 🙂
