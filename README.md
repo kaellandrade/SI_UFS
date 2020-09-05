@@ -27,4 +27,4 @@ Clona todas as branchs e, em seguida, muda para a branch `programacao_funcional_
 
 `git clone -b programacao_funcional_2019 --single-branch https://github.com/kaellandrade/SI_UFS.git`
 
-Clona **a penas** a branch, `programacao_funcional_2019`
+Clona **a penas** a branch `programacao_funcional_2019`
