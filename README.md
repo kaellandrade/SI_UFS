@@ -4,6 +4,7 @@ Um repositório com Scripits das matérias específicas do curso de Sistemas De 
 
 - Haskell — Programação Funcional 2019.1 😥
 - C — Programação Imperativa 2019.2 🙂
+- C — Estruturas de Dados 2020.1 (Em andamento...) 
 
 NOTA: Cada matéria está contida em uma branch, portanto caso deseje obter todas as matérias clone a branch master. 
 
