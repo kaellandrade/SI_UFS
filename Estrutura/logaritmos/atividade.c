@@ -64,13 +64,62 @@ int lgv(int N){
 
 }
 
+//? 6.  Eficiência.  Critique a seguinte versão alternativa da função lg. 
+//? Ela calcula, explicitamente, a maior potência de 2 que não passa de N. 
+/* //! Não entendi
+int potencia (int i) { 
+   int p = 1;
+   for (int j = 1; j <= i; ++j) {
+       p = 2 * p;
+    }
+   return p;
+}
+int lgvi (int N) {
+   for (int i = 0; potencia (i) <= N; ++i) {}
+    return i - 1;    
+}
+*/
+
+//? 7. Logaritmos na base 10.  Escreva uma função que calcule o piso do logaritmo na base 10 de um número.
+
+// Dado um numero natural N log10Piso calcula o piso de N
+// na base 10
+int log10Piso(int N){
+    int i = 0;
+    int n = 1;
+    int x = N / 10;
+
+    while(n <= N/10){
+        n = n * 10;
+        i++;
+    }
+    return i;
+}
+
+int teste (int N)
+{  
+   int i, n;
+   i = 0;
+   n = 1;
+   while (n <= N/2) {
+      n = 2 * n;
+      i += 1;
+   }
+   return i;    
+}
+
 
 int main() {
-    printf("lg -> %d\n", lg(0.5)); // Invocando lg
-    printf("lgii -> %d\n", lgii(0.5)); // Invocando lgII
-    printf("lgiii -> %d\n", lgiii(0.5)); //  Invocando lgIII
-    printf("lgiv -> %d\n", lgiv(0.5)); //  Invocando lgIV
-    printf("lgv -> %d\n", lgv(0.5)); //  Invocando lgV
+    printf("lg -> %d\n", lg(10)); // Invocando lg
+    printf("lgii -> %d\n", lgii(10)); // Invocando lgII
+    printf("lgiii -> %d\n", lgiii(10)); //  Invocando lgIII
+    printf("lgiv -> %d\n", lgiv(10)); //  Invocando lgIV
+    printf("lgv -> %d\n", lgv(10)); //  Invocando lgV
+    // printf("lgvi -> %d\n", lgvi(10)); //Invocando lgVI
+    printf("log10Piso -> %d\n ", log10Piso(10));
+    printf("teste -> %d\n ", teste(10));
+
+
 
     return 0;
 }
