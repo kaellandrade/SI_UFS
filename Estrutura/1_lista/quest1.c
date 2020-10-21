@@ -54,7 +54,6 @@ int main(){
 
     // Determina a maior distância encontrada
     maiorDistancia = calcDistancia(v[0].Xa, v[0].Ya, v[0].Xb, v[0].Yb);
-
     for (int i = 1; i < qtCordenada; i++){
         distancia = calcDistancia(v[i].Xa, v[i].Ya, v[i].Xb, v[i].Yb);
         if(distancia > maiorDistancia){
@@ -63,7 +62,7 @@ int main(){
     }
 
     // Percorre cada indice do vetor para determinar o quadrante do respectivo ponto;
-    printf("%.2f \n", maiorDistancia);
+    printf("%.2f\n", maiorDistancia);
     for (int i = 0; i < qtCordenada; i++){
         teterminaLugar(v[i].Xa, v[i].Ya);
         teterminaLugar(v[i].Xb, v[i].Yb);
