@@ -12,7 +12,8 @@ Dados os valores x e y, diga quem escolheu a função com o maior resultado.
 Observação: É obrigatório definir e utilizar as funções r, b e c, conforme especificado acima
 
 Formato de entrada:
-A primeira linha de entrada contém um inteiro N que determina a quantidade de casos de teste. Cada caso de teste consiste em dois inteiros x e y(1 ≤ x, y ≤ 100), indicando as variáveis a serem passadas como parâmetros para as funções.
+A primeira linha de entrada contém um inteiro N que determina a quantidade de casos de teste. 
+Cada caso de teste consiste em dois inteiros x e y(1 ≤ x, y ≤ 100), indicando as variáveis a serem passadas como parâmetros para as funções.
 
 Formato de saída:
 Para cada caso de teste imprima uma linha, contendo uma frase, indicando quem ganhou a competição. 
@@ -48,6 +49,7 @@ int c(int *x, int *y)
     return  pow(*y, 3) - 100 * (*x);
 }
 
+// Verifica a função ganhadora
 void imprimeCamp(int *r, int *b, int *c){
     if (*r > *b && *b > *c)
     {
@@ -63,16 +65,19 @@ void imprimeCamp(int *r, int *b, int *c){
     }
 }
 
+// 
 void repImprimir(int *p){
+    // Ler n valores, sendo que n é o valor do ponteiro p, 
+    // o qual aponta para inputs definido dentro da função main
     while (*p > 0){
         int x;
         int y;
-
         scanf("%d%d", &x, &y);
 
         int rafael = r(&x, &y);
         int beto = b(&x, &y);
         int carlos = c(&x, &y);
+        // Envia as posições de mémoria dos resultados de cada função.
         imprimeCamp(&rafael, &beto, &carlos);
 
         (*p)--;

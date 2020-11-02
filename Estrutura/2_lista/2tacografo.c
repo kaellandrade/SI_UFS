@@ -44,10 +44,11 @@ int main (){
 
     while (*p_intervalos > 0){
         scanf("%d %d", p_tempo, p_km);
-        *p_totalDistancia += calcVel(p_tempo, p_km);
+        // Acumulador da distância percorrida
+        *p_totalDistancia += calcVel(p_tempo, p_km); 
         (*p_intervalos) --;
     }
-    
+    // Mostra o valor contido no acumulador p_totalDistancia
     imprimeTotalPercorrido(p_totalDistancia);
     
 }
@@ -56,7 +57,7 @@ int calcVel(int *tempoH, int *km_por_horas){
     return (*tempoH) * (*km_por_horas);
 }
 
-//
+
 void imprimeTotalPercorrido(int *totalDistancia){
     printf("%d\n", *totalDistancia);
 }

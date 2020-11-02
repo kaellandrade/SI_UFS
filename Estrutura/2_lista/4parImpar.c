@@ -32,64 +32,79 @@ par[2] = 98
 
 
 */
-void adicionaElemento(int *vetor, int *tamanho, int *valor);
+void adicionaElemento(int *vetor, int *posicao, int *valor);
 void imprimePar(int *vetor, int *tamanho);
 void imprimeImpar(int *vetor, int *tamanho);
 int verificaPar(int *x);
 
-int main() {
-    int impares [VETLENGTH];
-    int pares [VETLENGTH];
+int main()
+{
+    int impares[VETLENGTH];
+    int pares[VETLENGTH];
     int valor;
     int total_impares = 0;
     int total_pares = 0;
-    for (int i = 0; i < LENGTH; i++){
+    for (int i = 0; i < LENGTH; i++)
+    {
         scanf("%d", &valor);
-        if(verificaPar(&valor)){
+        // Verifica o valor digitado e armazena no respectivo vetor
+        if (verificaPar(&valor))
+        {
             adicionaElemento(&pares[0], &total_pares, &valor);
-        }else{
+        }
+        else
+        {
             adicionaElemento(&impares[0], &total_impares, &valor);
         }
 
         // Verifica se o vetor impar e o vetor par encheu
-        if (total_impares == 5){
-           imprimeImpar(&impares[0], &total_impares);
-           total_impares = 0; // Zera o contador do vetor impares
+        if (total_impares == 5)
+        {
+            imprimeImpar(&impares[0], &total_impares);
+            total_impares = 0; // Zera o contador do vetor impares
         }
 
-        if(total_pares == 5){
-           imprimePar(&pares[0], &total_pares);
-           total_pares = 0; // Zera o contador do vetor pares
+        if (total_pares == 5)
+        {
+            imprimePar(&pares[0], &total_pares);
+            total_pares = 0; // Zera o contador do vetor pares
         }
-        
-        
     }
     imprimeImpar(&impares[0], &total_impares);
     imprimePar(&pares[0], &total_pares);
 
-
     return 0;
 }
-int verificaPar(int *x){
-    if ((*x) % 2 == 0){
+// Dado um valor x, verifica se x é par
+int verificaPar(int *x)
+{
+    if ((*x) % 2 == 0)
+    {
         return 1;
-    }else{
+    }
+    else
+    {
         return 0;
-    } 
-}
-
-void adicionaElemento(int *vetor, int *tamanho, int *valor){
-    vetor[*tamanho] = *valor;
-    (*tamanho)++;
-}
-
-void imprimeImpar(int *vetor, int *tamanho){
-    for (int i = 0; i < *tamanho; i++){
-       printf("impar[%d] = %d\n", i, vetor[i]);
     }
 }
-void imprimePar(int *vetor, int *tamanho){
-    for (int i = 0; i < *tamanho; i++){
-       printf("par[%d] = %d\n", i, vetor[i]);
+// dado um vetor v uma posicao p e um valor x
+// v[p]=x
+void adicionaElemento(int *vetor, int *posicao, int *valor)
+{
+    vetor[*posicao] = *valor;
+    (*posicao)++;
+}
+void imprimeImpar(int *vetor, int *tamanho)
+{
+    for (int i = 0; i < *tamanho; i++)
+    {
+        printf("impar[%d] = %d\n", i, vetor[i]);
+    }
+}
+void imprimePar(int *vetor, int *tamanho)
+{
+    for (int i = 0; i < *tamanho; i++)
+    {
+        printf("par[%d] = %d\n", i, vetor[i]);
     }
 }

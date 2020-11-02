@@ -25,6 +25,7 @@ int main() {
     exibeMultiplos(&i, &f, &x);
 }
 
+// Dado um intervalor ab e um valor x, será impresso os múltiplos de x nesse intervalo;
 void exibeMultiplos(int *start, int *finish, int *x) {
     while ((*start) <= (*finish)) {
         if ((*start) % (*x) == 0)

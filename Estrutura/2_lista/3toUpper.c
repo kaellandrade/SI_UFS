@@ -17,7 +17,7 @@ O nome em letras maiúsculas, seguido de uma quebra de linha.
 void toUpper(char *p);
 
 int main(){
-    char str[LENGTH];
+    char str[LENGTH]; // Define um vetor de caracteres
     fgets(str, LENGTH, stdin);
     toUpper(&str[0]);
     printf("%s", str);
@@ -30,7 +30,7 @@ void toUpper(char *p){
     while (p[i] != '\0' )
     {
         // Percorre o vetor verificando se é um char minúsculo e diferente de ' '. 
-        //NOTA: Usando a tabela ASCII para fazer conversão.
+        //NOTA: Usando a tabela ASCII para fazer a conversão.
         if (p[i] != ' ' && !(p[i] >= 65 && p[i] <= 90)) {
             p[i] = (p[i] - 32);
         }
