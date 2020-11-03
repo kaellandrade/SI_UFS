@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h> 
 /* DESCRIÇÃO
 -------------
 
@@ -31,7 +32,7 @@ void ordenaDecres(int *vet, int *length);
 void imprimeArray(int *vet, int *length, int inverter);
 void troca(int *x, int *y);
 
-void main(void)
+int main(void)
 {
     int tamanho, valor, *p_tamanho, *p_valor;
     p_tamanho = &tamanho;
@@ -60,6 +61,8 @@ void main(void)
 
     // imprime o vetor novamente
     imprimeArray(vetor, p_tamanho, 0);
+
+    return EXIT_SUCCESS;
 }
 
 // dada a primeira posição de mémoria de uma vetor e seu respectivo tamanho,

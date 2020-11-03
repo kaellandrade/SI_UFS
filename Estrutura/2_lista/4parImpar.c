@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+
 #define LENGTH 15
 #define VETLENGTH 5
 /*DESCRIÇÃO
@@ -73,7 +75,7 @@ int main()
     imprimeImpar(&impares[0], &total_impares);
     imprimePar(&pares[0], &total_pares);
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 // Dado um valor x, verifica se x é par
 int verificaPar(int *x)

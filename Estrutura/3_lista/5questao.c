@@ -1,10 +1,10 @@
 #include <stdio.h>
-
+#include <stdlib.h>
 void imprimeVetor(int *vet, int *TAMANHO);
 void troca(int *x, int *y);
 void ordenaVetor(int *vet, int *TAMANHO);
 
-void main(void)
+int main(void)
 {
     int n, i, *p_n, *p_i;
     p_n = &n;
@@ -12,18 +12,18 @@ void main(void)
     *p_i = 0;
     scanf("%d", p_n);
     int vet[*p_n];
-    // Ler os vaalores
-    while ((*p_i) < (*p_n))
+    // Ler os valores
+    while ((*p_i) < (*p_n)) // Enquanto meu contador i for menor que o total de leituras
     {
         scanf("%d", &vet[*p_i]);
         (*p_i)++;
     }
-    ordenaVetor(&vet[0], p_n);  // Ordena meu vetor
-    imprimeVetor(&vet[0], p_n); //Imprime o vetor
-    return 0;
+    ordenaVetor(vet, p_n);  // Ordena meu vetor
+    imprimeVetor(vet, p_n); //Imprime o vetor
+    return EXIT_SUCCESS;
 }
 
-// Dado um vetor e seu respectivo tamanho, o vetor será impresso;
+// Dado um vetor (por referência) e seu respectivo tamanho, o vetor será impresso
 void imprimeVetor(int *vet, int *TAMANHO)
 {
     for (int i = 0; i < (*TAMANHO); i++)
@@ -42,8 +42,8 @@ void troca(int *x, int *y)
     *y = aux;
 }
 
-// Dado um vetor e seu respectivo tamanho, este vetor será ordenado
-// usando o bublesort
+// Dado um vetor (por referência) e seu respectivo tamanho, o vetor será ordenado
+// usando o bubblesort
 void ordenaVetor(int *vet, int *TAMANHO)
 {
     int j, *p_j;

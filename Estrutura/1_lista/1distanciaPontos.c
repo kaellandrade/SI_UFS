@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
 
 /*DESCRIÇÃO:
 ------------
@@ -71,7 +72,7 @@ int main()
         teterminaLugar(&v[i].Xb, &v[i].Yb);
     }
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 // Dada duas cordenadas (a,b) , (c, d) , calcDistancia calcula sua distância;

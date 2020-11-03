@@ -21,7 +21,7 @@ int main(){
     fgets(str, LENGTH, stdin);
     toUpper(&str[0]);
     printf("%s", str);
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 void toUpper(char *p){

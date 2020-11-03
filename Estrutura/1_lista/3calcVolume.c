@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
+
 #define TOTAL_ESFERAS 3
 #define PI 3.1416
 
@@ -39,7 +41,7 @@ double main(){
         printf("%.2lf\n", VolumeEsfera(&v[i]));
     }
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 // Dado um raio r de uma esfera, VolumeEsfera calcula o volume da esfera

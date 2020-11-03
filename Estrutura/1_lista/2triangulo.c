@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
+
 /* DESCRIÇÃO:
 ------------
 Crie um programa que tenha apenas uma função, além do programa principal, 
@@ -27,7 +29,7 @@ int main()
     scanf("%d", &n);
     imprimeTriangulo(&n);
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 

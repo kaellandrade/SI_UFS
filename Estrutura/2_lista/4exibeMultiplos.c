@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 /*DESCRIÇÃO:
 ------------
 Crie um programa que tenha apenas uma função, além do programa principal, 
@@ -23,6 +24,7 @@ int main() {
     int x;
     scanf("%d %d %d", &i, &f, &x);
     exibeMultiplos(&i, &f, &x);
+    return EXIT_SUCCESS;
 }
 
 // Dado um intervalor ab e um valor x, será impresso os múltiplos de x nesse intervalo;

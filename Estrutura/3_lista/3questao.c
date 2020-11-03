@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 /*DESCRIÇÃO
 -----------
 O jovem Ambrósio estava decifrando uma mensagem escrevendo letra por letra em pedaços de papel. 
@@ -48,7 +49,7 @@ Exemplo de saída:
 hojevaiterprovadep1
 */
 
-void main(void)
+int main(void)
 {
 
     int total, *p_total, posicao, *p_posicao;
@@ -58,7 +59,7 @@ void main(void)
     p_posicao = &posicao;
     // Ler a quantidade de pedaços 
     scanf("%d", p_total);
-    char palavra[*p_total]; // define um vetor com o talta de pedaços
+    char palavra[*p_total]; // define um vetor com o total de pedaços
 
     // um caractere e sua posição  
     for (int i = 0; i < (*p_total); i++)
@@ -67,4 +68,5 @@ void main(void)
         palavra[*p_posicao - 1] = *p_letra; // dado um número x e um caractere j, palavra[x-1]=j
     }
     printf("%s\n", palavra);
+    return EXIT_SUCCESS;
 }

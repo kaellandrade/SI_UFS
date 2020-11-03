@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+
 #define LENGTH 4
 /*DESCRIÇÃO
 -----------
@@ -37,7 +39,7 @@ void troca(float *x, float *y);
 void imprimeArray(float *vet);
 void mudaPosicao(float *vet);
 
-void main(void)
+int main(void)
 {
     float valor, *p_valor;
     p_valor = &valor;
@@ -51,9 +53,11 @@ void main(void)
         vetor[i] = *p_valor;
     }
 
-    ordena(vetor);      // Ordena os valroes de vetor
+    ordena(vetor);      // Ordena os valores dd vetor
     mudaPosicao(vetor); // Desloca a segunda pessoa para última posição
     imprimeArray(vetor);
+    return EXIT_SUCCESS;
+
 }
 
 // Imprime um dado vetor passado por referência
