@@ -1,8 +1,8 @@
 # Lista de Exercícios 1 – A Linguagem Java
 1. Faça um programa em Java que converta galões em litros. Leve em consideração
-que 1 galão é equivalente a 3,7854 litros.
+que 1 galão é equivalente a 3,7854 litros. ✅
 2. Faça um programa em Java que leia 3 números inteiros e os exiba na ordem
-inversa.
+inversa. ✅
 3. A gravidade da Lua é cerca de 17% do da Terra. Faça um programa em Java que
 calcule seu peso na Lua.
 4. Escreva um programa em Java que leia 3 números inteiros, calcule e imprima a
