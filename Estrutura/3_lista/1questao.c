@@ -70,7 +70,7 @@ int main(void)
 // Se for passado true == 1 para o parâmetro int invert, o vetor será impresso na forma reversa.
 void imprimeArray(int *vet, int *length, int inverter)
 {
-    if (inverter) // é para imverter ?
+    if (inverter) // é para inverter ?
     {
         for (int i = (*length - 1); i >= 0; i--)
         {
