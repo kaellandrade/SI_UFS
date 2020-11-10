@@ -1,12 +1,12 @@
 
 public class Circulo {
-    private double raio;
-    private final double PI = 3.14;
+    private float raio;
+    private final float PI = 3.14f;
 
-    public void setRaio(double valor ){
+    public void setRaio(float valor ){
         raio = valor;
     }
-    public double Area() {
+    public float Area() {
         return PI * (raio * raio);
     }
 }

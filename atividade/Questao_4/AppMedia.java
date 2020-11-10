@@ -20,7 +20,7 @@ public class AppMedia {
         media.setNum3(valor);
 
         System.out.print("Sua média: ");
-        System.out.println(media.media());
+        System.out.println(media.calcMedia());
 
     }
 }

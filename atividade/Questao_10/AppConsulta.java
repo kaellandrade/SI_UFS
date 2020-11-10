@@ -37,8 +37,7 @@ public class AppConsulta {
         System.out.printf("Altura: %.2f\n", paciente.getAltura());
         System.out.printf("Sexo: %c\n", paciente.getSexo());
         System.out.printf("Idade: %d\n", paciente.getIdade());
-        System.out.printf("Preço da consulta: %.2f\n", paciente.calcularConsulta());
-
+        System.out.printf("Preço da consulta: R$ %.2f\n", paciente.calcularConsulta());
 
     }
 }

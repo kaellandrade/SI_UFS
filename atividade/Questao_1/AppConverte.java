@@ -10,6 +10,7 @@ public class AppConverte{
         totalGaloes = qtGalao.nextShort();
         conversor.setQtdGaloes(totalGaloes);
 
-        System.out.println(totalGaloes + " galões corresponde a " + conversor.converteGalaoLitros() +" L");
+        System.out.println(totalGaloes + " galões = " + 
+                conversor.converteGalaoLitros() + " L");
     }
 }

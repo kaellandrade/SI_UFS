@@ -16,7 +16,8 @@ public class AppTempo {
         minutos = scan.nextInt();
         temp.setMinutos(minutos);
 
-        System.out.printf("%d H quivale a %d M\n", temp.getHora(), temp.horaParaMinutos());
+        System.out.printf("%d H quivale a %d M\n", temp.getHora(),
+                temp.horaParaMinutos());
         System.out.printf("Total de minutos: %d\n", temp.totalMinutos());
         System.out.printf("Total de segundos: %d\n", temp.totalSegundos());
 

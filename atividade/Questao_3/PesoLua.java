@@ -1,12 +1,12 @@
 public class PesoLua {
-    private double massa;
-    private final double GRAVIDADE = 1.66;
+    private float massa;
+    private final float GRAVIDADE = 1.66f;
 
-    public double calcPeso(){
+    public float calcPeso(){
         return massa * GRAVIDADE;
     }
 
-    public void setMassa(double valor){
+    public void setMassa(float valor){
         massa = valor;
     }
 

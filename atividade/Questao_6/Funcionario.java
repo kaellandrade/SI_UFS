@@ -2,7 +2,7 @@ public class Funcionario {
     private float salario;
     private float salMin;
 
-    public float contSal(){
+    public float contaSalario(){
         return salario / salMin;
     }
 

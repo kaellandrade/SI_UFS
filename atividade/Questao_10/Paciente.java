@@ -45,7 +45,7 @@ public class Paciente {
         return idade;
     }
 
-    public double calcularConsulta(){
+    public float calcularConsulta(){
         return altura * peso + idade;
     }
 }

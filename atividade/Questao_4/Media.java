@@ -3,7 +3,7 @@ public class Media {
     private int num2;
     private int num3;
 
-    public float media() {
+    public float calcMedia() {
         return (num1 + num2 + num3) / 3;
     }
 

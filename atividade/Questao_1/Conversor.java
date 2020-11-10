@@ -1,13 +1,14 @@
+
 public class Conversor {
     private short qtdGaloes;
-    private final double LGALAO = 3.7854;
+    private final float LITRO_UM_GALAO = 3.7854f;
 
     public void setQtdGaloes(short quantidadeGaloes) {
         qtdGaloes = quantidadeGaloes;
     }
 
-    public double converteGalaoLitros() {
-        return qtdGaloes * LGALAO;
+    public float converteGalaoLitros() {
+        return qtdGaloes * LITRO_UM_GALAO;
     }
 
 }

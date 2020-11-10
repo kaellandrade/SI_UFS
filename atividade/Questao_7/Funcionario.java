@@ -1,25 +1,25 @@
 public class Funcionario {
-    private double salarioatual;
-    private double aumento;
+    private float salarioatual;
+    private float aumento;
 
-    public void setAumento(double salario) {
-        aumento = salario * 0.25;
+    public void setAumento(float salario) {
+        aumento = salario * 0.25f;
     }
 
-    public void setSalario(double valor) {
+    public void setSalario(float valor) {
         salarioatual = valor;
     }
 
 
-    public double getNovoSalario() {
+    public float getNovoSalario() {
         return salarioatual + aumento;
     }
 
-    public double getAumento() {
+    public float getAumento() {
         return aumento;
     }
 
-    public double getSalarioAtual(){
+    public float getSalarioAtual(){
         return salarioatual;
     }
 }

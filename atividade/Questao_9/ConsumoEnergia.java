@@ -1,25 +1,25 @@
 
 public class ConsumoEnergia {
-    private double salario;
-    private double quantidadeKW;
+    private float salario;
+    private float quantidadeKW;
 
-    public void setSalario(double valor) {
+    public void setSalario(float valor) {
         salario = valor;
     }
 
-    public void setKw(double kw) {
+    public void setKw(float kw) {
         quantidadeKW = kw;
     }
 
-    public double calcularValorKw() {
-        return salario * 0.2;
+    public float calcularValorKw() {
+        return salario * 0.2f;
     }
 
-    public double calcularValorResidencia() {
+    public float calcularValorResidencia() {
         return calcularValorKw() * quantidadeKW;
     }
 
-    public double aplicarDesconto() {
-        return calcularValorResidencia() - (calcularValorResidencia() * 0.15);
+    public float aplicaDesconto() {
+        return calcularValorResidencia() - (calcularValorResidencia() * 0.15f);
     }
 }

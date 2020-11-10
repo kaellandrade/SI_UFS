@@ -17,7 +17,8 @@ public class AppSalario {
         salFuncionario = scan.nextFloat();
         funcionario.setSalario(salFuncionario);
 
-        System.out.printf("Você ganha %.1f salários(s) mínimo(s)\n", funcionario.contSal());
+        System.out.printf("Você ganha %.1f salários(s) mínimo(s)\n",
+                funcionario.contaSalario());
 
         
     }
