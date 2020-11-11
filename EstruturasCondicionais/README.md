@@ -3,18 +3,18 @@
 1. Faça um programa em Java que leia 3 notas de um aluno, calcule e mostre a
 média aritmética e a mensagem constante na tabela abaixo: ✅
 
-0,0 <= media < 3,0 Reprovado
-3,0 <= media < 7,0 Prova Final
-7,0 <= media <= 10,0 Aprovado
+- 0,0 <= media < 3,0 Reprovado
+- 3,0 <= media < 7,0 Prova Final
+- 7,0 <= media <= 10,0 Aprovado
 
 2. Faça um programa em Java que recebe a idade de um nadador e mostre sua
 categoria, usando as regras a seguir: ✅
 
-0 a 10 Infantil
-11 a 15 Jovem
-16 a 30 Adolescente
-31 a 45 Adulto
-Acima de 45 Sênior
+- 0 a 10 Infantil
+- 11 a 15 Jovem
+- 16 a 30 Adolescente
+- 31 a 45 Adulto
+- Acima de 45 Sênior
 
 3. Faça um programa em Java usando a estrutura ternária condicional que recebe
 dois números e mostra o maior.
