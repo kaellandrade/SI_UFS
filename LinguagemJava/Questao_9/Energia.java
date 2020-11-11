@@ -1,5 +1,5 @@
 
-public class ConsumoEnergia {
+public class Energia {
     private float salario;
     private float quantidadeKW;
 

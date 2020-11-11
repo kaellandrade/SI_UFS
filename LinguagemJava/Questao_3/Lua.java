@@ -1,4 +1,4 @@
-public class PesoLua {
+public class Lua {
     private float massa;
     private final float GRAVIDADE = 1.66f;
 

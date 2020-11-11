@@ -8,27 +8,27 @@ public class AppConsulta {
         char sexo;
         int idade;
 
-        Scanner scan = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         Paciente paciente = new Paciente();
 
         System.out.println("Digite seu nome: ");
-        nome = scan.nextLine();
+        nome = sc.nextLine();
         paciente.setNome(nome);
 
         System.out.println("Digite sua idade");
-        idade = scan.nextInt();
+        idade = sc.nextInt();
         paciente.setIdade(idade);
 
         System.out.println("Digite seu peso: ");
-        peso = scan.nextFloat();
+        peso = sc.nextFloat();
         paciente.setPeso(peso);
 
         System.out.println("Digite sua altura: ");
-        altura = scan.nextFloat();
+        altura = sc.nextFloat();
         paciente.setAltura(altura);
 
         System.out.println("Digite seu sexo [F/M]:");
-        sexo = scan.next().charAt(0);
+        sexo = sc.next().charAt(0);
         paciente.setSexto(sexo);
 
         System.out.println("****Ficha do paciente****");
@@ -38,6 +38,8 @@ public class AppConsulta {
         System.out.printf("Sexo: %c\n", paciente.getSexo());
         System.out.printf("Idade: %d\n", paciente.getIdade());
         System.out.printf("Preço da consulta: R$ %.2f\n", paciente.calcularConsulta());
+
+        sc.close();
 
     }
 }

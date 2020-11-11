@@ -1,4 +1,4 @@
-public class InverteNumeros {
+public class Inversor {
     private int num1;
     private int num2;
     private int num3;

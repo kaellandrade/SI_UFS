@@ -5,11 +5,11 @@ public class AppAumento {
     public static void main(String[] args){
         float salario;
 
-        Scanner scan = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         Funcionario funcionario = new Funcionario();
 
         System.out.println("Digite seu salario atual");
-        salario = scan.nextFloat();
+        salario = sc.nextFloat();
         
         funcionario.setSalario(salario);
         funcionario.setAumento(salario); // Define o aumento para o salário atual
@@ -18,7 +18,7 @@ public class AppAumento {
         System.out.printf("Aumento de R$ %.2f\n", funcionario.getAumento());
         System.out.printf("Seu novo salario é : R$ %.2f\n", funcionario.getNovoSalario());
 
-
+        sc.close();
 
     }
 

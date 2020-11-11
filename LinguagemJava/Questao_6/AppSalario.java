@@ -6,20 +6,21 @@ public class AppSalario {
         float salMinimo;
         float salFuncionario;
         
-        Scanner scan = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         Funcionario funcionario = new Funcionario();
 
         System.out.println("Digite o valor do salário mínimo atual ");
-        salMinimo = scan.nextFloat();
+        salMinimo = sc.nextFloat();
         funcionario.setSalmin(salMinimo);
 
-        System.out.println("Qual o seu salario? ");
-        salFuncionario = scan.nextFloat();
+        System.out.println("Qual o seu salário? ");
+        salFuncionario = sc.nextFloat();
         funcionario.setSalario(salFuncionario);
 
-        System.out.printf("Você ganha %.1f salários(s) mínimo(s)\n",
+        System.out.printf("Você ganha %.1f salários(s) mínimo\n",
                 funcionario.contaSalario());
 
+        sc.close();
         
     }
     

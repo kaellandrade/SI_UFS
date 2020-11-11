@@ -5,14 +5,14 @@ public class AppConsumoEnergia {
         float salario;
         float qtdKW;
 
-        Scanner scan = new Scanner(System.in);
-        ConsumoEnergia consumo = new ConsumoEnergia();
+        Scanner sc = new Scanner(System.in);
+        Energia consumo = new Energia();
         
         System.out.println("Digite seu salário: ");
-        salario = scan.nextFloat();
+        salario = sc.nextFloat();
         
         System.out.println("Digite a quantidade de KW: ");
-        qtdKW = scan.nextFloat();
+        qtdKW = sc.nextFloat();
 
         consumo.setSalario(salario);
         consumo.setKw(qtdKW);
@@ -26,5 +26,6 @@ public class AppConsumoEnergia {
         System.out.printf("Valor a ser pago com desconto: R$ %.2f\n", 
                 consumo.aplicaDesconto());
 
+        sc.close();
     }
 }
