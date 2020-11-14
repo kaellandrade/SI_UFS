@@ -8,8 +8,7 @@ responder essa questão. ✅
 as 3 estruturas de repetição para responder essa questão. ✅
 
 3. Faça um programa em Java que leia um valor N, inteiro e positivo, e mostre o valor
-de E conforme a expressão: ✅
-E = 1 + 1/2 + 1/3 + ... + 1/n
+de E conforme a expressão: E = 1 + 1/2 + 1/3 + ... + 1/n ✅
 
 4. Faça um programa em Java que leia o nome, idade e peso de 5 jogadores
 diferentes de um time. Faça de forma correta a classe Jogador para responder a
@@ -30,7 +29,7 @@ que esse funcionário foi contratado em 2005, com o salário inicial de R$ 1.000
 Em 2006, ele recebeu um aumento de 1,5% sobre seu salário inicial. A partir de
 2007 (inclusive), os aumentos salariais sempre correspondem ao dobro do
 percentual do ano anterior. Faça um programa em Java exiba o salário de 2005 a
-2016 desse funcionário.
+2016 desse funcionário. ✅
 
 
 9. Faça um programa em Java que entre com um valor numérico. Deve-se aceitar apenas valores positivos. Após a leitura, exibir a tabuada de soma do valor solicitado, no intervalo de um a dez.
