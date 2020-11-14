@@ -12,7 +12,7 @@ de E conforme a expressão: E = 1 + 1/2 + 1/3 + ... + 1/n ✅
 
 4. Faça um programa em Java que leia o nome, idade e peso de 5 jogadores
 diferentes de um time. Faça de forma correta a classe Jogador para responder a
-questão. Calcule e mostre: ❗
+questão. Calcule e mostre: ✅
 
 - a) A quantidade de jogadores com idade < 18.
 - b) A média das idades dos jogadores
