@@ -32,9 +32,9 @@ percentual do ano anterior. Faça um programa em Java exiba o salário de 2005 a
 2016 desse funcionário. ✅
 
 
-9. Faça um programa em Java que entre com um valor numérico. Deve-se aceitar apenas valores positivos. Após a leitura, exibir a tabuada de soma do valor solicitado, no intervalo de um a dez.
+9. Faça um programa em Java que entre com um valor numérico. Deve-se aceitar apenas valores positivos. Após a leitura, exibir a tabuada de soma do valor solicitado, no intervalo de um a dez.✅
 
-10. Faça um programa em Java que entre com dez valores positivos. Validar a digitação aceitando apenas valores positivos, e se necessário, enviar mensagem de erro. Após a digitação, exibir:
+10. Faça um programa em Java que entre com dez valores positivos. Validar a digitação aceitando apenas valores positivos, e se necessário, enviar mensagem de erro. Após a digitação, exibir: ✅
 - a) O maior valor
 - b) A soma dos valores
 - c) A média aritmética dos valores
