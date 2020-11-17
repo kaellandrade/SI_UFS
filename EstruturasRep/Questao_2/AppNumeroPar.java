@@ -13,7 +13,7 @@ public class AppNumeroPar {
 
         System.out.println("Do While:");
         nump.mostrarParDoWhile();
-
+        sc.close();
 
     }
 

@@ -17,7 +17,7 @@ public class AppSomaIntervalos {
         System.out.printf("Soma com for: %d\n", sum.somarComFor());
         System.out.printf("Soma com while: %d\n", sum.somarComWhile());
         System.out.printf("Soma com do while: %d\n", sum.somarComDoWhile());
-
+        sc.close();
 
     }
 }

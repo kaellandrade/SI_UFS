@@ -31,7 +31,7 @@ número, e escreva esse dia por extenso.✅
 empréstimo a seus clientes no valor máximo de 30% do valor do seu salário
 líquido. Receba o valor do salário bruto, o valor dos descontos e o valor do possível
 empréstimo de um cliente. Em seguida, avise se ele poderá ou não fazer o
-empréstimo. ❗
+empréstimo. ✅
 
 
 8. Dados 3 valores, X, Y e Z, verifique se eles podem ser os comprimentos dos lados

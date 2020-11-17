@@ -6,6 +6,7 @@ public class AppPotencia {
         Potencia pot = new Potencia();
     
         pot.mostraPotencia();
+        sc.close();
 
     }
 

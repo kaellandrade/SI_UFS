@@ -20,6 +20,7 @@ public class AppQuadrado {
 
         System.out.println(calcMaiorArea(qd1, qd2, qd3));
         System.out.println(calcMenorPerimetro(qd1, qd2, qd3));
+        sc.close();
     }
 
     public static String calcMaiorArea(Quadrado q1, Quadrado q2, Quadrado q3) {

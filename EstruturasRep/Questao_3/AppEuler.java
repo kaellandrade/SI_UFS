@@ -12,5 +12,6 @@ public class AppEuler {
         eul.setNumero(valor);
 
         System.out.printf("E = %.2f\n",  eul.calculaE());
+        sc.close();
     }
 }

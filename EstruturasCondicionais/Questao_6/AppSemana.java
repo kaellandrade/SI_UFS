@@ -11,6 +11,7 @@ public class AppSemana {
         semana.setDia(valor);
 
         System.out.printf("%s\n", semana.mostrarDia());
+        sc.close();
     }
 
 

@@ -18,8 +18,8 @@ public class AppTriangulo {
         valor = sc.nextFloat();
         triangulo.setLadoZ(valor);
 
-        System.out.println(triangulo.mostraTipo());
-
+        System.out.println(triangulo.defineTipoTriangulo());
+        sc.close();
     }
 
 

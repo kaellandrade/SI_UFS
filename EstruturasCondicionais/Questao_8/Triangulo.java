@@ -23,7 +23,7 @@ public class Triangulo {
         }
     }
 
-    public String mostraTipo(){
+    public String defineTipoTriangulo(){
         if(eTriangulo()){
             if(ladoX == ladoY && ladoY == ladoZ){
                 return "Equilátero";

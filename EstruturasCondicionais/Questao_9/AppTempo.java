@@ -29,6 +29,7 @@ public class AppTempo {
         valor = sc.nextInt();
         tmp2.setSegundos(valor);
         System.out.println("Diferença de tempo em segundos: " + diferencaTempoObj(tmp1, tmp2));
+        sc.close();
     }
 
     public static int diferencaTempoObj(Tempo x, Tempo y) {
