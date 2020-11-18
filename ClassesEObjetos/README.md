@@ -9,7 +9,7 @@ quantidade de exemplares ✅
         - 2. Imprima o número de exemplares de cada livro
         - 3. Altere as quantidades e imprima novamente o número de exemplares.
 
-2. Implemente as Classes Produto e Item com os seguintes atributos:
+2. Implemente as Classes Produto e Item com os seguintes atributos: ❓
 - a) Produto: código, nome, quantidade em estoque e preço unitário
 - b) Item: código, Produto, quantidade vendida
 - c) Crie o construtor para cada classe
@@ -23,7 +23,8 @@ quantidade de exemplares ✅
     - preço unitário e o valor pago na venda
 
 3. Crie uma classe Funcionário. Ele deve ter o nome do funcionário, sexo,
-departamento onde trabalha e seu salário.
+departamento onde trabalha e seu salário. ✅
+
 - a) Você deve criar métodos de acesso e modificadores para cada um dos atributos
 - b) Criar um método que bonifique um funcionário, que aumenta o salário do
 - funcionário de acordo com o parâmetro passado como argumento.
@@ -31,8 +32,9 @@ departamento onde trabalha e seu salário.
     parâmetro algum, devolvendo o valor do salário multiplicado por 13.
 - d) Fazer uma classe AppFuncionario para testar as funcionalidades de bonificar e
 calcular o ganho anual.
+
 4. Crie uma classe Produto. Sua classe deverá conter os seguintes atributos e
-métodos:
+métodos: ✅
     - a) nome, precoCusto e precoVenda.
     - b)Crie métodos de acesso e modificadores para os atributos acima
     - c) No método setPrecoVenda(), fazer o tratamento para que o preço de venda não
@@ -49,11 +51,11 @@ métodos:
 
 5. Escreva uma classe Conta que contenha o nome do cliente, o número da conta, o
 saldo e o seu limite. Estes valores deverão ser informados no construtor, sendo
-que o limite não poderá ser maior que um salário-mínimo (R$ 940,00).
+que o limite não poderá ser maior que um salário-mínimo (R$ 940,00). ✅
 
-- a) Crie um método para depósito e um método para saque. O método de sacar
-devolverá true ou false, dependendo se o cliente pode retirar.
-- b) Crie uma classe AppConta
-    - 1. Mostre o nome e o saldo de um cliente
-    - 2. Faça uma operação de depósito
-    - 3. Faça uma operação de saque e mostre o novo saldo, se puder
+    - a) Crie um método para depósito e um método para saque. O método de sacar
+    devolverá true ou false, dependendo se o cliente pode retirar.
+    - b) Crie uma classe AppConta
+        - 1. Mostre o nome e o saldo de um cliente
+        - 2. Faça uma operação de depósito
+        - 3. Faça uma operação de saque e mostre o novo saldo, se puder

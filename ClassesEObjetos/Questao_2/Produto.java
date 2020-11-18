@@ -1,4 +1,3 @@
-package ClassesEObjetos.Questao_2;
 
 public class Produto {
     private String nome;
