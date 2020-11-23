@@ -37,7 +37,7 @@ public class Produto {
     }
 
     public float getPrecoUnitario() {
-        return this.codigo;
+        return this.precoUnitario;
     }
 
     public int getQtdEstoque() {

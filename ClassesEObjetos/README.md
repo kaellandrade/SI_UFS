@@ -9,16 +9,16 @@ quantidade de exemplares ✅
         - 2. Imprima o número de exemplares de cada livro
         - 3. Altere as quantidades e imprima novamente o número de exemplares.
 
-2. Implemente as Classes Produto e Item com os seguintes atributos: ❓
+2. Implemente as Classes Produto e Item com os seguintes atributos: ✅
 - a) Produto: código, nome, quantidade em estoque e preço unitário
 - b) Item: código, Produto, quantidade vendida
 - c) Crie o construtor para cada classe
 - d) Crie os métodos de acesso e modificadores para cada atributo de cada classe
 - e) Crie uma nova classe chamada Venda
     - 1. Crie 2 instâncias da classe Produto
-    - 2. Imprima a quantidade em estoque da cada produto
-    - 3. Crie 3 instâncias da classe Item
-    - 4. Imprima a quantidade do Estoque dos 2 produtos após a venda dos itens
+    - 2. Imprima a quantidade em estoque da cada produto ok
+    - 3. Crie 3 instâncias da classe Item ok
+    - 4. Imprima a quantidade do Estoque dos 2 produtos após a venda dos itens 
     - 5. Imprima para cada Item qual foi o produto vendido, a quantidade vendida,
     - preço unitário e o valor pago na venda
 

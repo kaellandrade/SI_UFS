@@ -4,11 +4,7 @@ public class AppVendas {
 
     public static void main(String[] args) {
         Produto prod1, prod2, prod3;
-        // String nomeProduto;
-
-        // float valorCusto;
-        // float valorVenda;
-
+    
         Scanner sc = new Scanner(System.in);
 
         prod1 = new Produto();

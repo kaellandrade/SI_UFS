@@ -4,9 +4,9 @@ public class Item {
     private Produto produto;
     private int qtdVendas;
 
-    Item(int codigo, /*Produto produto,*/ int qtdVendas) {
+    Item(int codigo, Produto produto, int qtdVendas) {
         this.codigo = codigo;
-        // this.produto = produto;
+        this.produto = produto;
         this.qtdVendas = qtdVendas;
     }
 
@@ -32,6 +32,11 @@ public class Item {
 
     public int getQtdVendas() {
         return this.qtdVendas;
+    }
+
+    public void modificaQtdEstoque(){
+        int qtdEstoque = produto.getQtdEstoque() - this.qtdVendas;
+        produto.setQtdEstoque(qtdEstoque);
     }
 
 }
