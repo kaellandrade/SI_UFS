@@ -35,7 +35,7 @@ array é um palíndromo, ou seja, se inverter a ordem dos caracteres permanece o
 mesmo array. ✅
 
 8. Faça um programa em Java que preencha um vetor com 10 números inteiros.
-Calcule e mostre os números primos e suas respectivas posições.
+Calcule e mostre os números primos e suas respectivas posições. ✅
 
 9. Faça um programa em Java que preencha dois vetores, X e Y, com 10 númerosinteiros cada. Calcule e mostre os seguintes vetores resultantes
 - a)A união de X e Y (Todos os elementos de X e Y sem repetições)
