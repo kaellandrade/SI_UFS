@@ -37,12 +37,12 @@ mesmo array. ✅
 8. Faça um programa em Java que preencha um vetor com 10 números inteiros.
 Calcule e mostre os números primos e suas respectivas posições. ✅
 
-9. Faça um programa em Java que preencha dois vetores, X e Y, com 10 númerosinteiros cada. Calcule e mostre os seguintes vetores resultantes
+9. Faça um programa em Java que preencha dois vetores, X e Y, com 10 números inteiros cada. Calcule e mostre os seguintes vetores resultantes ✅
 - a)A união de X e Y (Todos os elementos de X e Y sem repetições)
-- b)A diferença de X e Y (Todos os elementos de X que não existam em Y, semrepetições)
-- c)A intersecção de X e Y (Apenas os elementos que aparecem nos dois vetores,sem repetições)
+- b)A diferença de X e Y (Todos os elementos de X que não existam em Y, sem repetições)
+- c)A intersecção de X e Y (Apenas os elementos que aparecem nos dois vetores, sem repetições)
 
-10. Faça um programa em Java para entrar com uma matriz numérica de ordem 5x8.Após a digitação dos elementos 
+10. Faça um programa em Java para entrar com uma matriz numérica de ordem 5x8.Após a digitação dos elementos ✅
 - a)Consultar um valor escolhido pelo usuário e exibir em qual (ou quais) posiçãoda matriz o valor escolhido se encontra
 - b)Enviar mensagem comunicando se por acaso o valor não estiver armazenadona matriz
 - c)Perguntar ao usuário, se deseja ou não fazer nova consulta
