@@ -34,7 +34,7 @@ poupança, atualize seus dados, faça depósitos e saques, e por fim, exiba os
 valores dos saldos. ✅
 
 5. Crie a classe Pessoa com os atributos nome e dataNascimento. A classe Pessoa
-deve conter:
+deve conter: ✅
 
 - a) Um construtor que recebe como parâmetros duas strings e inicializa os campos
 nome e dataNascimento
@@ -67,12 +67,9 @@ reimplementar o método resultIMC(), que realiza o calculo do IMC e exibe uma
 mensagem do resultado acordo com o valor obtido.
 
 ### Para Homem:
-|IMC < 20.7: Abaixo do peso ideal|
-----------------------------------
-|20.7 < IMC < 26.4: Peso ideal   |
-----------------------------------
-|IMC > 26.4: Acima do peso ideal |
-----------------------------------
+- IMC < 20.7: Abaixo do peso ideal
+- 20.7 < IMC < 26.4: Peso ideal 
+- IMC > 26.4: Acima do peso ideal
 
 ### Para Mulher:
 - IMC < 19: Abaixo do peso ideal
