@@ -66,11 +66,15 @@ Crie as classes Homem e Mulher, herdeiras de PessoaIMC. Cada uma deve
 reimplementar o método resultIMC(), que realiza o calculo do IMC e exibe uma
 mensagem do resultado acordo com o valor obtido.
 
-## Para Homem:
-- IMC < 20.7: Abaixo do peso ideal
-- 20.7 < IMC < 26.4: Peso ideal
-- IMC > 26.4: Acima do peso ideal
-## Para Mulher:
+### Para Homem:
+|IMC < 20.7: Abaixo do peso ideal|
+----------------------------------
+|20.7 < IMC < 26.4: Peso ideal   |
+----------------------------------
+|IMC > 26.4: Acima do peso ideal |
+----------------------------------
+
+### Para Mulher:
 - IMC < 19: Abaixo do peso ideal
 - 19 < IMC < 25.8: Peso ideal
 - IMC > 25.8: Acima do peso ideal
