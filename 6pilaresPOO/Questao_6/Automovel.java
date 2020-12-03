@@ -1,9 +1,5 @@
 
 public class Automovel extends Veiculo{
-
-    Automovel(){
-        mudarOleo();
-    }
     
     @Override
     public String listarVerificacoes() {

@@ -17,7 +17,7 @@ public class Oficina {
 
     public void manutencao(Veiculo v){
         System.out.printf("%s\n%s\n%s\n", v.listarVerificacoes(), v.ajustar(), v.limpar());
-        if(v.getClass().getName() == "Automovel"){
+        if(v instanceof Automovel){
             System.out.println(v.mudarOleo());
         }
 

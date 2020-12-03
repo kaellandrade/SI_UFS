@@ -12,7 +12,7 @@ nascimento. ✅
 Integer i = new Integer(10);
 Object [] data = {“Lista 5”, new Object(), i}
 Faça um programa em Java que informe ao usuário que tipo de objeto ele está
-acessando no array.
+acessando no array. ✅
 
 3. Crie a classe Imovel, que possui um endereço e um preço. Em seguida, crie uma
 classe ImovelNovo, que herda Imovel e possui um adicional de 10% no preço.
@@ -84,7 +84,7 @@ deve conter: ✅
 
 6. Criar uma estrutura hierárquica que contenha as seguintes classes: Veiculo,
 Bicicleta e Automóvel. Os métodos da classe Veiculo possuem a seguinte
-assinatura:
+assinatura: ✅
     - a) listarVerificacoes()
     - b) ajustar()
     - c) limpar()
