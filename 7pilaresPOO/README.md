@@ -76,4 +76,4 @@ métodos.
     - f) Pássaro imprime “voando”
 
     Faça um main chamando os métodos movimentar e comunicar de Homem, Peixe e
-    Planta, a partir de um objeto Animal, e imprima suas respectivas massa e tamanho.
+    Pássaro, a partir de um objeto Animal, e imprima suas respectivas massa e tamanho.
