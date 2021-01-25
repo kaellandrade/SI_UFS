@@ -1,3 +1,19 @@
+/*
+DESCRIÇÃO
+---------
+Dado um conjunto de n valores inteiros, ordene-os em ordem crescente.
+
+Formato de entrada
+------------------
+Um inteiro n indicando quantos números serão fornecidos, seguidos de n inteiros separados por um final de linha
+
+Formato de saída
+----------------
+A sequência de n números ordenada em ordem crescente, obedecendo ao seguinte formato:
+[numero][numero][numero][numero]
+Onde depois do último número existe um final de linha.
+
+*/
 #include <stdio.h>
 #include <stdlib.h>
 void imprimeVetor(int *vet, int *TAMANHO);
