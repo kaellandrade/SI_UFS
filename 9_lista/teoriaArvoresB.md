@@ -2,7 +2,7 @@
 1. Na inserção de uma nova chave em uma folha de uma Árvore B, o que acontece se o nó esta cheio ? Explique sua resposta
 
 - Uma nova folha deve ser criada de tal forma que metade das chaves da folha cheia 
-    seja distribuidas para nova folha recém criada. Porém, a última chave da folha velha dever ser promovida.
+    seja distribuidas para nova folha recém-criada. Porém, a última chave da folha velha dever ser promovida.
 
 2. Na remoção de uma chave em uma Árvore B, o que preciso tomar cuidado em relação a quantidade de chaves do nó? Explique em uma linha.
 
@@ -23,7 +23,7 @@ a qual permite no máximo dois filhos. Porém, ambas tem operações bem parecid
 
 6. Quando falamos de uma árvore de busca m-ária com m = 2 estamos nos referindo a qual tipo de árvore em específico? Explique sua resposta.
 
-- Uma árvore de ordem 2, ou seja, cada nó carrefa 2 filhos e, apenas uma chave. É o caso da árvore binária em específico.
+- Uma árvore de ordem 2, ou seja, cada nó carrega 2 filhos e, apenas uma chave. É o caso da árvore binária em específico.
 
 7. Na Inserção de uma nova chave em uma Árvore B, especificamente quando um nó está cheio, por que uma chave deve ser promovida para o ascendente ? Explique sua resposta.
 
@@ -69,7 +69,10 @@ a qual permite no máximo dois filhos. Porém, ambas tem operações bem parecid
 - Quando o seu ascendente é uma raiz com apenas uma chave. Nesse caoso as chaves do nó irmãos passarão para raiz.
 
 16. Na Inserção de uma nova chave em uma Árvore B, especificamente quando um nó está cheio, e após a divisão e distribuição das chaves o que acontece se nó não era raiz ?
+- A última chave do nó esquerdo passa a ser raiz.
 
-17. Em uma Árvore B, explique o que subutilização. 
+17. Em uma Árvore B, explique o que subutilização.
+- Pode acontecer na remoção de chaves. A subutilização o corre se o número de chaves for menor do que o Teto(m/1) - 1
 
 18. Descreva melhor e com palavras o pior caso de busca em uma Árvore B.
+- Seria quando uma árvore B tem o menor número de ponteiros permitidopor nó-não raiz, q = teto(m/2), sendo assim a busca tem que atingir uma folha, tanto para buscas de sucessos quanto para sem sucessos.
