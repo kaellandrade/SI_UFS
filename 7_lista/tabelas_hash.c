@@ -217,7 +217,7 @@ int busca(int x, listaEnc lista)
         cabecaLista = cabecaLista->prox;
         passos++;
     }
-    if(cabecaLista != NULL)
+    if (cabecaLista != NULL)
         return 1; // encontrou
     else
         return 0; // não encontrou
@@ -227,21 +227,26 @@ listaEnc buscaRemove(int x, listaEnc lista)
 {
     celula *anterior, *atual;
     celula *lixo;
-    if (lista != NULL){
-        if (x == lista->chave){
+    if (lista != NULL)
+    {
+        if (x == lista->chave)
+        {
             lixo = lista;
             lista = lista->prox;
             free(lixo);
             totalDeElementos -= 1;
         }
-        else{
+        else
+        {
             anterior = lista;
             atual = lista->prox;
-            while (atual != NULL && x != atual->chave){
+            while (atual != NULL && x != atual->chave)
+            {
                 anterior = atual;
                 atual = atual->prox;
             }
-            if (atual != NULL){
+            if (atual != NULL)
+            {
                 lixo = atual;
                 anterior->prox = atual->prox;
                 free(lixo);
@@ -252,7 +257,7 @@ listaEnc buscaRemove(int x, listaEnc lista)
     return lista;
 }
 
-void imprimeEncontrado(int res, int valor)
+void imprimeEncontrado(boolean res, int valor)
 {
     printf("numero de elementos da tabela hash: %d\n", totalDeElementos);
     if (res)
