@@ -66,9 +66,9 @@ impressão da tabela hash: (exemplo com m = 29)
 */
 #include <stdlib.h>
 #include <stdio.h>
-
 typedef struct reg celula;
-
+typedef celula **tabelaHash;
+typedef celula *listaEnc;
 struct reg
 {
     int chave, ocorr;
@@ -79,13 +79,13 @@ void contabiliza(int ch);
 int hash(int ch, int m);
 void imprimehash();
 void imprimeList();
-void insere(int h, int ch, celula *p);
-void imprimeEncontrado(celula *p, int x);
+listaEnc insere(int h, int ch);
+void imprimeEncontrado(listaEnc lista, int x);
 
-void buscaRemove(int x, celula **lista);
-celula *busca(int x, celula *lista);
+listaEnc buscaRemove(int x, listaEnc lista);
+celula *busca(int x, listaEnc lista);
 
-celula **tb;
+tabelaHash tb;
 
 int passos = 1;
 int totalDeElementos = 0;
@@ -93,7 +93,6 @@ int M, valor, hashcode;
 
 int main(void)
 {
-    celula *p_elemento;
     char letra;
     scanf("%d", &M);
     tb = malloc(M * sizeof(celula *));
@@ -113,14 +112,17 @@ int main(void)
         {
             scanf("%d", &valor);
             hashcode = hash(valor, M);
-            buscaRemove(valor, &tb[hashcode]);
+            listaEnc r_elemento = tb[hashcode]; // o elmento para remover está nesta lista;
+            tb[hashcode] = buscaRemove(valor, r_elemento);
         }
         if (letra == 'p')
         {
             scanf("%d", &valor);
             printf("BUSCA POR %d\n", valor);
             hashcode = hash(valor, M);
-            p_elemento = busca(valor, tb[hashcode]);
+            listaEnc p_elemento = tb[hashcode]; // referencia a lista encadeada onde o elemento será procuado
+
+            p_elemento = busca(valor, p_elemento);
             imprimeEncontrado(p_elemento, valor);
         }
     }
@@ -131,22 +133,26 @@ int main(void)
 void contabiliza(int ch)
 {
     int h = hash(ch, M);
-    celula *p = tb[h];
-    insere(h, ch, p);
-    totalDeElementos += 1;
+    tb[h] = insere(h, ch); // atualiza a tabela com anova lista modificada;
+    totalDeElementos += 1; // apois inserir o elemento atualiza o total de elementos
 }
 
-int hash(int ch, int m) { return ch % m; }
+int hash(int ch, int m)
+{
+    return ch % m;
+}
 
 void imprimehash()
 {
     printf("imprimindo tabela hash:\n");
     for (int i = 0; i < M; i++)
     {
+        listaEnc listaAtual;
+        listaAtual = tb[i]; // Referencia a lista na posição da tabela
         printf("[%d]:", i);
-        if (tb[i] != NULL)
+        if (listaAtual != NULL)
         {
-            imprimeList(tb[i]);
+            imprimeList(listaAtual); //imprima essa lista;
             printf("\n");
         }
         else
@@ -154,19 +160,20 @@ void imprimehash()
     }
 }
 
-void imprimeList(celula *li)
+void imprimeList(listaEnc lista)
 {
-    celula *p = li;
-    while (p != NULL)
+    listaEnc cabeca_lista = lista;
+    while (cabeca_lista != NULL)
     {
-        printf("%d=>", p->chave);
-        p = p->prox;
+        printf("%d=>", cabeca_lista->chave);
+        cabeca_lista = cabeca_lista->prox;
     }
 }
 
 // insere em de forma ordenada um elemento na lista.
-void insere(int h, int ch, celula *p)
+listaEnc insere(int h, int ch)
 {
+    listaEnc lista = tb[h]; // captura a lista encadeada aqual devemos trabalhar
     celula *nova;
     nova = malloc(sizeof(celula));
 
@@ -177,7 +184,7 @@ void insere(int h, int ch, celula *p)
     nova->prox = NULL;
     anterior = NULL;
 
-    atual = tb[h];
+    atual = lista;
 
     while (atual != NULL && ch > atual->chave)
     {
@@ -187,53 +194,49 @@ void insere(int h, int ch, celula *p)
 
     if (anterior == NULL)
     {
-        nova->prox = tb[h];
-        tb[h] = nova;
+        nova->prox = lista;
+        lista = nova;
     }
     else
     {
         anterior->prox = nova;
         nova->prox = atual;
     }
+    return lista;
 }
 
-celula *busca(int x, celula *lista)
+listaEnc busca(int x, listaEnc lista)
 {
-    celula *p;
-    p = lista;
-    passos = 1;
-    while (p != NULL && p->chave != x)
+    listaEnc cabecaLista;
+    cabecaLista = lista;
+    passos = 1; // contabiliza os passos até encontrar o elemento
+    while (cabecaLista != NULL && cabecaLista->chave != x)
     {
-        p = p->prox;
+        cabecaLista = cabecaLista->prox;
         passos++;
     }
-    return p;
+    return cabecaLista;
 }
 
-void buscaRemove(int x, celula **lista)
+listaEnc buscaRemove(int x, listaEnc lista)
 {
     celula *anterior, *atual;
     celula *lixo;
-    if ((*lista) != NULL)
-    {
-        if (x == (*lista)->chave)
-        {
-            lixo = *lista;
-            *lista = (*lista)->prox;
+    if (lista != NULL){
+        if (x == lista->chave){
+            lixo = lista;
+            lista = lista->prox;
             free(lixo);
             totalDeElementos -= 1;
         }
-        else
-        {
-            anterior = (*lista);
-            atual = (*lista)->prox;
-            while (atual != NULL && x != atual->chave)
-            {
+        else{
+            anterior = lista;
+            atual = lista->prox;
+            while (atual != NULL && x != atual->chave){
                 anterior = atual;
                 atual = atual->prox;
             }
-            if (atual != NULL)
-            {
+            if (atual != NULL){
                 lixo = atual;
                 anterior->prox = atual->prox;
                 free(lixo);
@@ -241,12 +244,13 @@ void buscaRemove(int x, celula **lista)
             }
         }
     }
+    return lista; // retornar a lista atualizada
 }
 
-void imprimeEncontrado(celula *p, int x)
+void imprimeEncontrado(listaEnc lista, int x)
 {
     printf("numero de elementos da tabela hash: %d\n", totalDeElementos);
-    if (p != NULL)
+    if (lista != NULL)
     {
         printf("elemento %d encontrado!\n", x);
     }
