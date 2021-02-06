@@ -69,6 +69,8 @@ impressão da tabela hash: (exemplo com m = 29)
 typedef struct reg celula;
 typedef celula **tabelaHash;
 typedef celula *listaEnc;
+typedef int boolean;
+
 struct reg
 {
     int chave, ocorr;
@@ -80,14 +82,14 @@ int hash(int ch, int m);
 void imprimehash();
 void imprimeList();
 listaEnc insere(int h, int ch);
-void imprimeEncontrado(listaEnc lista, int x);
+void imprimeEncontrado(boolean res, int valor);
 
 listaEnc buscaRemove(int x, listaEnc lista);
-celula *busca(int x, listaEnc lista);
+boolean busca(int x, listaEnc lista);
 
 tabelaHash tb;
 
-int passos = 1;
+int passos = 0;
 int totalDeElementos = 0;
 int M, valor, hashcode;
 
@@ -122,8 +124,8 @@ int main(void)
             hashcode = hash(valor, M);
             listaEnc p_elemento = tb[hashcode]; // referencia a lista encadeada onde o elemento será procuado
 
-            p_elemento = busca(valor, p_elemento);
-            imprimeEncontrado(p_elemento, valor);
+            int resposta = busca(valor, p_elemento);
+            imprimeEncontrado(resposta, valor);
         }
     }
 
@@ -205,17 +207,20 @@ listaEnc insere(int h, int ch)
     return lista;
 }
 
-listaEnc busca(int x, listaEnc lista)
+int busca(int x, listaEnc lista)
 {
     listaEnc cabecaLista;
     cabecaLista = lista;
-    passos = 1; // contabiliza os passos até encontrar o elemento
+    passos = 0; // contabiliza os passos até encontrar o elemento
     while (cabecaLista != NULL && cabecaLista->chave != x)
     {
         cabecaLista = cabecaLista->prox;
         passos++;
     }
-    return cabecaLista;
+    if(cabecaLista != NULL)
+        return 1; // encontrou
+    else
+        return 0; // não encontrou
 }
 
 listaEnc buscaRemove(int x, listaEnc lista)
@@ -244,20 +249,20 @@ listaEnc buscaRemove(int x, listaEnc lista)
             }
         }
     }
-    return lista; // retornar a lista atualizada
+    return lista;
 }
 
-void imprimeEncontrado(listaEnc lista, int x)
+void imprimeEncontrado(int res, int valor)
 {
     printf("numero de elementos da tabela hash: %d\n", totalDeElementos);
-    if (lista != NULL)
+    if (res)
     {
-        printf("elemento %d encontrado!\n", x);
+        printf("elemento %d encontrado!\n", valor);
+        ++passos;
     }
     else
     {
         printf("elemento nao encontrado!\n");
-        passos--;
     }
     printf("numero de elementos acessados na tabela hash: %d\n", passos);
 }
