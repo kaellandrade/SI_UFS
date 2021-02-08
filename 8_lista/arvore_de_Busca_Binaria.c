@@ -58,8 +58,7 @@ int main()
 
     preencheVETOR(raiz);
 
-    if (eBinaria() ? printf("VERDADEIRO") : printf("FALSO"))
-        ;
+    if (eBinaria() ? printf("VERDADEIRO") : printf("FALSO"));
 
     // imprimeRED(raiz); //!DEBUG
     printf("\n");
