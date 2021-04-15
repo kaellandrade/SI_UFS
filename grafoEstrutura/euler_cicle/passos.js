@@ -4,8 +4,7 @@
  * Implementação do algoritmo de Hierholzer para determinação de uma cadeia euleriana fechada. 
  * Pelo menos três grafos distintos devem ser testados e a cadeia euleriana encontrada para cada grafo deve ser exibida.
  */
-
-export default class Grafo {
+class Grafo {
     constructor() {
         this.NumeroVertices = 0;
         this.NumArestas = 0;
