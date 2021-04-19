@@ -1,11 +1,4 @@
 /**
- * 1. Implementação de funções básicas para manipulação de grafos: 
- * Criar grafo, inserir arestas, inserir vértices, remover arestas, remover vértices. 
- * Implementação do algoritmo de Hierholzer para determinação de uma cadeia euleriana fechada. 
- * Pelo menos três grafos distintos devem ser testados e a cadeia euleriana encontrada para cada grafo deve ser exibida.
- */
-
-/**
  * Estrutura de uma grafo G=(0,0) modelado com lista de adjacência; 
  */
 class Grafo {
@@ -111,7 +104,7 @@ class Grafo {
 
     }
     imprimeGrafo() {
-        console.log(`Lista ADJ do Grafo G = (${this.NumeroVertices}, ${this.NumArestas})\n`)
+        console.log(`\nLista ADJ do Grafo G = (${this.NumeroVertices}, ${this.NumArestas})\n`)
 
         for (const Vertice of this.ListaAdj.keys()) {
             let value = this.ListaAdj.get(Vertice);
@@ -124,32 +117,55 @@ class Grafo {
         return n % 2 === 1;
     }
 }
-const G = new Grafo();
+const G1 = new Grafo();
+G1.addVertice('F');
+G1.addVertice('A');
+G1.addVertice('B');
+G1.addVertice('C');
+G1.addVertice('D');
+G1.addVertice('E');
 
-G.addVertice('F');
-G.addVertice('A');
-G.addVertice('B');
-G.addVertice('C');
-G.addVertice('D');
-G.addVertice('E');
+G1.addAresta('A', 'F');
+G1.addAresta('A', 'B');
+G1.addAresta('B', 'E');
+G1.addAresta('E', 'D');
+G1.addAresta('D', 'B');
+G1.addAresta('C', 'B');
+G1.addAresta('F', 'C');
 
-G.addAresta('A', 'F');
-G.addAresta('A', 'B');
-G.addAresta('B', 'E');
-G.addAresta('E', 'D');
-G.addAresta('D', 'B');
-G.addAresta('C', 'B');
-G.addAresta('F', 'C');
+G1.imprimeGrafo();
+G1.encontraCicloEuler();
 
+const G2 = new Grafo();
+G2.addVertice('A');
+G2.addVertice('B');
+G2.addVertice('C');
+G2.addVertice('D');
 
+G2.addAresta('A', 'B');
+G2.addAresta('B', 'D');
+G2.addAresta('D', 'C');
+G2.addAresta('A', 'C');
 
+G2.imprimeGrafo();
+G2.encontraCicloEuler();
 
+const konigsberg2 = new Grafo();
+konigsberg2.addVertice('A');
+konigsberg2.addVertice('B');
+konigsberg2.addVertice('C');
+konigsberg2.addVertice('D');
 
+konigsberg2.addAresta('A', 'B');
+konigsberg2.addAresta('A', 'B');
+konigsberg2.addAresta('A', 'B');
+konigsberg2.addAresta('A', 'D');
+konigsberg2.addAresta('A', 'D');
+konigsberg2.addAresta('A', 'C');
 
+konigsberg2.addAresta('B', 'C');
+konigsberg2.addAresta('C', 'D');
+konigsberg2.addAresta('C', 'D');
 
-
-
-
-
-G.imprimeGrafo();
-G.encontraCicloEuler();
+konigsberg2.imprimeGrafo();
+konigsberg2.encontraCicloEuler();
