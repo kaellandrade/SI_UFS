@@ -100,23 +100,18 @@ class Grafo():
         else:
             print('Não há uma ordenação, pois G contém ciclos!');
 
-G1 = Grafo(5, True);
 
+G1 = Grafo(5, True); # Grafo direcionado!
 G1.addVertice(0);
 G1.addVertice(1);
 G1.addVertice(2);
 G1.addVertice(3);
 G1.addVertice(4);
 
-
-
-
 G1.addAresta(0, 1);
 G1.addAresta(0, 2);
 G1.addAresta(2, 3);
 G1.addAresta(3, 4);
 
-
 G1.khanTopOrdem();
-
 # G1.imprimeGrafo();
