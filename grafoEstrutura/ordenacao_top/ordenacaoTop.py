@@ -70,7 +70,6 @@ class Grafo():
             return " -> ".join(tuple(map(lambda x:str(x),lista)))+' -> NULL';
     
     def khanTopOrdem(self):
-
         graus_entrada = [0] * self.NumeroVertices; # inicializa todos os vértices com grau de entrada 0
         vertices_vistados = 0;
         fila_graus_0 = [];
@@ -101,6 +100,47 @@ class Grafo():
             print('Não há uma ordenação, pois G contém ciclos!');
 
 
+    '''
+        Verifica se um grafo não direcionado contém uma ordenação 
+        topológica. Usando busca em profundidade.
+    '''
+    def dfsOrdem(self):
+        #Estados
+        NAO_MARCADO = 'NAO_MARCADO'; # NÃO MARCADO
+        TEMP_MARCADO = 'TEMP_MARCADO'; # TEMPORARIAMENTE MARCADO
+        DEF_MARCADO = 'DEF_MARCADO'; # DEFINITIVAMENTE MARCADO
+
+        global ciclo; 
+        ciclo = False; #Flag para verificar um ciclo
+
+        #Inicializa os vértices 
+        status = [NAO_MARCADO] * self.NumeroVertices;
+        ordenacao_top = [];
+
+        def dfs(v):
+
+            status[v] = TEMP_MARCADO; #Processando o vértice v
+
+            for w in self.ListaAdj[v]:
+
+                if(status[w] == NAO_MARCADO):
+                    dfs(w);
+
+                if(status[w] == TEMP_MARCADO):
+                    global ciclo;
+                    ciclo = True;
+            status[v] = DEF_MARCADO;
+            ordenacao_top.insert(0, v);
+        
+        for v in self.ListaAdj:
+            if(status[v] == NAO_MARCADO): # para cada vértive não processado
+                dfs(v);
+
+        if(ciclo):
+            print('Há um ciclo!');
+        else:
+            print("Ordenação TOP DFS: {}".format(self.__imprimeAdjList(ordenacao_top)));
+    
 G1 = Grafo(5, True); # Grafo direcionado!
 G1.addVertice(0);
 G1.addVertice(1);
@@ -109,9 +149,13 @@ G1.addVertice(3);
 G1.addVertice(4);
 
 G1.addAresta(0, 1);
-G1.addAresta(0, 2);
+G1.addAresta(1, 2);
+G1.addAresta(2, 3);
 G1.addAresta(2, 3);
 G1.addAresta(3, 4);
 
+
+
 G1.khanTopOrdem();
+G1.dfsOrdem();
 # G1.imprimeGrafo();
