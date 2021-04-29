@@ -8,6 +8,14 @@ class Grafo():
         self.ListaAdj = dict();
 
     '''
+    Retorna uma string com o tipo do grafo [direcionado ou não direcionado]
+    '''
+    def __tipografo(self):
+        if(self.Direcionado):
+            return 'GD'
+        else:
+            return 'GND'
+    '''
         Adiciona um vértice ao Grafo
     '''
     def addVertice(self, v):
@@ -51,9 +59,8 @@ class Grafo():
         except:
             print(f"Vertice {v} inválido") 
 
-
     def imprimeGrafo(self):
-        print(f"\nLista ADJ");
+        print("\nLista ADJ {}".format(self.__tipografo()));
         for item in self.ListaAdj:
             print(f"[{item}]:", self.__imprimeAdjList(self.ListaAdj.get(item)));
     
@@ -91,12 +98,14 @@ class Grafo():
         else:
             print('Grafo não conexo!')
 
-G1 = Grafo(5,True); #Grafo direcionado
+G1 = Grafo(6,True); #Grafo direcionado
 G1.addVertice(0);
 G1.addVertice(4);
 G1.addVertice(2);
 G1.addVertice(1);
 G1.addVertice(3);
+G1.addVertice(6);
+
 
 
 G1.addAresta(0,1);
