@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
-'''
-Versão recursiva
-'''
+import functools;
+
 class Grafo():
     def __init__(self, NumeroVertices, direcionado = False):
         self.Direcionado = direcionado; 
         self.NumeroVertices = NumeroVertices;
         self.ListaAdj = dict();
-    
+
     '''
     Retorna uma string com o tipo do grafo [direcionado ou não direcionado]
     '''
@@ -16,7 +15,6 @@ class Grafo():
             return 'GD'
         else:
             return 'GND'
-
     '''
         Adiciona um vértice ao Grafo
     '''
@@ -61,7 +59,6 @@ class Grafo():
         except:
             print(f"Vertice {v} inválido") 
 
-
     def imprimeGrafo(self):
         print("\nLista ADJ {}".format(self.__tipografo()));
         for item in self.ListaAdj:
@@ -73,60 +70,51 @@ class Grafo():
         else:
             return " -> ".join(tuple(map(lambda x:str(x),lista)))+' -> NULL';
     
-    def dfs(self, v_inicio):
-        print('Varredura DFS iniciando pelo vértice {}'.format(v_inicio));
-        # Constantes para guiar o percurso;
-        BRANCO = 'BRANCO';
-        PRETO = 'PRETO';
-        CINZA = 'CINZA';
-        global ciclo 
-        ciclo = False;
-
-        cor = [BRANCO]*self.NumeroVertices; # inicializa todos os vértices como BRANCO
-
-        # verifica se todos os vértices foram visitados
-        #Ou seja, se não há vértices pintados de brancos
-        def e_conexo():
-            return len(list(filter(lambda x:x==BRANCO, cor))) == 0; 
-
-        # DFS recursiva
-        def dfs_visita(u):
-            cor[u] = CINZA;
-            for j in self.ListaAdj[u]:
-                if cor[j] == BRANCO:
-                    dfs_visita(j);
-
-                if(cor[j] == CINZA): # Verifica um Ciclo
-                    global ciclo;
-                    ciclo = True;
-
-            cor[u] = PRETO;
-            print(u, end='->');
+    def dfs_iterativa(self,v_inicio):
+        pilha_nos = []; # armazena os nós que estão sendo visitados
+        pilha_visitados = [False]*self.NumeroVertices; # Inicializa todos os vértices como não visitados;
+        pilha_de_recursao = [False]*self.NumeroVertices;
         
-        dfs_visita(v_inicio);
+        resultado_da_varredura = [];
 
-        print('\n')
-        if(ciclo):
-            print('Há um ciclo!');
-            
-        if(e_conexo()):
+
+        pilha_nos.append(v_inicio);
+        while(pilha_nos):
+            removido = pilha_nos.pop();
+
+            if(not pilha_visitados[removido]):
+                resultado_da_varredura.append(removido);
+                pilha_visitados[removido] = True;
+
+            for w in self.ListaAdj[removido]:
+                if(not pilha_visitados[w]):
+                    pilha_nos.append(w);
+
+        print(self.__imprimeAdjList(resultado_da_varredura));
+
+        # Verifica se todos os vértices doram visitados
+        def conexo():
+            return functools.reduce(lambda a,b:a and b, pilha_visitados);
+        if(conexo()):
             print('Grafo conexo!');
         else:
-            print('Grafo não conexo!');
+            print('Grafo não conexo!')
 
-G1 = Grafo(4, True); #Grafo direcionado
+G1 = Grafo(5,True); #Grafo direcionado
 G1.addVertice(0);
-G1.addVertice(3);
+G1.addVertice(4);
 G1.addVertice(2);
 G1.addVertice(1);
+G1.addVertice(3);
+# G1.addVertice(5);
 
 
 
 G1.addAresta(0,1);
 G1.addAresta(1,2);
 G1.addAresta(2,3);
-G1.addAresta(3,0);
+G1.addAresta(0,4);
+G1.addAresta(4,0);
 
-
-G1.dfs(0); #Inicializa pelo vértice 0
+G1.dfs_iterativa(4); #Inicializa pelo vértice 0
 G1.imprimeGrafo();

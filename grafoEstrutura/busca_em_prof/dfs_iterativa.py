@@ -71,48 +71,67 @@ class Grafo():
             return " -> ".join(tuple(map(lambda x:str(x),lista)))+' -> NULL';
     
     def dfs_iterativa(self,v_inicio):
+        print('Varredura DFS iniciando pelo vértice {}'.format(v_inicio));
+        
+        BRANCO = 'BRANCO';
+        PRETO = 'PRETO';
+        CINZA = 'CINZA';
+
         pilha_nos = []; # armazena os nós que estão sendo visitados
-        pilha_visitados = [False]*self.NumeroVertices; # Inicializa todos os vértices como não visitados;
+        pilha_visitados = [BRANCO]*self.NumeroVertices; # Inicializa todos os vértices como não visitados;
         resultado_da_varredura = [];
 
+        global ciclo; 
+        ciclo = False;
 
         pilha_nos.append(v_inicio);
+
         while(pilha_nos):
             removido = pilha_nos.pop();
-
-            if(not pilha_visitados[removido]):
+            if(not pilha_visitados[removido] == CINZA):
+                pilha_visitados[removido] = CINZA;
                 resultado_da_varredura.append(removido);
-                pilha_visitados[removido] = True;
 
-            for w in self.ListaAdj[removido]:
-                if(not pilha_visitados[w]):
-                    pilha_nos.append(w);
+                for w in self.ListaAdj[removido]:
+                    if(pilha_visitados[w] == BRANCO):
+                        pilha_nos.append(w);
+
+                    elif (pilha_visitados[w] == CINZA):
+                        ciclo = True;
+
+            elif(pilha_visitados[removido] == CINZA):
+                pilha_nos.pop();
+                pilha_visitados[removido] = PRETO;
+                
 
         print(self.__imprimeAdjList(resultado_da_varredura));
 
         # Verifica se todos os vértices doram visitados
         def conexo():
             return functools.reduce(lambda a,b:a and b, pilha_visitados);
+        
+        print('\n')
+        if(ciclo):
+            print('Há um ciclo!');
+            
         if(conexo()):
             print('Grafo conexo!');
         else:
-            print('Grafo não conexo!')
+            print('Grafo não conexo!');
 
-G1 = Grafo(6,True); #Grafo direcionado
+G1 = Grafo(4, True); #Grafo direcionado
 G1.addVertice(0);
-G1.addVertice(4);
+G1.addVertice(3);
 G1.addVertice(2);
 G1.addVertice(1);
-G1.addVertice(3);
-G1.addVertice(6);
 
 
 
 G1.addAresta(0,1);
 G1.addAresta(1,2);
 G1.addAresta(2,3);
-G1.addAresta(0,4);
-G1.addAresta(4,0);
+G1.addAresta(3,0);
 
-G1.dfs_iterativa(4); #Inicializa pelo vértice 0
+
+G1.dfs_iterativa(3); #Inicializa pelo vértice 0
 G1.imprimeGrafo();
