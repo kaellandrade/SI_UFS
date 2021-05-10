@@ -142,6 +142,7 @@ class Grafo():
             print("Ordenação TOP DFS: {}".format(self.__imprimeAdjList(ordenacao_top)));
     
 G1 = Grafo(8, True); # Grafo direcionado!
+
 G1.addVertice(0);
 G1.addVertice(1);
 G1.addVertice(2);
@@ -151,55 +152,68 @@ G1.addVertice(5);
 G1.addVertice(6);
 G1.addVertice(7);
 
-G1.addAresta(1, 4);
-G1.addAresta(1, 6);
-G1.addAresta(7, 6);
-G1.addAresta(4, 5);
-G1.addAresta(7, 5);
-G1.addAresta(7, 0);
-G1.addAresta(2, 7);
-G1.addAresta(3, 4);
-G1.addAresta(3, 7);
+G1.addAresta(0,1);
+G1.addAresta(0,2);
+G1.addAresta(0,4);
+G1.addAresta(1,2);
+G1.addAresta(2,3);
+G1.addAresta(4,2);
+G1.addAresta(4,5);
+G1.addAresta(5,3);
+G1.addAresta(6,4);
+G1.addAresta(6,7);
+G1.addAresta(7,5);
 
+
+# G1.addAresta(1, 4);
+# G1.addAresta(1, 6);
+# G1.addAresta(7, 6);
+# G1.addAresta(4, 5);
+# G1.addAresta(7, 5);
+# G1.addAresta(7, 0);
+# G1.addAresta(2, 7);
+# G1.addAresta(3, 4);
+# G1.addAresta(3, 7);
+# print(G1.ListaAdj)
 print('G1');
 G1.khanTopOrdem();
-G1.dfsOrdem();
+# G1.dfsOrdem();
 
-'''
-Representação vértices
-CUECAS = 0;
-CALÇAS= 1;
-RELÓGIO = 2;
-MEIAS = 3;
-SAPATOS = 4;
-CAMISA = 5;
-GRAVATA = 6;
-PALETÓ = 7;
-CINTO = 8;
-'''
-G2 = Grafo(9, True);
-G2.addVertice(0);
-G2.addVertice(1);
-G2.addVertice(2);
-G2.addVertice(3);
-G2.addVertice(4);
-G2.addVertice(5);
-G2.addVertice(6);
-G2.addVertice(7);
-G2.addVertice(8);
+# '''
+# Representação vértices
+# CUECAS = 0;
+# CALÇAS= 1;
+# RELÓGIO = 2;
+# MEIAS = 3;
+# SAPATOS = 4;
+# CAMISA = 5;
+# GRAVATA = 6;
+# PALETÓ = 7;
+# CINTO = 8;
+# '''
+# # G2 = Grafo(9, True);
+# # G2.addVertice(0);
+# # G2.addVertice(1);
+# # G2.addVertice(2);
+# # G2.addVertice(3);
+# # G2.addVertice(4);
+# # G2.addVertice(5);
+# # G2.addVertice(6);
+# # G2.addVertice(7);
+# # G2.addVertice(8);
 
-G2.addAresta(0, 1);
-G2.addAresta(0, 4);
-G2.addAresta(1, 8);
-G2.addAresta(1, 4);
-G2.addAresta(3, 4);
-G2.addAresta(5, 8);
-G2.addAresta(5, 6);
-G2.addAresta(6, 7);
+# # G2.addAresta(0, 1);
+# # G2.addAresta(0, 4);
+# # G2.addAresta(1, 8);
+# # G2.addAresta(1, 4);
+# # G2.addAresta(3, 4);
+# # G2.addAresta(5, 8);
+# # G2.addAresta(5, 6);
+# # G2.addAresta(6, 7);
 
-print('\nG2');
-G2.khanTopOrdem();
-G2.dfsOrdem();
+# # print('\nG2');
+# # G2.khanTopOrdem();
+# # G2.dfsOrdem();
 
 
 

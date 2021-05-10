@@ -117,6 +117,7 @@ class Grafo {
         return n % 2 === 1;
     }
 }
+/*
 const G1 = new Grafo();
 G1.addVertice('F');
 G1.addVertice('A');
@@ -135,37 +136,62 @@ G1.addAresta('F', 'C');
 
 G1.imprimeGrafo();
 G1.encontraCicloEuler();
-
+*/
 const G2 = new Grafo();
-G2.addVertice('A');
-G2.addVertice('B');
-G2.addVertice('C');
-G2.addVertice('D');
+G2.addVertice(0);
+G2.addVertice(1);
+G2.addVertice(2);
+G2.addVertice(3);
+G2.addVertice(4);
+G2.addVertice(5);
+G2.addVertice(6);
+G2.addVertice(7);
+G2.addVertice(8);
+G2.addVertice(9);
 
-G2.addAresta('A', 'B');
-G2.addAresta('B', 'D');
-G2.addAresta('D', 'C');
-G2.addAresta('A', 'C');
+
+G2.addAresta(0, 9);
+G2.addAresta(0, 9);
+G2.addAresta(9, 1);
+G2.addAresta(9, 2);
+G2.addAresta(9, 5);
+G2.addAresta(9, 7);
+G2.addAresta(1, 2);
+G2.addAresta(2, 3);
+G2.addAresta(2, 3);
+G2.addAresta(4, 5);
+G2.addAresta(4, 5);
+G2.addAresta(5, 6);
+G2.addAresta(6, 7);
+G2.addAresta(7, 5);
+G2.addAresta(7, 5);
+G2.addAresta(7, 5);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// G2.addAresta(1, 2);
+// G2.addAresta(3, 2);
+// G2.addAresta(0, 2);
 
 G2.imprimeGrafo();
 G2.encontraCicloEuler();
-
-const konigsberg2 = new Grafo();
-konigsberg2.addVertice('A');
-konigsberg2.addVertice('B');
-konigsberg2.addVertice('C');
-konigsberg2.addVertice('D');
-
-konigsberg2.addAresta('A', 'B');
-konigsberg2.addAresta('A', 'B');
-konigsberg2.addAresta('A', 'B');
-konigsberg2.addAresta('A', 'D');
-konigsberg2.addAresta('A', 'D');
-konigsberg2.addAresta('A', 'C');
-
-konigsberg2.addAresta('B', 'C');
-konigsberg2.addAresta('C', 'D');
-konigsberg2.addAresta('C', 'D');
-
-konigsberg2.imprimeGrafo();
-konigsberg2.encontraCicloEuler();
