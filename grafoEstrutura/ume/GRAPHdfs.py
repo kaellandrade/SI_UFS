@@ -19,7 +19,7 @@ def GRAPHdfs(Grafo):
         if(pre[v] == -1):
             # floresta.addArestas(v,w);
             # pais[v] = v; # V é a raiz da floresta;
-            dfsR(Grafo, pre, pais, v, floresta); #Começa nova etapa, pos nem todos os vértices podem está ao alcance de v
+            dfsR(Grafo, pre, v, floresta); #Começa nova etapa, pos nem todos os vértices podem está ao alcance de v
     # print(pais)
     return floresta.adj;
 
@@ -29,7 +29,7 @@ def GRAPHdfs(Grafo):
     já descobertos. A função atribui cnt+k a pre[x] se x é 
     k-ésimo vértice descoberto.
 '''
-def dfsR(Grafo, pre, pais, v, floresta):
+def dfsR(Grafo, pre, v, floresta):
     global cont;
     pre[v] = cont;
     cont+=1;
@@ -37,7 +37,7 @@ def dfsR(Grafo, pre, pais, v, floresta):
         if(pre[w] == -1):
             floresta.addArestas(v,w);
             # pais[w] = v; # v-w é arco da floresta
-            dfsR(Grafo, pre, pais, w, floresta);
+            dfsR(Grafo, pre, w, floresta);
 
 g1 = Graph(8, True);
 g1.iniciar_vertices();

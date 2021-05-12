@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
-from math import inf as Infinity;
+from math import inf as Infinity
+from typing import Pattern;
 
 class Grafo():
     def __init__(self, NumeroVertices, direcionado = False):
         self.Direcionado = direcionado; 
         self.NumeroVertices = NumeroVertices;
         self.ListaAdj = dict();
+
+        for i in range(self.NumeroVertices): #Inicializa todos os Vértices
+            self.ListaAdj.setdefault(i, []);
 
     '''
     Retorna uma string com o tipo do grafo [direcionado ou não direcionado]
@@ -70,53 +74,72 @@ class Grafo():
         else:
             return " -> ".join(tuple(map(lambda x:str(x),lista)))+' -> NULL';
 
-    def bfs(self, startV):
-        
-        BRANCO = 'BRANCO'
-        PRETO = 'PRETO'
-        CINZA= 'CINZA'
-        cor = [BRANCO]*self.NumeroVertices;
-        distancia = [Infinity]*self.NumeroVertices;
-        predecessor = [None]*self.NumeroVertices;
-
-        cor[startV] = CINZA;
-        distancia[startV] = 0;
-        pilha = [];
-        
-        pilha.append(startV);
 
 
+'''
+Algoritmo de busca em profundidade;
+Inspirado no livro de Thomas H.Cormen (Algoritmos Teoria e Prática)
+'''
+def bfs(G, startV, destino, predecessor, distancia):
+    contador = 0;
+    num = [-1] * G.NumeroVertices; # vetor de enumeração (ordem em que os vértices são descobertos); 
+    num[startV] = contador;
 
-        while(pilha):
-            u = pilha.pop();
-            for v in self.ListaAdj[u]:
-                if(cor[v] == BRANCO):
-                    cor[v] = CINZA;
-                    distancia[v] = distancia[u]+1;
+    contador+=1;
+    fila = [];
+    
+    arvore_bfs = Grafo(G.NumeroVertices, G.Direcionado); 
+    fila.append(startV);
 
-                    predecessor[v] = u;
-                    pilha.append(v);
+    while(fila):
+        u = fila.pop();
+        for v in G.ListaAdj[u]:
+            if(num[v] == -1): #se ainda não foi descoberto
+                num[v] = contador;
+                contador+=1;
 
-            cor[u] = PRETO;
+                distancia[v] = distancia[u]+1;
+                predecessor[v] = u;
+
+                arvore_bfs.addAresta(u, v)
+                fila.append(v);
+                if(v == destino):
+                    print(arvore_bfs.ListaAdj);
+                    return True;
+    print(arvore_bfs.ListaAdj);
+    return False;
+'''
+    Algoritmo de Bellman–Ford 
+    Inspirado no livro de Thomas H.Cormen (Algoritmos Teoria e Prática)
+'''
+def caminhoMin(Grafo, inicio, destino):
+
+    predecessor = [None] * Grafo.NumeroVertices;
+    distancia = [0] * Grafo.NumeroVertices;
+
+    if(not bfs(Grafo, inicio, destino, predecessor, distancia)):
+        print('Verteces não conectados!');
+    else:
+        caminho = [];
+        c = destino;
+        caminho.insert(0, c);
+        while(predecessor[c] != None):
+            caminho.insert(0,predecessor[c]);
+            c = predecessor[c];
+
+        print(caminho);
+        print(distancia[destino]);
+
+    
+
+G1 = Grafo(3,True);
+
+
+G1.addAresta(0, 1);
+G1.addAresta(1, 2);
+G1.addAresta(0, 2);
 
 
 
 
-G1 = Grafo(6,True); #Grafo direcionado
-G1.addVertice(0);
-G1.addVertice(4);
-G1.addVertice(2);
-G1.addVertice(1);
-G1.addVertice(3);
-G1.addVertice(5);
-
-
-
-
-G1.addAresta(0,1);
-G1.addAresta(1,2);
-G1.addAresta(2,3);
-G1.addAresta(0,4);
-G1.addAresta(4,0);
-
-G1.bfs(0);
+caminhoMin(G1, 0, 2);

@@ -1,0 +1,13 @@
+
+Nome da Tarefa:
+Implementação 03 - Busca em Largura
+Descrição:
+
+Dois algoritmos devem ser implementados: a busca em largura vista em aula e uma variante para 
+identificar o menor caminho entre dois vértices do grafo.
+
+ 
+A busca em largura deve ser testada utilizando três grafos. 
+A variante deve ser testada para alguns pares de vértices. 
+Um documento também deve ser enviado para apresentar os grafos testados, 
+as árvores de busca resultantes e os caminhos mínimos entre os pares de vértices testados.

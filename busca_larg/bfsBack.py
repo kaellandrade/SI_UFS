@@ -7,6 +7,9 @@ class Grafo():
         self.NumeroVertices = NumeroVertices;
         self.ListaAdj = dict();
 
+        for i in range(self.NumeroVertices): #Inicializa todos os Vértices
+            self.ListaAdj.setdefault(i, []);
+
     '''
     Retorna uma string com o tipo do grafo [direcionado ou não direcionado]
     '''
@@ -70,53 +73,44 @@ class Grafo():
         else:
             return " -> ".join(tuple(map(lambda x:str(x),lista)))+' -> NULL';
 
-    def bfs(self, startV):
-        
-        BRANCO = 'BRANCO'
-        PRETO = 'PRETO'
-        CINZA= 'CINZA'
-        cor = [BRANCO]*self.NumeroVertices;
-        distancia = [Infinity]*self.NumeroVertices;
-        predecessor = [None]*self.NumeroVertices;
-
-        cor[startV] = CINZA;
-        distancia[startV] = 0;
-        pilha = [];
-        
-        pilha.append(startV);
 
 
+'''
+Algoritmo de busca em profundidade;
+Inspirado no livro de Thomas H.Cormen (Algoritmos Teoria e Prática)
+'''
+def bfs(G, startV):
+    contador = 0;
+    num = [-1] * G.NumeroVertices; # vetor de enumeração (ordem em que os vértices são descobertos); 
+    fila = [];
+    num[startV] = contador;
+    contador+=1;
 
-        while(pilha):
-            u = pilha.pop();
-            for v in self.ListaAdj[u]:
-                if(cor[v] == BRANCO):
-                    cor[v] = CINZA;
-                    distancia[v] = distancia[u]+1;
+    
+    arvore_bfs = Grafo(G.NumeroVertices, G.Direcionado); 
 
-                    predecessor[v] = u;
-                    pilha.append(v);
-
-            cor[u] = PRETO;
-
-
-
-
-G1 = Grafo(6,True); #Grafo direcionado
-G1.addVertice(0);
-G1.addVertice(4);
-G1.addVertice(2);
-G1.addVertice(1);
-G1.addVertice(3);
-G1.addVertice(5);
+    fila.append(startV);
+    while(fila):
+        u = fila.pop();
+        for v in G.ListaAdj[u]:
+            if(num[v] == -1): #se ainda não foi descoberto
+                num[v] = contador;
+                contador+=1;
+                arvore_bfs.addAresta(u, v)
+                fila.append(v);
+    return False;
 
 
+G1 = Grafo(6);
 
 
-G1.addAresta(0,1);
-G1.addAresta(1,2);
-G1.addAresta(2,3);
-G1.addAresta(0,4);
-G1.addAresta(4,0);
+G1.addAresta(0,1); 
+G1.addAresta(0,2); 
+G1.addAresta(0,5); 
+G1.addAresta(2,1); 
+G1.addAresta(2,3); 
+G1.addAresta(2,4); 
+G1.addAresta(3,4); 
+G1.addAresta(3,5);
 
-G1.bfs(0);
+print(bfs(G1, 0).ListaAdj);
