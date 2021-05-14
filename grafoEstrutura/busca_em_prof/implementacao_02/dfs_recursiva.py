@@ -114,19 +114,35 @@ class Grafo():
         else:
             print('Grafo não conexo!');
 
-G1 = Grafo(4, True); #Grafo direcionado
+G1 = Grafo(13); #Grafo direcionado
 G1.addVertice(0);
-G1.addVertice(3);
-G1.addVertice(2);
 G1.addVertice(1);
+G1.addVertice(2);
+G1.addVertice(3);
+G1.addVertice(4);
+G1.addVertice(5);
+G1.addVertice(6);
+G1.addVertice(7);
+G1.addVertice(8);
+G1.addVertice(9);
+G1.addVertice(10);
+G1.addVertice(11);
+G1.addVertice(12);
 
-
-
-G1.addAresta(0,1);
-G1.addAresta(1,2);
-G1.addAresta(2,3);
-G1.addAresta(3,0);
-
+G1.addAresta(0, 1);
+G1.addAresta(0, 9);
+G1.addAresta(1, 3);
+G1.addAresta(1, 4);
+G1.addAresta(1, 6);
+G1.addAresta(1, 7);
+G1.addAresta(1, 9);
+G1.addAresta(2, 5);
+G1.addAresta(2, 8);
+G1.addAresta(2, 10);
+G1.addAresta(3, 7);
+G1.addAresta(4, 6);
+G1.addAresta(6, 12);
+G1.addAresta(8, 10);
 
 G1.dfs(0); #Inicializa pelo vértice 0
 G1.imprimeGrafo();

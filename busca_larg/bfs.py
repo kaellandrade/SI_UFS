@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 from math import inf as Infinity
-from typing import Pattern;
 
 class Grafo():
     def __init__(self, NumeroVertices, direcionado = False):
@@ -132,14 +131,19 @@ def caminhoMin(Grafo, inicio, destino):
 
     
 
-G1 = Grafo(3,True);
+G1 = Grafo(6,True);
 
 
 G1.addAresta(0, 1);
 G1.addAresta(1, 2);
-G1.addAresta(0, 2);
+G1.addAresta(0, 3);
+G1.addAresta(1, 3);
+G1.addAresta(3,1);
+G1.addAresta(3,2);
+G1.addAresta(3,4);
+G1.addAresta(4,5);
+G1.addAresta(4,2);
+G1.addAresta(2,4);
 
 
-
-
-caminhoMin(G1, 0, 2);
+caminhoMin(G1, 0, 4);

@@ -39,35 +39,25 @@ def dfsR(Grafo, pre, v, floresta):
             # pais[w] = v; # v-w é arco da floresta
             dfsR(Grafo, pre, w, floresta);
 
-g1 = Graph(8, True);
-g1.iniciar_vertices();
+G1 = Graph(13);
+ 
+G1.iniciar_vertices();
 
-
-
-g1.addArestas(0,2) 
-g1.addArestas(0,4) 
-g1.addArestas(1,3) 
-g1.addArestas(2,7) 
-g1.addArestas(3,6) 
-g1.addArestas(4,5)
-g1.addArestas(4,7) 
-g1.addArestas(5,4)
-g1.addArestas(4,1)
-g1.addArestas(5,7)
-g1.addArestas(6,0)
-g1.addArestas(6,2)
-g1.addArestas(6,4)
-g1.addArestas(7,5) 
-g1.addArestas(7,3) 
-
-
-
-
-
-
-
-
+G1.addArestas(0, 1);
+G1.addArestas(0, 9);
+G1.addArestas(1, 3);
+G1.addArestas(1, 4);
+G1.addArestas(1, 6);
+G1.addArestas(1, 7);
+G1.addArestas(1, 9);
+G1.addArestas(2, 5);
+G1.addArestas(2, 8);
+G1.addArestas(2, 10);
+G1.addArestas(3, 7);
+G1.addArestas(4, 6);
+G1.addArestas(6, 12);
+G1.addArestas(8, 10);
 
 
 # print(g1.adj);
-print(GRAPHdfs(g1));
+print(GRAPHdfs(G1));
