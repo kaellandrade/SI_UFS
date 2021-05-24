@@ -6,7 +6,7 @@ from initialize_single_source import initialize_single_source;
 
 def bellman_ford(G: Graph, s: int) -> bool:
     # Inicializa o vértece
-    initialize_single_source(G, G.vertex_at(s))
+    initialize_single_source(G.vertex_at(s))
 
     #Armazena o conjunto de toodas as arestas de G
     conjuntoTotalAretas = []

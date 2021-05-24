@@ -11,3 +11,6 @@ class Vertex:
         
     def __str__(self) -> str:
         return f"({self.label}) -> {self.dist}"
+    
+    def __lt__(self, other):
+        return self.dist < other.dist;
