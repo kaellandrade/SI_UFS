@@ -97,25 +97,25 @@ GND.addAresta(3,4);
 GND.addAresta(2,4);
 
 
-GD1 = Grafo(7, True);
-GD1.addAresta(0,1);
-GD1.addAresta(1,2);
-GD1.addAresta(2,3);
-GD1.addAresta(2,4);
-GD1.addAresta(4,5);
-GD1.addAresta(0,4);
-GD1.addAresta(4,6);
-GD1.addAresta(6,5);
+# GD1 = Grafo(7, True);
+# GD1.addAresta(0,1);
+# GD1.addAresta(1,2);
+# GD1.addAresta(2,3);
+# GD1.addAresta(2,4);
+# GD1.addAresta(4,5);
+# GD1.addAresta(0,4);
+# GD1.addAresta(4,6);
+# GD1.addAresta(6,5);
 
 
-GD2 = Grafo(6, True);
-GD2.addAresta(1,3);
-GD2.addAresta(1,2);
-GD2.addAresta(1,0);
-GD2.addAresta(0,4);
+# GD2 = Grafo(6, True);
+# GD2.addAresta(1,3);
+# GD2.addAresta(1,2);
+# GD2.addAresta(1,0);
+# GD2.addAresta(0,4);
 
 
 path_s_to_w(GND, 0, 4);
-path_s_to_w(GD1, 0, 4);
-path_s_to_w(GD2, 1, 5);
+# path_s_to_w(GD1, 0, 4);
+# path_s_to_w(GD2, 1, 5);
 

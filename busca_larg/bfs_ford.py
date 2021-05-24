@@ -71,7 +71,7 @@ def bfs(G, startV):
     fila.append(startV);
 
     while(fila):
-        u = fila.pop();
+        u = fila.pop(0);
         for v in G.ListaAdj[u]:
             if(cor[v] == BRANCO): #se ainda não foi descoberto
                 cor[v] = CINZA;
@@ -135,22 +135,33 @@ GD2.addAresta(1,2);
 GD2.addAresta(1,0);
 GD2.addAresta(0,4);
 '''
-GD3 = Grafo(8, True);
-GD3.addAresta(1,3);
-GD3.addAresta(2,7);
-GD3.addAresta(3,6);
-GD3.addAresta(4,7);
-GD3.addAresta(4,5);
-GD3.addAresta(5,1);
-GD3.addAresta(5,7);
-GD3.addAresta(5,4);
-GD3.addAresta(6,2);
-GD3.addAresta(6,0);
-GD3.addAresta(6,4);
-GD3.addAresta(0,4);
-GD3.addAresta(0,2);
-GD3.addAresta(7,3);
-GD3.addAresta(7,5);
+GD3 = Grafo(15);
+GD3.addAresta(0, 5)
+GD3.addAresta(0, 1)
+GD3.addAresta(9, 11)
+GD3.addAresta(1, 3)
+GD3.addAresta(4, 11)
+GD3.addAresta(1, 2)
+GD3.addAresta(2, 3)
+GD3.addAresta(2, 4)
+GD3.addAresta(3, 4)
+GD3.addAresta(3, 5)
+GD3.addAresta(4, 10)
+GD3.addAresta(10, 5)
+GD3.addAresta(10, 8)
+GD3.addAresta(10, 11)
+GD3.addAresta(11, 8)
+GD3.addAresta(8, 5)
+GD3.addAresta(8, 14)
+GD3.addAresta(8, 9)
+GD3.addAresta(9, 14)
+GD3.addAresta(5, 12)
+GD3.addAresta(12, 6)
+GD3.addAresta(12, 14)
+GD3.addAresta(12, 7)
+GD3.addAresta(6, 7)
+GD3.addAresta(7, 13)
+GD3.addAresta(13, 14)
 
 
 
@@ -170,7 +181,7 @@ GD3.addAresta(7,5);
 # path_s_to_w(GD1, 0, 4);
 # path_s_to_w(GD2, 1, 5);
 
-path_s_to_w(GD3, 0, 6);
+path_s_to_w(GD3, 0, 9);
 
 # inicialize_single_sorce(GD3, 0)
-print(GD3.distancia)
+# print(GD3.distancia)

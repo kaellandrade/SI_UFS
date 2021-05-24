@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-from typing import Generic, TypeVar, List, Optional
-from edge import Edge;
+from typing import Generic, TypeVar, List
+from edge import Edge
+from vertex import Vertex
 
 V = TypeVar('V')  #Tipo de vértices no grafo;
 
@@ -8,9 +9,9 @@ V = TypeVar('V')  #Tipo de vértices no grafo;
 class Graph(Generic[V]):
     def __init__(self, vertices: List[V] = []) -> None:
         self._vertices: List[V] = vertices  #Lista de adj
-
-        self._edges: List[List[Edge]] = [[] for _ in vertices]
-        #Para cada vértices será será criada uma listas de listas de conexões
+        self._edges: List[List[Edge]] = [
+            [] for _ in vertices
+        ]  #Para cada vértices será será criada uma listas de listas de conexões
 
     @property
     def vertex_count(self) -> int:
@@ -18,7 +19,7 @@ class Graph(Generic[V]):
 
     @property
     def edge_count(self) -> int:
-        return sum(map(len, self._adges))  #Número de arestas;
+        return sum(map(len, self._edges))  #Número de arestas;
 
     #Adicona um vértice ao grafo e devolve o seu índice
     def add_vertex(self, vertex: V) -> int:
@@ -30,16 +31,16 @@ class Graph(Generic[V]):
 
     #Este é um grafo não direcionado
     #portanto, sempre adicionamos arestas nas duas direções
-    def add_edge(self, edge: Edge) -> None:
+    def __add_edge(self, edge: Edge) -> None:
         self._edges[edge.u].append(edge)
         self._edges[edge.v].append(edge.reversed())
 
     # Adicona uma arestas usando índices dos vértices (método auxiliar)
     def add_edge_by_indices(self, u: int, v: int) -> None:
-        edge: Edge(u, v)
-        self.add_edge(edge)
+        edge: Edge = Edge(u, v)
+        self.__add_edge(edge)
 
-    # Adicoina uma aresta concultando os índices dos vértices (método auxiliar)
+    # Adiciona uma aresta concultando os índices dos vértices (método auxiliar)
     def add_edge_by_vertices(self, first: V, second: V) -> None:
         u: int = self._vertices.index(first)
         v: int = self._vertices.index(second)
@@ -70,11 +71,8 @@ class Graph(Generic[V]):
         return self.edges_for_index(self.index_of(vertex))
 
     #Exibição do grafo
-
     def __str__(self) -> str:
         desc: str = ''
         for i in range(self.vertex_count):
-            desc += f"{self.vertex_at(i)} => {self.edges_for_index(i)}\n"
+            desc += f"{self.vertex_at(i)} => {list(map(lambda x:x.label,self.neightbors_for_index(i)))}\n"
         return desc
-g1 = Graph(['micael', 'paulo', 'pedro']);
-print(g1)
