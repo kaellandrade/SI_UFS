@@ -5,14 +5,19 @@ from graph import Graph;
 from print_path import print_path;
 from dijkstra import dijkstra;
 from random_graph import random_graph;
+
 from datetime import datetime;
 
 if (__name__ == '__main__'):
-    tempo_inicio = datetime.now()
-    g1: Graph[Vertex] = random_graph(100)
+    g1: Graph[Vertex] = random_graph(15)
 
+    tempo_dij = datetime.now()
     dijkstra(g1,0) #Algoritmo Heap
-    print_path(g1.vertex_at(0), g1.vertex_at(2))
-    # print(g1)
+    print_path(g1.vertex_at(0), g1.vertex_at(1))
+    print(f'Dijkstra HEAP TIME  {datetime.now() - tempo_dij}')
 
-    print(datetime.now() - tempo_inicio)
+    g1.resetGraph;
+
+    
+
+

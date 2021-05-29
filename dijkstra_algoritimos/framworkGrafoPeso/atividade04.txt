@@ -1,0 +1,15 @@
+Implementação de duas versões do algoritmo de Dijkstra. 
+A primeira mais simples com complexidade O(n2) e a segunda mais eficiente usando heap.
+
+ 
+
+As duas versões devem ser comparadas usando grafos 
+completos ponderados com pesos gerados de forma aleatória (valores no intervalo [20, 100]) 
+com quantidade de vértices V = {100, 200, 500, 1000, 10000, 50000, 100000}. 
+O tempo de execução deve ser comparado em cada caso. 
+
+ 
+
+Um pequeno relatório (modelo SBC) deve ser feito contendo as implementações e os 
+tempos obtidos em cada cenário. Os grafos gerados devem ser salvos em arquivos de texto separados 
+(um arquivo por grafo),
