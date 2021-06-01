@@ -62,4 +62,27 @@ WITH media_todos_dept AS (
 	GROUP BY p.departamento
 )
 SELECT min(media_salario) AS menor_media_de_todos_dpt
-FROM media_todos_dept
+FROM media_todos_dept;
+-- 1.6
+
+select mat_professor,
+	prof_media,
+	departamento_media
+FROM (
+		select mat_professor,
+			depto_responsavel,
+			avg(nota) AS prof_media
+		from cursa
+			join turma using(id_turma)
+			join leciona using(id_turma)
+			join disciplina using(cod_disc)
+		group by(mat_professor, depto_responsavel)
+	) as media_prof
+	JOIN (
+		select depto_responsavel,
+			avg(nota) AS departamento_media
+		from cursa
+			join turma using(id_turma)
+			join disciplina using(cod_disc)
+		group by depto_responsavel
+	) AS media_dep using(depto_responsavel);
