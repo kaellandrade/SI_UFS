@@ -2,6 +2,7 @@
 -- TURMA: BF T01
 -- MAT:  201900051051
 -- Esquema universidade
+-- TODO: FORMATAR 
 SET search_path TO universidade;
 -- 1.1
 -- 1.1
@@ -64,7 +65,6 @@ WITH media_todos_dept AS (
 SELECT min(media_salario) AS menor_media_de_todos_dpt
 FROM media_todos_dept;
 -- 1.6
-
 select mat_professor,
 	prof_media,
 	departamento_media
@@ -86,3 +86,27 @@ FROM (
 			join disciplina using(cod_disc)
 		group by depto_responsavel
 	) AS media_dep using(depto_responsavel);
+--1.7
+select ur.primeiro_nome,
+	ur.sobrenome
+from professor pro2
+	join cargo car2 ON (car2.id_cargo = pro2.cargo)
+	join usuario ur using(cpf)
+where car2.salario = (
+		select min(salario)
+		from professor pro
+			join cargo car ON(car.id_cargo = pro.cargo)
+	);
+-- 1.8
+select primeiro_nome,
+	sobrenome
+FROM (
+		select *
+		from cursa
+		where nota in (
+				select min(nota)
+				from cursa
+			)
+	) as al_menor
+	JOIN estudante using(mat_estudante)
+	join usuario using(cpf)
