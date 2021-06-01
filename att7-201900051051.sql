@@ -109,4 +109,33 @@ FROM (
 			)
 	) as al_menor
 	JOIN estudante using(mat_estudante)
-	join usuario using(cpf)
+	join usuario using(cpf);
+-- 1.9
+select primeiro_nome,
+	sobrenome,
+	maior_5,
+	menor_5
+FROM (
+		select mat_estudante,
+			count(cod_disc) as maior_5
+		from (
+				select *
+				from cursa
+				where nota >= 5
+			) as maior_5
+			join turma using(id_turma)
+		group by (mat_estudante)
+	) as notas_maiores_5
+	join (
+		select mat_estudante,
+			count(cod_disc) as menor_5
+		from (
+				select *
+				from cursa
+				where nota < 5
+			) as maior_5
+			join turma using(id_turma)
+		group by (mat_estudante)
+	) as notas_menores_5 using(mat_estudante)
+	join estudante using(mat_estudante)
+	join usuario using(cpf);
