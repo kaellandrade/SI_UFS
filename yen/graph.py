@@ -52,8 +52,7 @@ class Graph(Generic[V]):
 
 
 
-    #Este é um grafo não direcionado
-    #portanto, sempre adicionamos arestas nas duas direções
+    #Adiciona um aresta ao grafo
     def __add_edge(self, edge: WeightedEdge) -> None:
         self._edges[ self.index_of(edge.u)].append(edge)
         if (not self.directed):
