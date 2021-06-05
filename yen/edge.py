@@ -14,7 +14,7 @@ class WeightedEdge:
     
 
     def __str__(self) -> str:
-        return f"{self.u}  {self.weight} -> {self.v}"
+        return f"({self.u}, {self.v}, {self.weight})"
     
     #Paraque possamos ordenar as arestas por peso a fim de enctrar
     # a resta de menor peso

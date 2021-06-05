@@ -9,8 +9,8 @@ será retornado [];
 
 def find_path(s: Vertex, v: Vertex, path=[]) -> None:
     if (v == s):
-        return [s.label] + path
+        return [s] + path
     elif (v.parent == None): 
         return []
     else:
-        return find_path(s, v.parent, [v.label]+path)
+        return find_path(s, v.parent, [v]+path)

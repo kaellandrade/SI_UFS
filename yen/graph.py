@@ -40,16 +40,16 @@ class Graph(Generic[V]):
         return self.vertex_count - 1
         #Devolve o índice do vértice adicionado
 
-    #TODO: verificar posteriormente essa função;
-    def remove_vertex_by_index(self, v:int) -> Vertex:
-        for vertex in self._vertices:
+    #Remove o um vértice por índice e retorna o total de vértices após
+    def remove_vertex_by_index(self, v:int) -> int:
+        for vertex in self._vertices: #Remove todas as conexos de todos os vértcies com o vértice v
             self._edges[self.index_of(vertex)] = (list(filter(lambda edg: edg.v != self.vertex_at(v), self._edges[self.index_of(vertex)])));
-        self._vertices.remove(self.vertex_at(v));
-        self._edges.remove(self._edges[v])
+        self._vertices.remove(self.vertex_at(v)); #Remvoe o vértice V
+        self._edges.remove(self._edges[v]); #Remove sua lista de adjacência
+        return self.vertex_count;
 
-
-
-
+    def remove_vertex_by_vertex(self, v:Vertex) -> int:
+        return self.remove_vertex_by_index(self.index_of(v));
 
 
     #Adiciona um aresta ao grafo
@@ -72,7 +72,7 @@ class Graph(Generic[V]):
     #Dado dois vértices (u,v) retorna sua aresta caso exista
     def give_edge(self, u:int, v:int) -> WeightedEdge:
         for edge in self.edges_for_index(u):
-            if (edge.v == v):
+            if (edge.v == self.vertex_at(v)):
                 return edge
         return None;
     
