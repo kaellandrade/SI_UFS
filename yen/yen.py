@@ -11,11 +11,9 @@ def yen(G:Graph, de:int, para:int, K:int):
     for k in range(1, K):
         for i in range(len(A[k-1]) - 2):
             rootPath = A[k-1][:i+1];
-
             for path in A:
                 if(rootPath == path[:i+1]):
                     setValueEdge(G, path[i], path[i+1], float('inf'));
-
 
             G.resetGraph; #Reseta o grafo;
             spurPath = dijkstra_heap(G, de, para);
@@ -33,6 +31,7 @@ def yen(G:Graph, de:int, para:int, K:int):
         A.append(B[0][0]);
         B.pop(0);
     return A;
+    
 def setValueEdge(G:Graph, u:Vertex, v:Vertex, value: float) -> None:
     edge: WeightedEdge = G.give_edge(G.index_of(u), G.index_of(v));
     edge.weight = value;

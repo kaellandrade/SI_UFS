@@ -31,7 +31,6 @@ if (__name__ == '__main__'):
     g1.add_edge_by_indices(3, 4, 2)
     g1.add_edge_by_indices(3, 5, 1)
     g1.add_edge_by_indices(4, 5, 2)
-    # print(g1);
-    # print(yen(g1, 0, 5, 3));
-    print([list(map(lambda x:x.label, paths)) for paths in yen(g1, 0, 5, 1)])
-    print(g1)
+
+    print([list(map(lambda x:x.label, paths)) for paths in yen(g1, 0, 5, 3)])
+    # print(g1)
