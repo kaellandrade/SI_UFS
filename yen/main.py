@@ -56,6 +56,37 @@ if (__name__ == '__main__'):
     g2.add_edge_by_indices(3, 5, 10)
     g2.add_edge_by_indices(4, 5, 40)
 
-    print([list(map(lambda x:x.label, paths)) for paths in yen(g2, 0, 5, 3)])
+
+    g3: Graph[Vertex] = Graph(
+        [
+            Vertex('DID1'),  #0
+            Vertex('DID2'),  #1
+            Vertex('DID3'),  #2
+            Vertex('DID4'),  #3
+            Vertex('DID5'),  #4
+            Vertex('DID6'),  #5
+            Vertex('DID7'),  #6
+
+        ],
+        True)
+    g3.add_edge_by_indices(0, 1, 5)
+    g3.add_edge_by_indices(1, 3, 4)
+    g3.add_edge_by_indices(0, 4, 9)
+    g3.add_edge_by_indices(0, 3, 3)
+    g3.add_edge_by_indices(3, 5, 1)
+    g3.add_edge_by_indices(4, 5, 4)
+    g3.add_edge_by_indices(5, 6, 2)
+    g3.add_edge_by_indices(1, 5, 1)
+    g3.add_edge_by_indices(6, 2, 7)
+
+
+
+    print(g1);
+    print(g2);
+
     print([list(map(lambda x:x.label, paths)) for paths in yen(g1, 0, 5, 3)])
-    # print(g1)
+    print([list(map(lambda x:x.label, paths)) for paths in yen(g2, 0, 5, 3)])
+    print([list(map(lambda x:x.label, paths)) for paths in yen(g3, 0, 5, 4)])
+    print([list(map(lambda x:x.label, paths)) for paths in yen(g3, 0, 5, 2)])
+
+
