@@ -4,6 +4,9 @@ https://courses.cs.vt.edu/cs6824/2014-spring/lectures/lecture-09-k-shortest-path
 https://dl-acm-org.ez20.periodicos.capes.gov.br/doi/pdf/10.1145/321707.321712
 https://www.ams.org/journals/qam/1970-27-04/S0033-569X-1970-0253822-7/S0033-569X-1970-0253822-7.pdf
 
+# Atividade
+Implementação do algoritmo de Yen para determinar os k caminhos mais curtos sem loops. Um relatório contendo 4-6 páginas deve ser feito contendo: descrição do algoritmo, exemplo ilustrativo, três grafos a serem testados (com representação grafica), resultados obtidos para cada grafo. O k a ser considerado deve pertencer ao intervalo [3,5] e ao menos dois valores devem ser testados para cada grafo.
+
 # Anotações
 O algoritmo pode ser dividido em duas partes, determinando o primeiro k-caminho mais curto ,
 e, em seguida, determinar todos os outros k- caminhos mais curtos.

@@ -5,8 +5,9 @@ from vertex import Vertex;
 from edge import WeightedEdge;
 from copy import copy;
 def yen(G:Graph, de:int, para:int, K:int):
-    A = [dijkstra_heap(G, de, para)];
     backUpEdge = [list(map(copy, edge)) for edge in G._edges]; # Matém um copia de todas as listas de adjacências
+    A = [dijkstra_heap(G, de, para)];
+
     B = [];
     for k in range(1, K):
         for i in range(len(A[k-1]) - 2):
@@ -22,7 +23,9 @@ def yen(G:Graph, de:int, para:int, K:int):
                 T = tuple((list(map(lambda x:x, spurPath)), spurPath[-1].dist));
                 B.append(T);
 
-            G._edges = [list(map(copy, edge)) for edge in backUpEdge]
+            G._edges = [list(map(copy, edge)) for edge in backUpEdge];
+            G.resetGraph; #Reseta o grafo;
+
 
         if(len(B) == 0):
             break;
