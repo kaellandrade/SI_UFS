@@ -87,6 +87,5 @@ if (__name__ == '__main__'):
     print([list(map(lambda x:x.label, paths)) for paths in yen(g1, 0, 5, 3)])
     print([list(map(lambda x:x.label, paths)) for paths in yen(g2, 0, 5, 3)])
     print([list(map(lambda x:x.label, paths)) for paths in yen(g3, 0, 5, 4)])
-    print([list(map(lambda x:x.label, paths)) for paths in yen(g3, 0, 5, 2)])
 
 
