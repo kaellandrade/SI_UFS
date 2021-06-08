@@ -139,3 +139,61 @@ FROM (
 	) as notas_menores_5 using(mat_estudante)
 	join estudante using(mat_estudante)
 	join usuario using(cpf);
+-- 1.10
+-- ....
+-- Esquema hospital
+SET search_path TO hospital;
+-- 2.1
+SET search_path TO hospital;
+select numcrm,
+	primeironome,
+	especialidade,
+	salario
+from medico
+	join usuario using(cpf)
+where medico.salario >= SOME (
+		select avg(salario)
+		from medico
+		group by(especialidade)
+	)
+order by (salario) ASC;
+-- 2.2
+select primeironome,
+	numprontuario
+from paciente
+	join usuario us using(cpf)
+	join consulta co using(numprontuario)
+	join medico ON(co.idregistromedico = medico.idregistro)
+where especialidade IN(
+		select DISTINCT especialidade
+		from medico
+		where medico.especialidade = 'Clínico Geral'
+	);
+-- 2.3
+select primeironome cpf,
+	numprontuario
+from usuario
+	join (
+		select *
+		from paciente
+			join consulta co using(numprontuario)
+		where (
+				EXTRACT(
+					YEAR
+					FROM co.dataconsulta
+				),
+				EXTRACT(
+					MONTH
+					FROM co.dataconsulta
+				)
+			) = (2018, 6)
+	) as junho_consul using(cpf);
+-- 2.4
+select idexame,
+	nome
+from (
+		select *
+		from solicitacao_exame
+		where datarealizacao is not null
+	) as realizados
+	join exame using(idexame);
