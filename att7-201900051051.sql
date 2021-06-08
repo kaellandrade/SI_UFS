@@ -12,7 +12,7 @@ WITH estudantes_p200 AS (
 		JOIN plano pla USING(mat_estudante)
 	WHERE mat_professor = 'P200'
 )
-SELECT *
+SELECT estudantes_p200.mat_estudante
 from estudantes_p200
 	JOIN cursa cur ON(
 		estudantes_p200.mat_estudante = cur.mat_estudante
@@ -140,7 +140,8 @@ FROM (
 	join estudante using(mat_estudante)
 	join usuario using(cpf);
 -- 1.10
--- ....
+-- semelhante a 1.6, fazer consulta co-relacionadas
+-- não precisa SOME some nem ALL
 -- Esquema hospital
 SET search_path TO hospital;
 -- 2.1
@@ -204,7 +205,16 @@ join exame using(idexame)
 join laudo using(idexame)
 where statuslaudo = 'Entregue';
 -- 2.6
--- ...
+with soma_especialidades as (
+	select especialidade,
+		sum(salario) as soma_es
+	from medico
+		join medico_docente using(idregistro)
+	group by(especialidade)
+)
+select *
+from soma_especialidades
+where soma_es > 15000;
 -- 2.7
 select primeironome,
 	numcrm,
@@ -223,4 +233,3 @@ from (
 		having count(*) > 9
 	) as medicos_bonus
 	join usuario using(cpf);
-	
