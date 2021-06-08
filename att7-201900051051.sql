@@ -197,3 +197,30 @@ from (
 		where datarealizacao is not null
 	) as realizados
 	join exame using(idexame);
+-- 2.5
+where datarealizacao is not null
+) as realizados
+join exame using(idexame)
+join laudo using(idexame)
+where statuslaudo = 'Entregue';
+-- 2.6
+-- ...
+-- 2.7
+select primeironome,
+	numcrm,
+	especialidade,
+	(salario + (salario * 0.05)) AS sal_com_bonus
+from (
+		select idregistro,
+			cpf,
+			numcrm,
+			salario,
+			especialidade,
+			count(*) AS num_consultas
+		from medico me
+			join consulta con ON(con.idregistromedico = me.idregistro)
+		group by(idregistro, cpf, numcrm, salario, especialidade)
+		having count(*) > 9
+	) as medicos_bonus
+	join usuario using(cpf);
+	
