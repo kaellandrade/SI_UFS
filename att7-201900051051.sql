@@ -2,18 +2,16 @@
 -- TURMA: BF T01
 -- MAT:  201900051051
 -- Esquema universidade
--- TODO: FORMATAR 
 SET search_path TO universidade;
 -- 1.1
--- 1.1
 WITH estudantes_p200 AS (
-	select *
-	from estudante
+	SELECT *
+	FROM estudante
 		JOIN plano pla USING(mat_estudante)
 	WHERE mat_professor = 'P200'
 )
 SELECT estudantes_p200.mat_estudante
-from estudantes_p200
+FROM estudantes_p200
 	JOIN cursa cur ON(
 		estudantes_p200.mat_estudante = cur.mat_estudante
 	)
@@ -50,10 +48,10 @@ WITH nao_orientam AS (
 			FROM plano
 		)
 )
-select mat_professor
-from nao_orientam
-	left join departamento ON(nao_orientam.mat_professor = chefe)
-where chefe is NULL;
+SELECT mat_professor
+FROM nao_orientam
+	LEFT JOIN departamento ON(nao_orientam.mat_professor = chefe)
+WHERE chefe is NULL;
 -- 1.5
 WITH media_todos_dept AS (
 	SELECT p.departamento AS depto,
@@ -65,120 +63,138 @@ WITH media_todos_dept AS (
 SELECT min(media_salario) AS menor_media_de_todos_dpt
 FROM media_todos_dept;
 -- 1.6
-select mat_professor,
+SELECT mat_professor,
 	prof_media,
 	departamento_media
 FROM (
-		select mat_professor,
+		SELECT mat_professor,
 			depto_responsavel,
 			avg(nota) AS prof_media
-		from cursa
-			join turma using(id_turma)
-			join leciona using(id_turma)
-			join disciplina using(cod_disc)
-		group by(mat_professor, depto_responsavel)
+		FROM cursa
+			JOIN turma USING(id_turma)
+			JOIN leciona USING(id_turma)
+			JOIN disciplina USING(cod_disc)
+		GROUP BY(mat_professor, depto_responsavel)
 	) as media_prof
 	JOIN (
-		select depto_responsavel,
+		SELECT depto_responsavel,
 			avg(nota) AS departamento_media
-		from cursa
-			join turma using(id_turma)
-			join disciplina using(cod_disc)
-		group by depto_responsavel
-	) AS media_dep using(depto_responsavel);
+		FROM cursa
+			JOIN turma USING(id_turma)
+			JOIN disciplina USING(cod_disc)
+		GROUP BY depto_responsavel
+	) AS media_dep USING(depto_responsavel);
 --1.7
-select ur.primeiro_nome,
+SELECT ur.primeiro_nome,
 	ur.sobrenome
-from professor pro2
-	join cargo car2 ON (car2.id_cargo = pro2.cargo)
-	join usuario ur using(cpf)
-where car2.salario = (
-		select min(salario)
-		from professor pro
-			join cargo car ON(car.id_cargo = pro.cargo)
+FROM professor pro2
+	JOIN cargo car2 ON (car2.id_cargo = pro2.cargo)
+	JOIN usuario ur USING(cpf)
+WHERE car2.salario = (
+		SELECT min(salario)
+		FROM professor pro
+			JOIN cargo car ON(car.id_cargo = pro.cargo)
 	);
 -- 1.8
-select primeiro_nome,
+SELECT primeiro_nome,
 	sobrenome
 FROM (
-		select *
-		from cursa
-		where nota in (
-				select min(nota)
-				from cursa
+		SELECT *
+		FROM cursa
+		WHERE nota IN (
+				SELECT min(nota)
+				FROM cursa
 			)
 	) as al_menor
-	JOIN estudante using(mat_estudante)
-	join usuario using(cpf);
+	JOIN estudante USING(mat_estudante)
+	JOIN usuario USING(cpf);
 -- 1.9
-select primeiro_nome,
+SELECT primeiro_nome,
 	sobrenome,
 	maior_5,
 	menor_5
 FROM (
-		select mat_estudante,
+		SELECT mat_estudante,
 			count(cod_disc) as maior_5
-		from (
-				select *
-				from cursa
-				where nota >= 5
-			) as maior_5
-			join turma using(id_turma)
-		group by (mat_estudante)
+		FROM (
+				SELECT *
+				FROM cursa
+				WHERE nota >= 5
+			) AS maior_5
+			JOIN turma USING(id_turma)
+		GROUP BY (mat_estudante)
 	) as notas_maiores_5
-	join (
-		select mat_estudante,
-			count(cod_disc) as menor_5
-		from (
-				select *
-				from cursa
-				where nota < 5
-			) as maior_5
-			join turma using(id_turma)
-		group by (mat_estudante)
-	) as notas_menores_5 using(mat_estudante)
-	join estudante using(mat_estudante)
-	join usuario using(cpf);
+	JOIN (
+		SELECT mat_estudante,
+			count(cod_disc) AS menor_5
+		FROM (
+				SELECT *
+				FROM cursa
+				WHERE nota < 5
+			) AS maior_5
+			JOIN turma USING(id_turma)
+		GROUP BY (mat_estudante)
+	) AS notas_menores_5 USING(mat_estudante)
+	JOIN estudante USING(mat_estudante)
+	JOIN usuario USING(cpf);
 -- 1.10
--- semelhante a 1.6, fazer consulta co-relacionadas
--- não precisa SOME some nem ALL
+SELECT *
+FROM (
+		(
+			SELECT cod_disc,
+				depto_responsavel,
+				avg(nota) AS media_disc
+			FROM cursa
+				JOIN turma USING(id_turma)
+				JOIN disciplina USING(cod_disc)
+			GROUP BY(cod_disc, cod_disc, depto_responsavel)
+		) AS notas_dis
+		JOIN (
+			SELECT depto_responsavel,
+				avg(nota) AS media_depto
+			FROM cursa
+				JOIN turma USING(id_turma)
+				JOIN disciplina USING(cod_disc)
+			GROUP BY(depto_responsavel)
+		) AS notas_depto USING(depto_responsavel)
+	) AS media_final
+WHERE (media_disc < media_depto);
 -- Esquema hospital
 SET search_path TO hospital;
 -- 2.1
-SET search_path TO hospital;
-select numcrm,
+SELECT numcrm,
 	primeironome,
 	especialidade,
 	salario
-from medico
-	join usuario using(cpf)
-where medico.salario >= SOME (
-		select avg(salario)
-		from medico
-		group by(especialidade)
+FROM medico
+	JOIN usuario USING(cpf)
+WHERE medico.salario >= SOME (
+		SELECT avg(salario)
+		FROM medico
+		GROUP BY(especialidade)
 	)
-order by (salario) ASC;
+ORDER BY (salario) ASC;
 -- 2.2
-select primeironome,
+SELECT primeironome,
 	numprontuario
-from paciente
-	join usuario us using(cpf)
-	join consulta co using(numprontuario)
-	join medico ON(co.idregistromedico = medico.idregistro)
-where especialidade IN(
-		select DISTINCT especialidade
-		from medico
-		where medico.especialidade = 'Clínico Geral'
+FROM paciente
+	JOIN usuario us USING(cpf)
+	JOIN consulta co USING(numprontuario)
+	JOIN medico ON(co.idregistromedico = medico.idregistro)
+WHERE especialidade IN(
+		SELECT DISTINCT especialidade
+		FROM medico
+		WHERE medico.especialidade = 'Clínico Geral'
 	);
 -- 2.3
-select primeironome cpf,
+SELECT primeironome cpf,
 	numprontuario
-from usuario
-	join (
-		select *
-		from paciente
-			join consulta co using(numprontuario)
-		where (
+FROM usuario
+	JOIN (
+		SELECT *
+		FROM paciente
+			JOIN consulta co USING(numprontuario)
+		WHERE (
 				EXTRACT(
 					YEAR
 					FROM co.dataconsulta
@@ -188,48 +204,53 @@ from usuario
 					FROM co.dataconsulta
 				)
 			) = (2018, 6)
-	) as junho_consul using(cpf);
+	) AS junho_consul USING(cpf);
 -- 2.4
-select idexame,
+SELECT idexame,
 	nome
-from (
-		select *
-		from solicitacao_exame
-		where datarealizacao is not null
-	) as realizados
-	join exame using(idexame);
+FROM (
+		SELECT *
+		FROM solicitacao_exame
+		WHERE datarealizacao IS NOT NULL
+	) AS realizados
+	JOIN exame USING(idexame);
 -- 2.5
-where datarealizacao is not null
-) as realizados
-join exame using(idexame)
-join laudo using(idexame)
-where statuslaudo = 'Entregue';
+SELECT idexame,
+	nome
+FROM (
+		SELECT *
+		FROM solicitacao_exame
+		WHERE datarealizacao IS NOT NULL
+	) AS realizados
+	JOIN exame USING(idexame)
+	JOIN laudo USING(idexame)
+WHERE statuslaudo = 'Entregue';
 -- 2.6
-with soma_especialidades as (
-	select especialidade,
-		sum(salario) as soma_es
-	from medico
-		join medico_docente using(idregistro)
-	group by(especialidade)
+with soma_especialidades AS (
+	SELECT especialidade,
+		sum(salario) AS soma_es
+	FROM medico
+		JOIN medico_docente USING(idregistro)
+	GROUP BY(especialidade)
 )
-select *
-from soma_especialidades
-where soma_es > 15000;
+SELECT *
+FROM soma_especialidades
+WHERE soma_es > 15000;
 -- 2.7
-select primeironome,
+SELECT primeironome,
 	numcrm,
 	especialidade,
 	(salario + (salario * 0.05)) AS sal_com_bonus
-from (
-		select idregistro,
+FROM (
+		SELECT idregistro,
 			cpf,
 			numcrm,
 			salario,
 			especialidade,
 			count(*) AS num_consultas
-		from medico me
-			join consulta con ON(con.idregistromedico = me.idregistro)
-		group by(idregistro, cpf, numcrm, salario, especialidade)
+		FROM medico me
+			JOIN consulta con ON(con.idregistromedico = me.idregistro)
+		GROUP BY(idregistro, cpf, numcrm, salario, especialidade)
 		having count(*) > 9
-	) as medicos_bonus
-	join usuario using(cpf);
+	) AS medicos_bonus
+	JOIN usuario USING(cpf);
