@@ -3,7 +3,7 @@ from __future__ import annotations;
 from vertex import Vertex;
 from graph import Graph;
 from prim import prim;
-from kruskal import kru;
+from kruskal import kruskal;
 
 if (__name__ == '__main__'):
 

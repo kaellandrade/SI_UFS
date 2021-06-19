@@ -4,7 +4,7 @@ from graph import Graph;
 from edge import WeightedEdge;
 from copy import copy;
 """
-Recebe um grafo e retorna sua árvore de custo min;
+Recebe um Grafo G e retorna sua árvore de custo min;
 """
 def prim(G:Graph) -> Graph:
     v_i = G._vertices[0]; #Seleciona o primeiro vértice do grafo;
@@ -21,7 +21,10 @@ def prim(G:Graph) -> Graph:
         T.add_edge_by_indices(min_edge.v, min_edge.u, min_edge.weight);
         T_count+=1;
     return T;
-
+'''
+Retorna uma reta (u,v,p) de G tal que u pertence ao conunto de vértices abertos
+e v ao conjunto de fechados. Tal que p seja o menor peso.
+'''
 def select_min_edge(G:Graph)->WeightedEdge:
     set_edges = []; #Conjunto de arestas do grafo;
     for edge in G._edges: set_edges += edge;
