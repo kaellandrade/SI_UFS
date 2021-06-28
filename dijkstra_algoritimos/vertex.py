@@ -13,7 +13,7 @@ class Vertex:
         self.cor = 'BRANCO';
         
     def __str__(self):
-        return f"({self.label}) -> {self.dist}"
+        return f"{self.label} -> ({self.dist}) -> {self.parent}"
 
     def __lt__(self, other):
         return self.dist < other.dist;
