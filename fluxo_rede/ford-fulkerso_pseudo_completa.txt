@@ -1,0 +1,12 @@
+flow = 0
+for each edge (u, v) in G:
+    flow(u, v) = 0
+while there is a path, p, from s -> t in residual network G_f:
+    residual_capacity(p) = min(residual_capacity(u, v) : for (u, v) in p)
+    flow = flow + residual_capacity(p)
+    for each edge (u, v) in p:
+        if (u, v) is a forward edge:
+            flow(u, v) = flow(u, v) + residual_capacity(p)
+        else:
+            flow(u, v) = flow(u, v) - residual_capacity(p)
+return flow
