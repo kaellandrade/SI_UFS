@@ -1,27 +1,31 @@
-
-def isDuplicatedWithHash(x: list, n: int,) -> bool:
-    count = {x[i]: 0 for i in range(0, n)}
-    for i in range(0, n):
-        count[x[i]] += 1
-        if(count[x[i]]) >= 2:
-            return True
-
-    return False
+from util import calculateTime
 
 
-vet = [1, 2, 3, 4, 3, 6]
+def isDuplicatedWithHash(x: list, n: int,) -> bool:  # O(n)
+    count = {x[i]: 0 for i in range(0, n)}  # O(n)
+    for i in range(0, n):  # O(n)
+        count[x[i]] += 1  # O(1)
+        if(count[x[i]]) >= 2:  # O(1)
+            return True  # O(1)
 
-print(isDuplicatedWithHash(vet, len(vet)))
-
-
-# def isDuplicated(x: list, n: int,) -> bool:
-#     for i in range(0, n):  # O(n)
-#         for j in range(i+1, n):  # O(n)
-#             if(x[i] == x[j]):  # O(1)
-#                 return True  # O(1)
-#     return False  # O(1)
+    return False  # O(1)
 
 
-# vet = [1, 2]
+x1 = [x for x in range(0, 10000)]
+# print(isDuplicatedWithHash(x1, len(x1)))
 
-# print(isDuplicated(vet, len(vet)))
+print(calculateTime.calcTime(lambda: isDuplicatedWithHash(x1, len(x1))))
+
+
+def isDuplicated(x: list, n: int,) -> bool:  # O(n²)
+    for i in range(0, n):  # O(n)
+        for j in range(i+1, n):  # O(n)
+            if(x[i] == x[j]):  # O(1)
+                return True  # O(1)
+    return False  # O(1)
+
+
+x2 = [x for x in range(0, 10000)]
+
+# print(isDuplicated(x2, len(x2)))
+print(calculateTime.calcTime(lambda: isDuplicated(x2, len(x2))))
