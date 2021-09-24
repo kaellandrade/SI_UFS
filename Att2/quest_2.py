@@ -12,4 +12,4 @@ def rotVector(x: list) -> int:
     return meio
 
 
-print(rotVector([50, 10, 20, 30, 40]))
+print(rotVector([7, 9, 15, 2, 4]))
