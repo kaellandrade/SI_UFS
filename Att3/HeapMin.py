@@ -9,7 +9,7 @@ class HeapMin:
     def __init__(self, A=[]) -> None:
         self.__heapSize = len(A) - 1
         self.__heapMin = A
-        self.__buildMinHeap(self.__heapMin)
+        self.__buildMinHeap(A)
 
     def __str__(self):
         return str(self.__heapMin)
@@ -38,14 +38,14 @@ class HeapMin:
         l = self.left(i)
         r = self.right(i)
         if (l <= self.__heapSize and self.__heapMin[l] < self.__heapMin[i]):
-            maior = l
+            menor = l
         else:
-            maior = i
-        if(r <= self.__heapSize and self.__heapMin[r] < self.__heapMin[maior]):
-            maior = r
-        if (maior != i):
-            self.__heapMin[i], self.__heapMin[maior] = self.__heapMin[maior], self.__heapMin[i]
-            self.minHeapify(maior)
+            menor = i
+        if(r <= self.__heapSize and self.__heapMin[r] < self.__heapMin[menor]):
+            menor = r
+        if (menor != i):
+            self.__heapMin[i], self.__heapMin[menor] = self.__heapMin[menor], self.__heapMin[i]
+            self.minHeapify(menor)
 
     def __buildMinHeap(self, A):  # O(n)
         for i in range(floor(self.__heapSize/2), -1, -1):
@@ -69,31 +69,3 @@ class HeapMin:
         self.__heapMin.insert(0, elemento)
         self.__heapSize += 1
         self.minHeapify(0)
-
-
-def k_merge(arrays):
-    minHeap = HeapMin()  # Criando meu MinHeap
-    arrOrd = []
-
-    for i in range(len(arrays)):
-        #Vamos armazenar no Heap uma tupla do tipo (primeiro_valor, index_do_seu_array)
-        minHeap.push((arrays[i].pop(0), i))
-
-    while(minHeap.getHeapSize):
-        elemento = minHeap.popMin
-        arrOrd.append(elemento[0])
-
-        if (arrays[elemento[1]]):
-            minHeap.push((arrays[elemento[1]].pop(0), elemento[1]))
-
-    return arrOrd
-
-
-print(k_merge(
-    [
-        [0],
-        [1],
-        [0,2,3,4],
-        [-1]
-    ]
-))

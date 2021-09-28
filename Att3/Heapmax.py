@@ -68,7 +68,3 @@ class HeapMax:
         self.heapSize -= 1
         self.maxHeapify(0)
         return elemento
-
-
-# print(HeapMax.heapSort([2,1]))
-# h = HeapMax([0, 10, -1, 40, 100, 200])
