@@ -75,25 +75,30 @@ class HeapMax:
 a = [('sorting', 70), ('heapsort', 200), ('heapsort', 100), ('sorting', 190), ('tree', 80),
      ('sorting', 90), ('heap', 60), ('list', 30), ('tree', 50)]
 
-def contabiliza(palavra_pagina: tuple):
-    dici = {}
-    HeapMax.heapSort(palavra_pagina, key=lambda item:item[1])
-    for palavra, pagina in a:
+'''
+Contabiliza cada palavra e sua respectiva página.
+'''
+def contabiliza(palavra_pagina: tuple) -> dict:
+    dici = {} # O(1)
+    HeapMax.heapSort(palavra_pagina, key=lambda item:item[1]) #O(nlogn)
+    for palavra, pagina in a: #O(n) para cada tupla ('palavra', Numpágina) ESTÁ ORDENADO POR PÁGINA
         if(dici.get(palavra) != None):
             dici[palavra].append(pagina)
         else:
             dici[palavra] = [pagina]
     return dici
 
+'''
+Imprime em ordem alfabética.
+'''
+def imprime(dict)->None:
+    palavra_pagina = [] #O(1)
+    for palavra in dict:#O(n)
+        palavra_pagina.append((palavra, dict[palavra])) #O(1)
 
-def imprime(dict):
-    palavra_pagina = []
-    for item in dict:
-        palavra_pagina.append((item, dict[item]))
+    HeapMax.heapSort(palavra_pagina, key=lambda x:x[0]) #O(nlogn)
 
-    HeapMax.heapSort(palavra_pagina, key=lambda x:x[1])
-
-    for palavra, paginas in palavra_pagina:
+    for palavra, paginas in palavra_pagina: #O(n)
         print(f'{palavra}   {str(paginas)[1:-1]}')
 
 
