@@ -4,7 +4,7 @@ from dados_ordenados import cadastro
 
 
 def k_merge(arrays):
-    minHeap = HeapMin([], key=lambda tupla: tupla[0])  # Criando meu MinHeap
+    minHeap = HeapMin([])  # Criando meu MinHeap
     arrOrd = []
 
     for i in range(len(arrays)):
@@ -12,13 +12,12 @@ def k_merge(arrays):
         minHeap.push((arrays[i].pop(0), i))
 
     while(minHeap.getHeapSize):
-        tupla = minHeap.popMin
+        tupla = minHeap.heap_extract_min()
+        
 
         elemento = tupla[0]  # Extraindo o valor
         index = tupla[1]  # Extraindo o index
-
         arrOrd.append(elemento)
-
         # Se existir elemeto no array do elemento que acabou de serremovido
         if (arrays[index]):
             minHeap.push((arrays[index].pop(0), index))
@@ -34,9 +33,6 @@ def verifyOrder(array: list, key=lambda item: item) -> bool:
     return True
 
 
-# res = k_merge(cadastro)
-# print(verifyOrder(res, key=lambda item: item[0]))
-
-heap = HeapMin([item for item in range(10, -1, -1)])
-while(heap.getHeapSize):
-    print(heap.popMin)
+res = k_merge(cadastro)
+print(res)
+print(verifyOrder(res, key=lambda item:item[0]))

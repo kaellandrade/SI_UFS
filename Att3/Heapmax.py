@@ -1,10 +1,8 @@
-from math import floor
+from math import floor, inf
 
 '''
 Estrutura Heap
 '''
-
-
 class HeapMax:
     def __init__(self, A=[]) -> None:
         self.heapSize = len(A) - 1
@@ -19,6 +17,9 @@ class HeapMax:
     @property
     def getHeapSize(self):
         return self.heapSize
+    
+    def parent(self, i):
+        return floor(i/2)
 
     def left(self, i):
         return 2*i + 1  # Pois começamos do 0 aqui
@@ -61,41 +62,37 @@ class HeapMax:
             self.heapSize -= 1
             self.maxHeapify(0)
         return self.heapMax
-
-    '''
-        Remove o elemento do Heap e atualizando o Heap
-    '''
-
-    def popFisrt(self):
-        elemento = self.heapMax[0]
-        self.heapMax[0], self.heapMax[self.getHeapSize] = self.heapMax[self.getHeapSize], self.heapMax[0]
+    
+    def heapMaximo(self):
+        return self.heapMax[0]
+    
+    def heap_extract_max(self):
+        if(self.getHeapSize < 0):
+            return 'Erro Heap Vazio!'
+        maior = self.heapMax[0]
+        self.heapMax[0] = self.heapMax[self.getHeapSize]
         self.heapSize -= 1
-        self.rearanjeMaxHeap(self.getHeapSize)
+        self.maxHeapify(0)
+        return maior
 
-        return elemento
+    def heap_increse_key(self, i, key):
+        if (key < self.heapMax[i]):
+            "Error! Nova chave é menor que chave atual!"
+        self.heapMax[i] = key
+        while (i > 0 and self.heapMax[self.parent(i)] < self.heapMax[i]):
+            self.heapMax[i], self.heapMax[self.parent(i)] = self.heapMax[self.parent(i)], self.heapMax[i]
+            i = self.parent(i)
 
-    def push(self, elemento):
-        self.heapMax.insert(0, elemento)
+    def push(self, key):
         self.heapSize += 1
-        filho = self.getHeapSize
-        pai = self.heapSize % 2
-        while(pai >= 1):
-            if(self.heapMax[pai] < self.heapMax[filho]):
-                self.heapMax[pai], self.heapMax[filho] = self.heapMax[filho], self.heapMax[pai]
-                filho = pai
-                pai = pai % 2
-            else:
-                pai = 0
+        self.heapMax.append(-inf)
+        self.heap_increse_key(self.getHeapSize, key)
 
-    def rearanjeMaxHeap(self, n):
-        pai = 0
-        filho = 1
-        while(filho <= n-1):
-            if(self.heapMax[filho] < self.heapMax[filho + 1]):
-                filho += 1
-            if(self.heapMax[filho] > self.heapMax[pai]):
-                self.heapMax[pai], self.heapMax[filho] = self.heapMax[filho], self.heapMax[pai]
-                pai = filho
-                filho = 2 * filho
-            else:
-                filho = n
+
+
+
+
+
+
+
+

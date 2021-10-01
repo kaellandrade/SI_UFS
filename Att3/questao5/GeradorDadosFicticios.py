@@ -73,6 +73,6 @@ Criando dados para 74 municípios sendo
 que cada município pode conter no máximo 6 cadastro. 
 (6 por questão de limitação de memoria.)
 '''
-data = GeneratorDataBase(74, 6)
+data = GeneratorDataBase(5, 5)
 dados_ordenados_porMunicipios = data.gerarCadastroGeral
 print(dados_ordenados_porMunicipios)
