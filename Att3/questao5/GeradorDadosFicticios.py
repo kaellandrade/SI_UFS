@@ -38,8 +38,8 @@ class GeneratorDataBase:
     def gerarCadastroGeral(self):
         for municipio in range(0, self.TOTAL_MUNICIPIOS):
             N_PESSOAS = ceil(random()*self.MAXIMO_PESSOA_POR_MUNI)
-
             pessoasPorMunicipio = []
+
             for _ in range(0, N_PESSOAS):
                 pessoa_n = pessoas.pop()
                 pessoa_n["cpf"] = self.geradorCpf
@@ -56,11 +56,9 @@ class GeneratorDataBase:
 
                     )
                 )
-            try:
-                self.cadastroGerado.append(pessoasPorMunicipio)
-            except(UnboundLocalError):
-                print('Devemos gerar dados para pelo menos um cidadão!')
-                return
+            
+            pessoasPorMunicipio.sort(key=lambda tupla: tupla[0])
+            self.cadastroGerado.append(pessoasPorMunicipio)
         return self.cadastroGerado
 
     def __str__(self) -> str:
@@ -70,6 +68,11 @@ class GeneratorDataBase:
         return string
 
 
-data = GeneratorDataBase(3, 2)
-data.gerarCadastroGeral
-print(data)
+'''
+Criando dados para 74 municípios sendo 
+que cada município pode conter no máximo 6 cadastro. 
+(6 por questão de limitação de memoria.)
+'''
+data = GeneratorDataBase(74, 6)
+dados_ordenados_porMunicipios = data.gerarCadastroGeral
+print(dados_ordenados_porMunicipios)

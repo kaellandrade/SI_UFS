@@ -23,7 +23,8 @@ def extraiPalavras(texto: str) -> list:
 
 def maisFrequentes(texto: str) -> list:
     palavras_extraidas = extraiPalavras(texto)
-    HeapMax.heapSort(palavras_extraidas)
+    hmax = HeapMax(palavras_extraidas)
+    hmax.heapSort()
     return palavras_extraidas[len(palavras_extraidas) - 2:]
 
 print(maisFrequentes(TEXTO))

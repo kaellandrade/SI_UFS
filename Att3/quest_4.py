@@ -10,6 +10,7 @@ class HeapMax:
         self.heapSize = len(A) - 1
         self.heapMax = A
         self.__buildMaxHeap(self.heapMax, key)
+        self.key= key
 
     def __str__(self):
         return str(self.heapMax)
@@ -68,7 +69,7 @@ class HeapMax:
     def popFisrt(self):
         elemento = self.heapMax.pop(0)
         self.heapSize -= 1
-        self.maxHeapify(0)
+        self.maxHeapify(0, self.key)
         return elemento
 
 
