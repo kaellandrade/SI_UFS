@@ -1,4 +1,4 @@
-from Heapmax import HeapMax
+from MaxHeap import MaxHeap
 
 TEXTO = "LOBO BOLO LOBO BOLO COMIDA LOBO HEAP HEAP-MAX HEAP-MAX HEAP-MAX LOBO"
 
@@ -23,8 +23,6 @@ def extraiPalavras(texto: str) -> list:
 
 def maisFrequentes(texto: str) -> list:
     palavras_extraidas = extraiPalavras(texto)
-    hmax = HeapMax(palavras_extraidas)
-    hmax.heapSort()
-    return palavras_extraidas[len(palavras_extraidas) - 2:]
-
+    hmax = MaxHeap(palavras_extraidas)
+    return hmax.heapSort()[-2:]
 print(maisFrequentes(TEXTO))

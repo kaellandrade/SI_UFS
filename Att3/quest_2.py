@@ -1,4 +1,4 @@
-from HeapMin import MinHeap
+from MinHeap import MinHeap
 
 
 def conecta_fios(fios: list) -> int:

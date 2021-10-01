@@ -1,10 +1,10 @@
 from math import floor
-
+from MaxHeap import MaxHeap 
 '''
 Estrutura Heap
 '''
 
-
+'''
 class HeapMax:
     def __init__(self, A, key=lambda item: item) -> None:
         self.heapSize = len(A) - 1
@@ -14,9 +14,7 @@ class HeapMax:
 
     def __str__(self):
         return str(self.heapMax)
-    '''
-        Retorna o filho esquerdo
-    '''
+
     @property
     def getHeapSize(self):
         return self.heapSize + 1
@@ -24,16 +22,12 @@ class HeapMax:
     def left(self, i):
         return 2*i + 1  # Pois começamos do 0 aqui
 
-    '''
-        Retorna o filho direito
-    '''
+  
 
     def right(self, i):
         return 2*i+2
 
-    '''
-    Matém a propriedade Heap-Max
-    '''
+
 
     def maxHeapify(self, i, key) -> None:  # O(logn)
         l = self.left(i)
@@ -52,9 +46,7 @@ class HeapMax:
         for i in range(floor(self.heapSize/2), -1, -1):  # O(n/2)
             self.maxHeapify(i, key)  # O(n/2 * logn)
         return A
-    '''
-        TODO:Ajustar aqui
-    '''
+
     def heapSort(A, key=lambda item: item):
         heapSort = HeapMax(A, key)
         for i in range(len(A)-1, 0, -1):  # O(nlogn)
@@ -62,15 +54,15 @@ class HeapMax:
             heapSort.heapSize -= 1
             heapSort.maxHeapify(0, key)
         return heapSort
-    '''
-        Remove o elemento do Heap e atualizando o Heap
-    '''
+
     @property
     def popFisrt(self):
         elemento = self.heapMax.pop(0)
         self.heapSize -= 1
         self.maxHeapify(0, self.key)
         return elemento
+
+'''
 
 
 a = [('sorting', 70), ('heapsort', 200), ('heapsort', 100), ('sorting', 190), ('tree', 80),
@@ -81,7 +73,9 @@ Contabiliza cada palavra e sua respectiva página.
 '''
 def contabiliza(palavra_pagina: tuple) -> dict:
     dici = {} # O(1)
-    HeapMax.heapSort(palavra_pagina, key=lambda item:item[1]) #O(nlogn)
+    hpMax = MaxHeap(palavra_pagina)
+    palavra_pagina = hpMax.heapSort()
+    # HeapMax.heapSort(palavra_pagina, key=lambda item:item[1]) #O(nlogn)
     for palavra, pagina in a: #O(n) para cada tupla ('palavra', Numpágina) ESTÁ ORDENADO POR PÁGINA
         if(dici.get(palavra) != None):
             dici[palavra].append(pagina)
@@ -97,8 +91,9 @@ def imprime(dict)->None:
     for palavra in dict:#O(n)
         palavra_pagina.append((palavra, dict[palavra])) #O(1)
 
-    HeapMax.heapSort(palavra_pagina, key=lambda x:x[0]) #O(nlogn)
-
+    hpMax = MaxHeap(palavra_pagina)
+    palavra_pagina = hpMax.heapSort()
+    # HeapMax.heapSort(palavra_pagina, key=lambda x:x[0]) #O(nlogn)
     for palavra, paginas in palavra_pagina: #O(n)
         print(f'{palavra}   {str(paginas)[1:-1]}')
 

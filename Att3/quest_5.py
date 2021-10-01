@@ -1,5 +1,5 @@
 #!python3
-from HeapMin import MinHeap
+from MinHeap import MinHeap
 from dados_ordenados import cadastro
 
 
@@ -26,4 +26,3 @@ def k_merge(arrays):
 
 
 res = k_merge(cadastro)
-print(res)
