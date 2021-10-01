@@ -1,99 +1,88 @@
-from math import floor, inf
+"""
+Heap min Em Python
+"""
+from math import floor
 
-'''
-Estrutura Heap
-'''
-
-
-class HeapMin:
-    def __init__(self, A=[]) -> None:
-        self.heapSize = len(A) - 1
-        self.heapMin = A
-        self.__buildMinHeap(self.heapMin)
-
-    def __str__(self):
-        return str(self.heapMin)
-    '''
-        Retorna o filho esquerdo
-    '''
-    @property
-    def getHeapSize(self):
-        return self.heapSize
-
+class MinHeap:
+    def __init__(self, arr=[]):
+        """
+        Nesta implementação o Heapinicializa com um valor;
+        """
+        self.heap_list = [0]+arr
+        self.current_size = len(arr)
+        #Monta nosso Heap
+        for i in range(floor(len(self.heap_list)/2),0,-1):
+            self.min_heapify(i)
+    
     def parent(self, i):
-        return floor(i/2)
+        return i//2
 
     def left(self, i):
-        return 2*i + 1  # Pois começamos do 0 aqui
-
-    '''
-        Retorna o filho direito
-    '''
-
+        '''
+            Retorna o filho Esquerdo
+        '''
+        return 2*i
+            
     def right(self, i):
-        return 2*i+2
-
-    '''
-    Matém a propriedade Heap-Max
-    '''
-
-    def minHeapify(self, i) -> None:  # O(logn)
+        '''
+            Retorna o filho direito
+        '''
+        return (2*i)+1
+    def heap_increse_key(self, i):
+        """
+        Move o valor para cima para manter a propriedade do heapFy.
+        """
+        # Rearanjando os elementos.
+        while self.parent(i) > 0:
+            # Se o elemento for menorque seu pai. Então troque.
+            if (self.heap_list[i] < self.heap_list[self.parent(i)]):
+                self.heap_list[i], self.heap_list[self.parent(i)] = self.heap_list[self.parent(i)], self.heap_list[i]
+            # Move o index para o pai para manter a propriedade.
+            i = self.parent(i)
+ 
+    def insert(self, k):
+        """
+        Insere um valor no nosso Heap
+        """
+        # Inserindo o novo valor.
+        self.heap_list.append(k)
+        # Incrementando o tamanho do heap.
+        self.current_size += 1
+        # Movendo o elemento de sua posição de baixo para cima.
+        self.heap_increse_key(self.current_size)
+ 
+    def min_heapify(self, i):
         l = self.left(i)
         r = self.right(i)
-        if (l <= self.getHeapSize and self.heapMin[l] < self.heapMin[i]):
-            maior = l
+        if(l <= self.current_size and self.heap_list[l] < self.heap_list[i]):
+            menor = l
         else:
-            maior = i
-        if(r <= self.getHeapSize and self.heapMin[r] < self.heapMin[maior]):
-            maior = r
-        if (maior != i):
-            self.heapMin[i], self.heapMin[maior] = self.heapMin[maior], self.heapMin[i]
-            self.minHeapify(maior)
-
-    def __buildMinHeap(self, A):  # O(n)
-        for i in range(floor(self.heapSize/2), -1, -1):  # O(n/2)
-            self.minHeapify(i)  # O(n/2 * logn)
-        return A
-
-    def heapMin(self):
-        return self.heapMin[0]
+            menor = i
+        if(r<= self.current_size and self.heap_list[r] < self.heap_list[menor]):
+            menor = r
+        if menor != i:
+            self.heap_list[i], self.heap_list[menor] = self.heap_list[menor], self.heap_list[i]
+            self.min_heapify(menor)
 
     def heap_extract_min(self):
-        if(self.getHeapSize < 0):
-            return 'Erro Heap Vazio!'
-        maior = self.heapMin[0]
-        self.heapMin[0] = self.heapMin[self.getHeapSize]
-        self.heapSize -= 1
-        self.minHeapify(0)
-        return maior
-
-    def heap_increse_key(self, i, key):
-        if (key[0][0] < self.heapMin[i]):
-            return "Error! Nova chave é menor que chave atual!"
-        self.heapMin[i] = key
-        while (i > 0 and self.heapMin[self.parent(i)] > self.heapMin[i]):
-            self.heapMin[i], self.heapMin[self.parent(
-                i)] = self.heapMin[self.parent(i)], self.heapMin[i]
-            i = self.parent(i)
-
-    def push(self, key):
-        self.heapSize += 1
-        self.heapMin.append(key)
-        self.heapMin[self.heapSize] = -inf
-        self.heap_increse_key(self.getHeapSize, key)
-
-
-hepmin = HeapMin([])
-
-# print(hepmin)
-# hepmin.heap_extract_min()
-# hepmin.heap_extract_min()
-# hepmin.heap_extract_min()
-# hepmin.heap_extract_min()
-# hepmin.heap_extract_min()
-# hepmin.heap_extract_min()
-# hepmin.heap_extract_min()
-# hepmin.heap_extract_min()
-# hepmin.heap_extract_min()
-# print(hepmin.heap_extract_min())
-
+        # Pois iniciamos nosso heap com um valor.
+        if len(self.heap_list) == 1:
+            return 'Heap Vazio!'
+ 
+        # Pegando a raiz do heap. (O menor valor)
+        root = self.heap_list[1]
+ 
+        # Move o último valor do Heap para raiz.
+        self.heap_list[1] = self.heap_list[self.current_size]
+ 
+        # Removendo o último valor, pois fizemos uma cópia para raiz.
+        *self.heap_list, _ = self.heap_list
+ 
+        # Diminuindo o tamanho do heap
+        self.current_size -= 1
+ 
+        # Mantendo a propriedade heap
+        self.min_heapify(1)
+ 
+        # retornando o menor valor
+        return root

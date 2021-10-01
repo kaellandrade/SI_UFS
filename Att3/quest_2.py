@@ -1,14 +1,14 @@
-from HeapMin import HeapMin
+from HeapMin import MinHeap
 
 
 def conecta_fios(fios: list) -> int:
-    heapmin = HeapMin(fios)
+    heapmin = MinHeap(fios)
     custo_total = 0
     conectados = 0
-    while(heapmin.getHeapSize >= 1):
+    while(heapmin.current_size > 1):
         conectados = heapmin.heap_extract_min() + heapmin.heap_extract_min()
         custo_total += conectados 
-        heapmin.push(conectados) #Olog(n)
+        heapmin.insert(conectados) #Olog(n)
 
     return custo_total
 
