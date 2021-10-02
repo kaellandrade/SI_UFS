@@ -3,12 +3,13 @@ Heap min Em Python
 """
 from math import floor
 class MaxHeap:
-    def __init__(self, arr=[]):
+    def __init__(self, arr=[], key=lambda item:item):
         """
         Nesta implementação o Heapinicializa com um valor;
         """
         self.heap_list = [None]+arr
         self.current_size = len(arr)
+        self.key = key
         #Monta nosso Heap
         for i in range(floor(len(self.heap_list)/2),0,-1):
             self.max_heapify(i)
@@ -48,7 +49,7 @@ class MaxHeap:
         # Rearanjando os elementos.
         while self.parent(i) > 0:
             # Se o elemento for maior que seu pai. Então troque.
-            if (self.heap_list[i] > self.heap_list[self.parent(i)]):
+            if (self.key(self.heap_list[i]) >  self.key(self.heap_list[self.parent(i)])):
                 self.heap_list[i], self.heap_list[self.parent(i)] = self.heap_list[self.parent(i)], self.heap_list[i]
             # Move o index para o pai para manter a propriedade.
             i = self.parent(i)
@@ -70,11 +71,11 @@ class MaxHeap:
         '''
         l = self.left(i)
         r = self.right(i)
-        if(l <= self.current_size and self.heap_list[l] > self.heap_list[i]):
+        if(l <= self.current_size and self.key(self.heap_list[l]) > self.key(self.heap_list[i])):
             maior = l
         else:
             maior = i
-        if(r<= self.current_size and self.heap_list[r] > self.heap_list[maior]):
+        if(r<= self.current_size and self.key(self.heap_list[r]) > self.key(self.heap_list[maior])):
             maior = r
         if maior != i:
             self.heap_list[i], self.heap_list[maior] = self.heap_list[maior], self.heap_list[i]

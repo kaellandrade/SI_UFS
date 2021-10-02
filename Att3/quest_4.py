@@ -64,7 +64,6 @@ class HeapMax:
 
 '''
 
-
 a = [('sorting', 70), ('heapsort', 200), ('heapsort', 100), ('sorting', 190), ('tree', 80),
      ('sorting', 90), ('heap', 60), ('list', 30), ('tree', 50)]
 
@@ -73,10 +72,9 @@ Contabiliza cada palavra e sua respectiva página.
 '''
 def contabiliza(palavra_pagina: tuple) -> dict:
     dici = {} # O(1)
-    hpMax = MaxHeap(palavra_pagina)
+    hpMax = MaxHeap(palavra_pagina, key=lambda tupla:tupla[1])
     palavra_pagina = hpMax.heapSort()
-    # HeapMax.heapSort(palavra_pagina, key=lambda item:item[1]) #O(nlogn)
-    for palavra, pagina in a: #O(n) para cada tupla ('palavra', Numpágina) ESTÁ ORDENADO POR PÁGINA
+    for palavra, pagina in palavra_pagina: #O(n) para cada tupla ('palavra', Numpágina) ESTÁ ORDENADO POR PÁGINA
         if(dici.get(palavra) != None):
             dici[palavra].append(pagina)
         else:
