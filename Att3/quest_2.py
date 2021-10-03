@@ -8,7 +8,7 @@ def conecta_fios(fios: list) -> int:
     while(heapmin.current_size > 1):
         conectados = heapmin.heap_extract_min() + heapmin.heap_extract_min()
         custo_total += conectados 
-        heapmin.insert(conectados) #Olog(n)
+        heapmin.insert(conectados)
 
     return custo_total
 

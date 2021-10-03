@@ -1,5 +1,5 @@
 """
-Heap min Em Python
+Heap max Em Python
 """
 from math import floor
 class MaxHeap:
