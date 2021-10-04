@@ -52,7 +52,8 @@ class GeneratorDataBase:
                         pessoa_n.get("municipio"),
                         pessoa_n.get("estado"),
                         pessoa_n.get("vacina"),
-                        pessoa_n.get("dataDose")
+                        pessoa_n.get("dataDose1"),
+                        pessoa_n.get("dataDose2")
 
                     )
                 )
@@ -73,6 +74,6 @@ Criando dados para 74 municípios sendo
 que cada município pode conter no máximo 6 cadastro. 
 (6 por questão de limitação de memoria.)
 '''
-data = GeneratorDataBase(20, 5)
+data = GeneratorDataBase(30, 5)
 dados_ordenados_porMunicipios = data.gerarCadastroGeral
 print(dados_ordenados_porMunicipios)
