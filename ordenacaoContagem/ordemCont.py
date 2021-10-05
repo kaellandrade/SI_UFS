@@ -1,6 +1,7 @@
 def contSort(lista: list) -> list:
     V_contador = [0] * (max(lista) + 1)
     V_ordenado = [0] * (len(lista)+1)
+    
     for elemento in lista:
         V_contador[elemento] += 1
 
