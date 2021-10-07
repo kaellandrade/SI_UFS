@@ -1,3 +1,4 @@
+# !python3.8
 from MaxHeap import MaxHeap
 
 TEXTO = "LOBO BOLO LOBO BOLO COMIDA LOBO HEAP HEAP-MAX HEAP-MAX HEAP-MAX LOBO"

@@ -1,4 +1,4 @@
-#!python3
+# !python3.8
 from MinHeap import MinHeap
 from dados_ordenados import cadastro
 from datetime import date, datetime
@@ -8,16 +8,15 @@ class AppGestaoVacina:
     '''
         Aplicativo de gestaão de vacina para o estado de Sergipe-Se.
     '''
-
-    def __init__(self, n_m_municipios) -> None:
+    def __init__(self, n_m_municipios):
         self.dadosUnificados = self.k_merge(n_m_municipios)
         self.Pessoas_Por_idades = {}  # TabelaHash do tipo IDADE : QTD_VACINADOS
         self.todasIdades = []
         self.frequenciaIdades = []
         self.contabilizaVacinados()
-        self.painelConulta()
+        self.consulta()
 
-    def painelConulta(self):
+    def consulta(self):
         print(f'***Olá, seja bem vindo(a)!***')
         print(f'O que deseja fazer?')
         print(f'Total vacinados.... [digite 1]')
@@ -41,9 +40,6 @@ class AppGestaoVacina:
                     print(f'Opção inválida tente novamente!')
             except(Exception):
                 print('Ops! Algo deu errado verifica se está digitando valores válidos!')
-
-
-        
        
     def contabilizaVacinados(self):
         '''Contabiliza vacinados por idade.'''
@@ -62,7 +58,6 @@ class AppGestaoVacina:
                     self.Pessoas_Por_idades[idade] = 1
 
         self.frequenciaIdades = self.contSort(self.todasIdades)
-
 
     def estaVacinado(self, pessoa):
         '''
@@ -127,8 +122,3 @@ class AppGestaoVacina:
 
 
 appGestor = AppGestaoVacina(cadastro)
-print(appGestor.Pessoas_Por_idades)
-print(appGestor.frequenciaIdades)
-
-# print(len(appGestor.dadosUnificados))
-# print(dados_unificados)

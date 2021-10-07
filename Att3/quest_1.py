@@ -1,3 +1,4 @@
+# !python3.8
 from MinHeap import MinHeap
 
 
@@ -8,4 +9,4 @@ def k_esimo_menor(vetor: list, k:int) -> int:
             heapmin.heap_extract_min()
     return heapmin.getMin()
 
-print(k_esimo_menor([100, 1, 0, -2], 2))
+print(k_esimo_menor([100, 1, 0, -2], 3))
