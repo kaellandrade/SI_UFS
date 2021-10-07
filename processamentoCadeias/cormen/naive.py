@@ -5,4 +5,3 @@ def naive_string_matcher(stringT: str, stringP: str) -> int:
         if(stringP[0:m] == stringT[s:s+m]):
             print(f'Padrão occore no deslocamento {s}')
 
-naive_string_matcher('acaabc','aab');
