@@ -4,7 +4,6 @@ class KMP:
     Recebe uma String T e um padrão P. Verifica as ocorrências 
     de P em T.
     '''
-
     def __init__(self, StringT, StringP) -> list:
         self.N = len(StringT)
         self.M = len(StringP)
@@ -32,6 +31,9 @@ class KMP:
                 j = self.ARR_PRE[j-1]
 
     def __compute_prefix_function(self, pat, M, ARR_PRE) -> list:
+        '''
+            Calcula o vetor pre-processador.
+        '''
         len = 0
         i = 1
         while(i < M):
@@ -45,6 +47,3 @@ class KMP:
                 else:
                     ARR_PRE[i] = 0
                     i += 1
-
-
-KMP('xyxyxyxyxyxy', 'xyxyxyxyxy')
