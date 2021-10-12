@@ -9,10 +9,10 @@ def shifttable(padrao: str):
     return tabela
 
 
-def horspoolMatching(texto, padrao):
+def horspoolMatching(texto, padrao): # Θ(n) para textos aleatórios, O(nm) pior caso. 
     tabelaPre = shifttable(padrao)
     m = len(padrao)
-    n = len(texto)
+    n = len(texto) 
     i = len(padrao) - 1
     ultimaOcorr = -1
     while(i <= n-1):
@@ -23,3 +23,5 @@ def horspoolMatching(texto, padrao):
             ultimaOcorr = i-m+1
         i = i + tabelaPre[ord(texto[i])]
     return ultimaOcorr
+
+print(horspoolMatching('JIM_SA W_ME_IN_A_BARBERSHOP','BARBER'))

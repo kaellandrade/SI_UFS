@@ -1,6 +1,7 @@
 algoritmos/a.out
 # Byte-compiled / optimized / DLL files
 *__pycache__/
+*.vscode
 *.py[cod]
 *$py.class
 
