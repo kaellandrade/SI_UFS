@@ -22,19 +22,20 @@ class NodeHoff:
         return self.freq - nod.freq
 
 
-def expand(Trie, dadosCodificados) -> None:
-    root = Trie
-    noAtual = Trie
-    resposta = ""
-    for i in range(0, len(dadosCodificados)):
-        if(dados_codificados[i] == '0'):
-            noAtual = noAtual.left
-        else:
-            noAtual = noAtual.right
-        if(noAtual.isLeaf()):
-            resposta += noAtual.simbol
-            noAtual = root
-    return resposta
+
+def expand(Trie, noAtual, dadosCompc, dadosOri='') -> None:
+    if(noAtual.isLeaf()):
+        return expand(Trie, Trie, dadosCompc, dadosOri + noAtual.simbol)
+
+    if(len(dadosCompc)==0):
+        return dadosOri
+
+    if(dadosCompc[0] == '0'):
+        return expand(Trie, noAtual.left, dadosCompc[1:], dadosOri)
+    else:
+        return expand(Trie, noAtual.right, dadosCompc[1:], dadosOri)
+
+
 
 
 def buildCode(Nodex):
@@ -91,9 +92,7 @@ def countFreq(string):
     return frequencia
 
 
-STRING = '''
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-'''
+STRING = 'Micael Andrade Dos Santos, estava aqui em casa esses dias tocando violão.'
 freq = countFreq(STRING)
 arv = buildTrie(freq)
 
@@ -103,5 +102,6 @@ dados_codificados = ''
 for ch in STRING:
     dados_codificados += tabelaCodificacao[ch]
 
-print(dados_codificados)
-print(expand(arv, dados_codificados))
+# print(tabelaCodificacao)
+# print(dados_codificados)
+print(expand(arv, arv, dados_codificados))

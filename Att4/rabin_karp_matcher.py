@@ -18,8 +18,3 @@ def rabin_karp_MATCHER(texto, padrao, d=256, q=3354393):
             t = (D*(t-ord(texto[s])*h) + ord(texto[s+M])) % q
             if(t < 0):
                 t = t+q
-
-
-TEXT = 'O LOBO COME BOLO, O BOLO É DO LOBO'
-PAT = 'LOBO'
-rabin_karp_MATCHER(TEXT, PAT)
