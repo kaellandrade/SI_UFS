@@ -12,7 +12,6 @@ class KMP:
         self.StringP = StringP
         self.ARR_PRE = [0] * self.M
         self.__compute_prefix_function(self.StringP, self.M, self.ARR_PRE)
-        # print(self.ARR_PRE)
         self.ultimaOcorr = self.__KMP_algoritmo()
         
     @property
