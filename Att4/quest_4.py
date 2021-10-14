@@ -11,6 +11,8 @@ P A M E L H E U S A A
 Y L U L H A B I U S L
 B C V A B E L H A B A
 '''
+#TODO VERIFICAR A PALAVRA CROTA.
+
 MATRIZ = [
     "LMOCROPBGCA",
     "EMYKVACAGAL",
@@ -24,6 +26,7 @@ MATRIZ = [
     "YLULHABIUSL",
     "BCVABELHABA"
 ]
+
 
 def rabin_karp_MATCHER(texto, padrao, d=256, q=3354393):
     D = d  # Tabela ASCII
@@ -40,36 +43,69 @@ def rabin_karp_MATCHER(texto, padrao, d=256, q=3354393):
     for s in range(N-M+1):
         if(p == t):
             if(padrao == texto[s:s+M]):
-                print(f'Padrão o corre em {s}')
+                return s
         if(s < N-M):
             t = (D*(t-ord(texto[s])*h) + ord(texto[s+M])) % q
             if(t < 0):
                 t = t+q
+    return -1
+
 
 def findWord(words, matriz):
     for word in words:
-        rabin_karp_MATCHER(matriz, word)
+        line = 0
+        while(line < len(matriz)):
+            if(line == 0):
+                for column in range(len(matriz)):
+                    word_vertical = getVerticalWord(column, len(matriz))
+                    word_vertical_rever = reversedString(word_vertical)
+                    res_vertical = rabin_karp_MATCHER(word_vertical, word)
+                    res_vertical_rever = rabin_karp_MATCHER(word_vertical_rever, word)
+                    if(res_vertical != -1):
+                        print((word, (res_vertical, column), (res_vertical+len(word)-1, column)))
 
-def getVerticalWord(column:int,M:int):
+                    if(res_vertical_rever != -1):
+                        print((word, (res_vertical_rever, column), (res_vertical_rever+len(word)-1, column)))
+
+                revers_horizon = rabin_karp_MATCHER(matriz[line], reversedString(word))
+                if(revers_horizon != -1):
+                    print((word, (line, revers_horizon+len(word)-1), (line, revers_horizon)))
+            else:
+                res = rabin_karp_MATCHER(matriz[line], word)
+
+                if(res != -1):
+                    print((word, (line, res), (line, res+len(word)-1)))
+            line += 1
+
+
+def getVerticalWord(column: int, M: int):
     '''
         ENTRADA: Um valor inteiro representando a coluna.
         SAÍDA: Uma String formada na vertical.
-
     '''
     word = ''
     for i in range(0, M):
         word += MATRIZ[i][column]
     return word
 
-def reversedString(string:str):
+
+def reversedString(string: str):
     '''
     ENTRADA: String S.
     SAÍDA: String S invertida.
     '''
     return string[::-1]
-    
-# print(getVerticalWord(10,len(MATRIZ)))
-# findWord(['MACACO'], MATRIZ[2])
-word_vertical = getVerticalWord(0, len(MATRIZ))
-print(word_vertical)
-print(reversedString(word_vertical))
+
+
+findWord(['PATO',
+          'MACACO',
+          'LEBRE',
+          'VACA',
+          'PORCO',
+          'ORCA',
+          'ABELHA',
+          'MEL',
+          'CROTA',
+          'OCCO'
+
+          ], MATRIZ)
