@@ -11,7 +11,7 @@ P A M E L H E U S A A
 Y L U L H A B I U S L
 B C V A B E L H A B A
 '''
-#TODO VERIFICAR A PALAVRA CROTA.
+#TODO: VERIFICAR A PALAVRA CROTA.
 
 MATRIZ = [
     "LMOCROPBGCA",
@@ -59,13 +59,14 @@ def findWord(words, matriz):
                 for column in range(len(matriz)):
                     word_vertical = getVerticalWord(column, len(matriz))
                     word_vertical_rever = reversedString(word_vertical)
+
                     res_vertical = rabin_karp_MATCHER(word_vertical, word)
                     res_vertical_rever = rabin_karp_MATCHER(word_vertical_rever, word)
                     if(res_vertical != -1):
                         print((word, (res_vertical, column), (res_vertical+len(word)-1, column)))
 
                     if(res_vertical_rever != -1):
-                        print((word, (res_vertical_rever, column), (res_vertical_rever+len(word)-1, column)))
+                        print((word, (len(word_vertical_rever)-res_vertical_rever-1, column), (abs((res_vertical_rever+len(word)) - len(word_vertical_rever)), column)))
 
                 revers_horizon = rabin_karp_MATCHER(matriz[line], reversedString(word))
                 if(revers_horizon != -1):
@@ -106,6 +107,9 @@ findWord(['PATO',
           'ABELHA',
           'MEL',
           'CROTA',
-          'OCCO'
+          'OCCO',
+          'LAY',
+          'LIYTA'
+
 
           ], MATRIZ)

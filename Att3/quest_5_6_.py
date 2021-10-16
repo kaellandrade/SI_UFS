@@ -29,9 +29,9 @@ class AppGestaoVacina:
                 if(resposta == 1):
                     print(f'Total vacinados até agora: {self.frequenciaIdades[-1]}')
                 elif(resposta == 2):
-                    idadeMin = int(input('Digite a idade mínima [entre 1 e 100]: ')) -1
+                    idadeMin = int(input('Digite a idade mínima [entre 1 e 100]: '))
                     idadeMax = int(input('Digite a idade máxima [entre 1 e 100]: '))
-                    total = self.frequenciaIdades[idadeMax] - self.frequenciaIdades[idadeMin] 
+                    total = self.frequenciaIdades[idadeMax] - self.frequenciaIdades[idadeMin-1] 
                     print(f'Entre {idadeMin+1} e {idadeMax} temos {total} vacinados!')
 
                 elif(resposta == 3):

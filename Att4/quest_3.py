@@ -73,6 +73,7 @@ def invertString(string):
 
     return nova_string + lastChar
 
+
 def isCircular(T: str, S: str):
     '''
         ENTRADA: Padrao T e um string circular S

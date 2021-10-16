@@ -1,7 +1,7 @@
-def rabin_karp_MATCHER(texto, padrao, d=256, q=3354393):
+def rabin_karp_MATCHER(texto, ArrPrefixs, d=256, q=3354393):
 
     totalOcorr = 0
-    for pat in padrao:
+    for pat in ArrPrefixs:
         D = d  # Tabela ASCII
         M = len(pat)
         h = pow(d, M-1) % q
@@ -24,20 +24,22 @@ def rabin_karp_MATCHER(texto, padrao, d=256, q=3354393):
     return totalOcorr
 
 
-def findPrefix(pat: str, sufix=[]):
+def findPrefix(pat: str, M:int, sufix=[]):
     '''
     Entrada: Uma String S
     Saída: Todos o possíveis prefixos de S
     Ex: 'casa' -> ['c','ca','cas','casa']
     '''
-    if(len(pat) == 0):
+    if(M == 0):
         return sufix
     else:
-        return findPrefix(pat[0:len(pat)-1], [pat[0:len(pat)]] + sufix)
+        sufix.insert(0,pat)
+        return findPrefix(pat[0:M-1], M-1)
 
 
 TEXTO = 'agora é hora de tocar violão, em casa.'
 PADRAO = 'casa'
-PREFIX_PAT = findPrefix(PADRAO)
+PREFIX_PAT = findPrefix(PADRAO, len(PADRAO))
+print(PREFIX_PAT)
 
 print(rabin_karp_MATCHER(TEXTO, PREFIX_PAT))
