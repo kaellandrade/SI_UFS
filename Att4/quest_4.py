@@ -110,6 +110,4 @@ findWord(['PATO',
           'OCCO',
           'LAY',
           'LIYTA'
-
-
           ], MATRIZ)
