@@ -11,7 +11,7 @@ P A M E L H E U S A A
 Y L U L H A B I U S L
 B C V A B E L H A B A
 '''
-#TODO: VERIFICAR A PALAVRA CROTA.
+# TODO: VERIFICAR A PALAVRA CROTA.
 
 MATRIZ = [
     "LMOCROPBGCA",
@@ -53,30 +53,32 @@ def rabin_karp_MATCHER(texto, padrao, d=256, q=3354393):
 
 def findWord(words, matriz):
     for word in words:
-        line = 0
-        while(line < len(matriz)):
-            if(line == 0):
+        for i in range(0, len(MATRIZ)):
+            if(i == 0):
                 for column in range(len(matriz)):
                     word_vertical = getVerticalWord(column, len(matriz))
                     word_vertical_rever = reversedString(word_vertical)
 
                     res_vertical = rabin_karp_MATCHER(word_vertical, word)
-                    res_vertical_rever = rabin_karp_MATCHER(word_vertical_rever, word)
+                    res_vertical_rever = rabin_karp_MATCHER(
+                        word_vertical_rever, word)
                     if(res_vertical != -1):
-                        print((word, (res_vertical, column), (res_vertical+len(word)-1, column)))
+                        print((word, (res_vertical, column),
+                              (res_vertical+len(word)-1, column)))
 
                     if(res_vertical_rever != -1):
-                        print((word, (len(word_vertical_rever)-res_vertical_rever-1, column), (abs((res_vertical_rever+len(word)) - len(word_vertical_rever)), column)))
+                        print((word, (len(word_vertical_rever)-res_vertical_rever-1, column),
+                              (abs((res_vertical_rever+len(word)) - len(word_vertical_rever)), column)))
 
-                revers_horizon = rabin_karp_MATCHER(matriz[line], reversedString(word))
-                if(revers_horizon != -1):
-                    print((word, (line, revers_horizon+len(word)-1), (line, revers_horizon)))
-            else:
-                res = rabin_karp_MATCHER(matriz[line], word)
+            res = rabin_karp_MATCHER(matriz[i], word)
+            revers_horizon = rabin_karp_MATCHER( matriz[i], reversedString(word))
 
-                if(res != -1):
-                    print((word, (line, res), (line, res+len(word)-1)))
-            line += 1
+            if(revers_horizon != -1):
+                print((word, (i, revers_horizon+len(word)-1),
+                        (i, revers_horizon)))
+
+            if(res != -1):
+                print((word, (i, res), (i, res+len(word)-1)))
 
 
 def getVerticalWord(column: int, M: int):
@@ -98,16 +100,17 @@ def reversedString(string: str):
     return string[::-1]
 
 
-findWord(['PATO',
-          'MACACO',
-          'LEBRE',
-          'VACA',
-          'PORCO',
-          'ORCA',
-          'ABELHA',
-          'MEL',
-          'CROTA',
-          'OCCO',
-          'LAY',
-          'LIYTA'
-          ], MATRIZ)
+findWord([
+    # 'PATO',
+    # 'MACACO',
+    # 'LEBRE',
+    # 'VACA',
+    # 'PORCO',
+    # 'ORCA',
+    'ABELHA',
+    #   'MEL',
+    #   'CROTA',
+    #   'OCCO',
+    #   'LAY',
+    #   'LIYTA'
+], MATRIZ)
