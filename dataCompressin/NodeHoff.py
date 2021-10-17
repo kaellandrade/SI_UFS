@@ -81,7 +81,7 @@ def buildTrie(frequencias):
 
 def countFreq(string):
     '''
-    Contabiliza as frequencias.
+    Contabiliza as frequencias e armazena em um dicionário. (Poderia ser em um vetor tmb)
     '''
     frequencia: dict = {}
     for ch in string:
