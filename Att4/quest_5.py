@@ -19,7 +19,6 @@ class NodeHoff:
         '''
         return self.left == None and self.right == None
 
-
 def expand(Trie, noAtual, dadosCompc, dadosOri='') -> str:
     '''
     ENTRADA: Trie um dado nó da Trie(inicialmente será a raiz) e os dados compactados.
@@ -36,7 +35,6 @@ def expand(Trie, noAtual, dadosCompc, dadosOri='') -> str:
         return expand(Trie, noAtual.left, newString, dadosOri) #Vamos à esquerda da árvore.
     else:
         return expand(Trie, noAtual.right, newString, dadosOri) #Vamos à direita.
-
 
 def buildCodeTable(Nodex) -> dict:
     '''
@@ -56,9 +54,6 @@ def buildCodeTable(Nodex) -> dict:
     buildCodeTablesRec(tableCode, Nodex, "")
     return tableCode
 
-
-
-
 def buildTrie(frequencias) -> NodeHoff:
     '''
         ENTRADA: Tabela de frequencias no formato {'a':'101','b':'001' ...}
@@ -77,7 +72,6 @@ def buildTrie(frequencias) -> NodeHoff:
         minPq.insert(NodeParent)
     return minPq.heap_extract_min() #O último elemento do Heap é nossa árvore.
 
-
 def countFreq(string)->dict:
     '''
     ENTRADA: Um string.
@@ -91,7 +85,6 @@ def countFreq(string)->dict:
         else:
             frequencia[ch] = 1
     return frequencia
-
 
 def dataCompress(tabelaCodificacao, string) -> str:
     '''
