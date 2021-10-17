@@ -1,27 +1,28 @@
 #!python3.8
 from MinHeap import MinHeap
 
-# it was the best of times it was the worst of times (Exemplo para contrução)
-
 
 class NodeHoff:
     '''
-    Representação da Trie de Hoffman
+    Representação da Trie de Hoffman.
     '''
 
     def __init__(self, simbol, freq,  left=None, right=None) -> None:
-        self.simbol = simbol
-        self.freq = freq
-        self.left = left
-        self.right = right
+        self.simbol = simbol #Caractere.
+        self.freq = freq #Frequencia.
+        self.left = left #Filho Esq.
+        self.right = right #Filho Dir.
 
     def isLeaf(self) -> bool:
+        '''
+            Verifica se um dado nó é folha.
+        '''
         return self.left == None and self.right == None
 
 
 def expand(Trie, noAtual, dadosCompc, dadosOri='') -> str:
     '''
-    ENTRADA: Trie um dado no da Trie(inicialmente será a raiz) e os dados compactados.
+    ENTRADA: Trie um dado nó da Trie(inicialmente será a raiz) e os dados compactados.
     SAÍDA: Os dados originais descompactados.
     '''
     if(noAtual.isLeaf()): #É folha? Então vamos pegar seu conteúdo e voltar para raiz.
