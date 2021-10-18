@@ -1,5 +1,4 @@
-def insercaoDireta(A: list) -> list:  # O(n²)
-    for i in range(1, len(A)):
+   for i in range(1, len(A)):
         temp = A[i]
         j = i-1
         while((j >= 0) and (A[j] > temp)):

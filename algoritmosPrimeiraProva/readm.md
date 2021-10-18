@@ -2,17 +2,17 @@
 
 ## Busca
 
-- [ ] Busca Binária;
+- [x] Busca Binária;
 
 ## Ordenação
 
 - [ ] Quicksort;
 - [x] Mergesort;
-- [ ] Heapsort;
-- [ ] Inserção Direta;
-- [ ] Seleção Direta;
-- [ ] K-Way- Merge;
-- [ ] Por Contagem;
+- [x] Heapsort (está como método dentro do MaxHeap);
+- [x] Inserção Direta;
+- [x] Seleção Direta;
+- [X] K-Way- Merge;
+- [x] Por Contagem;
 
 ## Processamento de Textos
 
@@ -27,5 +27,5 @@
 
 ## Outros
 
-- [ ] MinHeap;
-- [ ] MaxHeap;
+- [x] MinHeap;
+- [x] MaxHeap;
