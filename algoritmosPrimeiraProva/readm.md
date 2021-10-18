@@ -6,8 +6,8 @@
 
 ## Ordenação
 
-- [ ] Ordenação Quicksort;
-- [ ] Ordenação Mergesort;
+- [ ] Quicksort;
+- [x] Mergesort;
 - [ ] Heapsort;
 - [ ] Inserção Direta;
 - [ ] Seleção Direta;
