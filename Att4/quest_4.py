@@ -71,11 +71,12 @@ def findWord(words, matriz):
                               (abs((res_vertical_rever+len(word)) - len(word_vertical_rever)), column)))
 
             res = rabin_karp_MATCHER(matriz[i], word)
-            revers_horizon = rabin_karp_MATCHER( matriz[i], reversedString(word))
+            revers_horizon = rabin_karp_MATCHER(
+                matriz[i], reversedString(word))
 
             if(revers_horizon != -1):
                 print((word, (i, revers_horizon+len(word)-1),
-                        (i, revers_horizon)))
+                       (i, revers_horizon)))
 
             if(res != -1):
                 print((word, (i, res), (i, res+len(word)-1)))
@@ -101,16 +102,16 @@ def reversedString(string: str):
 
 
 findWord([
-    # 'PATO',
-    # 'MACACO',
-    # 'LEBRE',
-    # 'VACA',
-    # 'PORCO',
-    # 'ORCA',
+    'PATO',
+    'MACACO',
+    'LEBRE',
+    'VACA',
+    'PORCO',
+    'ORCA',
     'ABELHA',
-    #   'MEL',
-    #   'CROTA',
-    #   'OCCO',
-    #   'LAY',
-    #   'LIYTA'
+    'MEL',
+    'CROTA',
+    'OCCO',
+    'LAY',
+    'LIYTA'
 ], MATRIZ)
