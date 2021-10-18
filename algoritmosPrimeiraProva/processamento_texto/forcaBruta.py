@@ -1,4 +1,4 @@
-def achaPadrao(stringT: str, stringP: str) -> int:
+def forcaBruta(stringT: str, stringP: str) -> int:
     i = 0
     j = 0
     index = -1
@@ -13,4 +13,4 @@ def achaPadrao(stringT: str, stringP: str) -> int:
             index = i - len(stringP)
     return index
 
-print(achaPadrao('micael andrade dos', 'dos'))
+print(forcaBruta('micael andrade dos', 'dos'))

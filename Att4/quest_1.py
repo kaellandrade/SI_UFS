@@ -1,4 +1,3 @@
-#TODO Transformar em Class
 def shifttable(padrao: str):
     '''
     Entrada: Padrão P [0..m - 1] e um alfabeto de caracteres possíveis.
