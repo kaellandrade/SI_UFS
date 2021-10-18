@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0, '/home/kaell/Documents/SI_UFS/algoritmosPrimeiraProva')
+sys.path.insert(0, '../SI_UFS/algoritmosPrimeiraProva')
 
 from outros.MinHeap import MinHeap
 
