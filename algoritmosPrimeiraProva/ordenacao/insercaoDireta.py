@@ -1,3 +1,4 @@
+def insercaoDireta(A) -> list:
    for i in range(1, len(A)):
         temp = A[i]
         j = i-1
@@ -5,7 +6,7 @@
             A[j+1] = A[j]
             j -= 1
         A[j+1] = temp
-    return A
 
-
-print(insercaoDireta([-1, 20, 1, 6, 0, 200, 10]))
+A = [10,9,8,7,6,5,4,3,2,1,0]
+insercaoDireta(A)
+print(A)
