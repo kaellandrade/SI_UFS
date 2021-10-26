@@ -32,4 +32,4 @@ def merge(B, C, A):
     else:
         A[k:len(A)] = B[i:len(C)]
 
-print(mergeSort([10,20,0,-1,0,-1,100]))
+print(mergeSort([23, 12, 34, 8, 5, 30, 19, 16, 38, 27]))

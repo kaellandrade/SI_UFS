@@ -15,4 +15,4 @@ def binaryRec(arr, x, left, right) -> int:
 
 vetor = [0, 1, 2, 3, 4, 5, 6, 50]
 LEFT = 0
-print(binaryRec(vetor, 50, LEFT, len(vetor)-1))
+print(binaryRec(vetor, -1, LEFT, len(vetor)-1))
