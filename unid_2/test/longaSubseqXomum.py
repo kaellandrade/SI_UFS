@@ -46,4 +46,4 @@ def longaSubSeq(x, y):
     return matrixLcs[m][n]
 
 
-print(longaSubSeq('AGGTAB', 'GXTXAYB'))
+print(longaSubSeq('ABCBDAB', 'BDCABA'))
