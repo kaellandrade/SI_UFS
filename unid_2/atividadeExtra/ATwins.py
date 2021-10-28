@@ -116,17 +116,17 @@ def Twins():
     Saída: Número mínimo de moedas que podem ser pego.
     '''
     n = int(input())    
-    heapMax = MaxHeap() #Define nosso Heap
     sumCoin = 0 # Representa a soma de todas moedas que irá entrar.
     sumGetCoin = 0 #Soma total de moedas capturada até o momento.
     totalCoin =0# Total de moedas que podemos pegar.
 
-    
+    line = input().split()
+    for i in range(len(line)):
+        number = int(line[i])
+        sumCoin += number
 
-    for _ in range(n):
-        coin_i = int(input())
-        sumCoin += coin_i
-        heapMax.insert(coin_i)
+    heapMax = MaxHeap(list(map(int, line))) #Define nosso Heap
+
 
     while(sumGetCoin <= sumCoin/2): #Enquanto a soma total de moedas captura não atingir o máximo.
         sumGetCoin += heapMax.heap_extract_max() #Captura a maior moeda e armazena na soma.
