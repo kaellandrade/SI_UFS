@@ -1,6 +1,8 @@
 import numpy
 
 # TODO: analizar esse código
+
+
 def Knapsack(W: int, pesos: list, valores: list) -> int:
     n = len(valores)
     K = [[0 for x in range(W + 1)] for x in range(n + 1)]
@@ -18,7 +20,23 @@ def Knapsack(W: int, pesos: list, valores: list) -> int:
 
 W = 5
 
-pesos = [2, 1,   3,   2]  # peso
+pesos =   [2,  1,  3,   2]  # peso
 valores = [12, 10, 20, 15]  # valor
 
-print(numpy.matrix(Knapsack(5, pesos, valores)))
+# print(numpy.matrix(Knapsack(5, pesos, valores)))
+
+
+# Debugar o código e ler o artigo 
+# https://www.geeksforgeeks.org/unbounded-knapsack-repetition-items-allowed/
+def ilimite_Knapsack(W: int, pesos: list, valores: list) -> int:
+    n = len(valores)
+    maxTab = [0 for _ in range(W+1)]
+
+    for i in range(W+1):
+        for j in range(n):
+            if(pesos[j] <= i):
+                maxTab[i] = max(maxTab[i], maxTab[i-pesos[j]] + valores[j])
+    
+    return maxTab
+    
+print(ilimite_Knapsack(W, pesos, valores))
