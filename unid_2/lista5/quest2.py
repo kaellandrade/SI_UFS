@@ -18,25 +18,25 @@ def Knapsack(W: int, pesos: list, valores: list) -> int:
     return K
 
 
-W = 5
+W = 13
 
-pesos =   [2,  1,  3,   2]  # peso
-valores = [12, 10, 20, 15]  # valor
+pesos =   [1, 5]  # peso
+valores = [1, 10]  # valor
+# Para essa solução posso adicionar (item 5 + item 5) + (3*item1) 
+# print(numpy.matrix(Knapsack(W, pesos, valores)))
 
-# print(numpy.matrix(Knapsack(5, pesos, valores)))
 
-
-# Debugar o código e ler o artigo 
-# https://www.geeksforgeeks.org/unbounded-knapsack-repetition-items-allowed/
 def ilimite_Knapsack(W: int, pesos: list, valores: list) -> int:
-    n = len(valores)
-    maxTab = [0 for _ in range(W+1)]
+    n = len(valores) #total de itens
+    maxTab = [0 for _ in range(W+1)] #Tamanho de mochilas diferentes
 
-    for i in range(W+1):
-        for j in range(n):
-            if(pesos[j] <= i):
+    for i in range(W+1): #Para cada capacidade de mochila diferente
+        for j in range(n): #Para cada item
+            if(pesos[j] <= i): #se cabe na capacidade da mochila atual
+                # Considera a solução a tual ou a solução anterior.
                 maxTab[i] = max(maxTab[i], maxTab[i-pesos[j]] + valores[j])
-    
-    return maxTab
-    
+
+    return maxTab[W]
+
+
 print(ilimite_Knapsack(W, pesos, valores))
