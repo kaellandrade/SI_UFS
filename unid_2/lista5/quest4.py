@@ -1,8 +1,7 @@
 
 class LCS:
-    def __init__(self, tam=0, dir='*') -> None:
+    def __init__(self, tam=0) -> None:
         self.tam = tam
-        self.dir = dir
 
     def __lt__(self, other):
         return self.tam < other.tam
@@ -36,34 +35,26 @@ def longaSubSeq(x, y):
                 matrixLcs[i][j].tam = 0
             elif(x[i-1] == y[j-1]):
                 matrixLcs[i][j].tam = 1 + matrixLcs[i-1][j-1].tam
-                matrixLcs[i][j].dir = 'D'
             elif(matrixLcs[i-1][j].tam >= matrixLcs[i][j-1].tam):
                 matrixLcs[i][j].tam = matrixLcs[i-1][j].tam
-                matrixLcs[i][j].dir = 'A'
             else:
                 matrixLcs[i][j].tam = matrixLcs[i][j-1].tam
-                matrixLcs[i][j].dir = 'E'
-    return matrixLcs
+    return matrixLcs[m][n].tam
 
 
-def print_LCS(LCS: LCS, X, i, j):
-    if(i == 0 or j == 0):
-        return
-    if(LCS[i][j].dir == 'D'):
-        print_LCS(LCS, X, i-1, j-1)
-        print(X[i-1])
-    elif(LCS[i][j].dir == 'A'):
-        print_LCS(LCS, X, i-1, j)
-    else:
-        print_LCS(LCS, X, i, j-1)
+X = 'ABCBDAB'
+Y = 'BDCABA'
 
 
-X = 'ABC'
-Y = 'ACF'
+
+def superMinSubSeq(stringx, stringy):
+    '''
+        Entra: Duas string.
+        SAÍDA: Tamanho da supersequência mais curta das duas strings.
+        A estratégia aqui é utilizar o algoritmo da mais longa subsequencia.
+    '''
+    lcs = longaSubSeq(stringx, stringy)
+    return (len(stringx) + len(stringy)) - lcs
 
 
-i = len(X)
-j = len(Y)
-print_LCS(longaSubSeq(X, Y), X, i, j)
-
-# ABCBDCABA
+print(superMinSubSeq(X, Y))
