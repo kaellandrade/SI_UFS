@@ -1,5 +1,6 @@
 from FramWorkGeometria import Point, Poligno
 from funcoesUtil import PolignoSimples, orientacaoVirada
+
 # Conjunto de pontos como exemplos
 A = Point(3, 1, 'A')
 B = Point(4, 2, 'B')
