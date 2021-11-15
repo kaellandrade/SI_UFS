@@ -1,5 +1,5 @@
 from FramWorkGeometria import Point, Poligno
-from problema1_2_3 import intersecaoSegmento
+from funcoesUtil import intersecaoSegmento
 
 
 def pontoNoPoligno(P: Poligno, q: Point):

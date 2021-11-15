@@ -23,7 +23,8 @@ class Poligno:
         self.poligno = points
 
     def __str__(self) -> str:
+        print('Sua sequência para formar o poligno é: ')
         res: str = ''
         for point in self.poligno:
-            res += f' {str(point)} '
+            res += f'\n{str(point)}'
         return res
