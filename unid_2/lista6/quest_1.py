@@ -27,7 +27,11 @@ ed3 = Edificio(Point(8, 0,  'L'), 6, Point(9, 0, 'R'))
 ed4 = Edificio(Point(11, 0,  'L'), 10, Point(12, 0, 'R'))
 
 edificios = [ed1, ed2, ed3, ed4]
-# edificios = [ed1]
+
+# -----------------------
+# ed1 = Edificio(Point(4, 0, 'L'), 6, Point(8, 0, 'R'))
+# ed2 = Edificio(Point(6, 0,  'L'), 4, Point(10, 0,  'R'))
+# edificios = [ed1,ed2]
 
 # list(map(print, edificios))
 print(mergeEdificio(edificios))
