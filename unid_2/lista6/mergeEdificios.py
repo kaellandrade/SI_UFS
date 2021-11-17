@@ -4,9 +4,7 @@ from typing import List
 import sys
 sys.path.insert(0, '../algoritmosGeo')
 
-
 def mergeEdificio(L) -> List[Point]:
-
     n = len(L)
     # Tratando os casos bases.
     if(n == 0):
@@ -48,18 +46,20 @@ def merge_lines(left, right):
     saida = []
 
     while p_l < n_l and p_r < n_r:
+        # Captura os primeiros pontos superior de dois horizontes.
         point_l, point_r = left[p_l], right[p_r]
-        # capture o menor x
+
+        # Capturando o menor x
         if(point_l[0] < point_r[0]):
-            x, left_y = point_l
+            x, left_y = point_l #Foi capturado um ponto da linha do horizonte esq
             p_l += 1
         else:
             x, right_y = point_r
-            p_r += 1
-        # altura máxima (ou seja, y) entre os dois horizontes
+            p_r += 1 # Foi capturando um ponto da linha do horizonte direita.
+        # capturando a altura máxima (ou seja, y) entre os dois horizontes.
         max_y = max(left_y, right_y)
 
-        # se houver uma mudança no horizonte
+        #Caso se houver uma mudança no horizonte
         if(curr_y != max_y):
             atualiza_saida(x, max_y)
             curr_y = max_y
