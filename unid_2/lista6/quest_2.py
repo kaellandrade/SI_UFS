@@ -1,18 +1,18 @@
 #!python3.8
 from typing import List
 from algoritmosGeo.FramWorkGeometria import Point
-from MaxHeap import MaxHeap
+from Heap import Heap
 import sys
 sys.path.insert(0, '../algoritmosGeo')
 
 
 def comparador(hl, l, i):
-    if(hl[l].y > hl[i].y):
+    if(hl[l].y < hl[i].y):
         return l
-    elif(hl[l].y < hl[i].y):
+    elif(hl[l].y > hl[i].y):
         return i
     else:
-        if(hl[l].x >= hl[i].x):
+        if(hl[l].x <= hl[i].x):
             return l
         else:
             return i
@@ -45,16 +45,10 @@ def setMaximalQudratica(points: List[Point]) -> List[Point]:
 
 
 def novaSolucao(points: List[Point]) -> List[Point]:
-    # TODO: Retirar a restrinção de coordenadas iguais (Adaptar Heap)
-    points = MaxHeap(points, comparador).heapSort()
-    points.reverse()
-    # return points
-    # pointsCopy = points.heap_list[1:]
-    # return points
+    # ! HeapSort em ordem decrescente. Ou seja, maior cordenada Y e caso de empate maior coordenada x 
+    points = Heap(points, comparador).heapSort()
     points_maxi = []
-
     pointMax = points.pop(0)
-
     points_maxi.append(pointMax)
 
     for point in points:
@@ -63,14 +57,5 @@ def novaSolucao(points: List[Point]) -> List[Point]:
     return points_maxi
 
 
-lista_pontos = [Point(2,4), Point(4,4),Point(5,3), Point(7,4)]
+lista_pontos = [Point(2,4), Point(4,4),Point(5,3), Point(6,2)]
 list(map(print, novaSolucao(lista_pontos)))
-# novaSolucao(lista_pontos)
-
-# --------------------------------------------------------
-
-
-# // TODO: Criar função pontoDomina
-# !DICA: Pode precisar usar algoritmo de ordenação
-# !DICA: Pensar em uma solução por indução(Fraca)
-# !DICA: Talve os mergesort seja uma boa ideia

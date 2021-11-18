@@ -3,7 +3,7 @@
 Heap max Em Python
 """
 from math import floor
-class MaxHeap:
+class Heap:
     def __init__(self, arr=[], key=lambda item:item):
         """
         Nesta implementação o Heapinicializa com um valor;
