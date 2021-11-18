@@ -12,7 +12,7 @@ def comparador(hl, l, i):
     elif(hl[l].y < hl[i].y):
         return i
     else:
-        if(hl[l].x > hl[i].x):
+        if(hl[l].x >= hl[i].x):
             return l
         else:
             return i
@@ -46,23 +46,24 @@ def setMaximalQudratica(points: List[Point]) -> List[Point]:
 
 def novaSolucao(points: List[Point]) -> List[Point]:
     # TODO: Retirar a restrinção de coordenadas iguais (Adaptar Heap)
-    points = MaxHeap(points, comparador)
-    pointsCopy = points.heap_list[1:]
-
+    points = MaxHeap(points, comparador).heapSort()
+    points.reverse()
+    # return points
+    # pointsCopy = points.heap_list[1:]
+    # return points
     points_maxi = []
 
-    pointMax = points.heap_extract_max()
+    pointMax = points.pop(0)
 
     points_maxi.append(pointMax)
 
-    for point in pointsCopy:
-        if(point != pointMax):
-            if(not pontoDomina(pointMax, point)):
+    for point in points:
+        if(point.x >= pointMax.x):
                 points_maxi.append(point)
     return points_maxi
 
 
-lista_pontos = [Point(2, 4), Point(4, 4), Point(5, 3)]
+lista_pontos = [Point(2,4), Point(4,4),Point(5,3), Point(7,4)]
 list(map(print, novaSolucao(lista_pontos)))
 # novaSolucao(lista_pontos)
 
