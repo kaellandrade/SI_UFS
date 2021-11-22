@@ -34,4 +34,4 @@ ed2 = Edificio(Point(6, 0,  'L'), 4, Point(10, 0,  'R'))
 edificios = [ed1,ed2]
 # TODO: Estudar novamente esse algoritmo. (Fazer um debug para dois edifícios)
 # list(map(print, edificios))
-print(findSkyline(edificios))
+# print(findSkyline(edificios))

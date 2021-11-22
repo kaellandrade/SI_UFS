@@ -1,5 +1,10 @@
-from FramWorkGeometria import Point, Poligno
-from funcoesUtil import intersecaoSegmento
+#!python3.
+
+from algoritmosGeo.FramWorkGeometria import Point, Poligno
+from algoritmosGeo.funcoesUtil import intersecaoSegmento
+
+import sys
+sys.path.insert(0, '../algoritmosGeo')
 
 
 def pontoNoPoligno(P: Poligno, q: Point):
@@ -27,18 +32,18 @@ def pontoNoPoligno(P: Poligno, q: Point):
         return True
 
 
-A = Point(12, 4)
-B = Point(16, 6)
-C = Point(16, 8)
-D = Point(14, 8)
-E = Point(14, 6)
-F = Point(10, 8)
-G = Point(14,10)
-H = Point(8, 10)
-I = Point(8,  6)
+# A = Point(12, 4)
+# B = Point(16, 6)
+# C = Point(16, 8)
+# D = Point(14, 8)
+# E = Point(14, 6)
+# F = Point(10, 8)
+# G = Point(14, 10)
+# H = Point(8, 10)
+# I = Point(8,  6)
 
-J = Point(15, 7)
+# J = Point(15, 7)
 
-polignoDoido = Poligno([A, B, C, D, E, F, G, H, I])
+# polignoDoido = Poligno([A, B, C, D, E, F, G, H, I])
 
-print(pontoNoPoligno(polignoDoido.poligno, J))
+# print(pontoNoPoligno(polignoDoido.poligno, J))

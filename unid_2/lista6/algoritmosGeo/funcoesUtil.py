@@ -1,5 +1,8 @@
-from typing import List
-from FramWorkGeometria import Point, Poligno
+#!python3.8
+from algoritmosGeo.FramWorkGeometria import Point, Poligno
+
+import sys
+sys.path.insert(0, '../algoritmosGeo')
 
 
 class PolignoSimples(Poligno):  # Poligno Simples extende de Poligno

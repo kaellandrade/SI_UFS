@@ -1,17 +1,8 @@
-from FramWorkGeometria import Point, Poligno
-from funcoesUtil import PolignoSimples, orientacaoVirada
-# Conjunto de pontos como exemplos
-A = Point(3, 1, 'A')
-B = Point(4, 2, 'B')
-C = Point(5, -1, 'C')
-D = Point(3, 2, 'D')
-E = Point(2, 3, 'E')
-F = Point(1, 0, 'F')
-
-G = Point(5, 4, 'G')
-H = Point(6, 3, 'H')
-I = Point(8, 1, 'I')
-J = Point(7, 3, 'J')
+#!python3.8
+from algoritmosGeo.funcoesUtil import PolignoSimples, orientacaoVirada
+from algoritmosGeo.FramWorkGeometria import Point, Poligno
+import sys
+sys.path.insert(0, '../algoritmosGeo')
 
 
 def graham(P: Poligno) -> Poligno:
@@ -37,6 +28,3 @@ def graham(P: Poligno) -> Poligno:
         H.poligno[m] = P.poligno[i]
 
     return H
-
-
-print(graham([A, B, C, D, E, F, G, H, I, J]))

@@ -33,6 +33,25 @@ def calcAreaSobreposicaoRetangulo(Pl1: Point, Pr1: Point, Pl2: Point, Pr2: Point
     return (retang1+retang2) - intersec_area
 
 
+def findTotalAreaUnion(L) -> float:
+    n = len(L)
+    # Tratando os casos bases.
+    if(n == 0):
+        return 0
+    if(n == 1):
+        unicoRetangulo:tuple = L[0]
+        return calcAreaRetangulo(unicoRetangulo[0], unicoRetangulo[1])
+
+    # Para Ns prédios
+    # meio = len(L)//2
+    # left_area = findSkyline(L[:meio])
+    # right_area = findSkyline(L[meio:])
+
+    # Combinando as soluções
+    # return merge_lines(left_skyline, right_skyline)
+
+
+# ----------Teste------------
 p1: Point = Point(2, 2, 'Pl1')
 p2: Point = Point(5, 7, 'Pr1')
 
@@ -40,4 +59,4 @@ p3: Point = Point(3, 4, 'Pl2')
 p4: Point = Point(6, 9, 'Pr2')
 
 
-print(calcAreaSobreposicaoRetangulo(p1, p2, p3, p4))
+print(findTotalAreaUnion([(p1, p2)]))
