@@ -3,7 +3,7 @@ from algoritmosGeo.FramWorkGeometria import Point
 import sys
 sys.path.insert(0, '../algoritmosGeo')
 
-from mergeEdificios import mergeEdificio
+from mergeEdificios import findSkyline
 
 class Edificio:
     '''
@@ -34,4 +34,4 @@ ed2 = Edificio(Point(6, 0,  'L'), 4, Point(10, 0,  'R'))
 edificios = [ed1,ed2]
 # TODO: Estudar novamente esse algoritmo. (Fazer um debug para dois edifícios)
 # list(map(print, edificios))
-print(mergeEdificio(edificios))
+print(findSkyline(edificios))

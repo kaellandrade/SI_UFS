@@ -4,7 +4,7 @@ from typing import List
 import sys
 sys.path.insert(0, '../algoritmosGeo')
 
-def mergeEdificio(L) -> List[Point]:
+def findSkyline(L) -> List[Point]:
     n = len(L)
     # Tratando os casos bases.
     if(n == 0):
@@ -17,14 +17,20 @@ def mergeEdificio(L) -> List[Point]:
 
     # Para Ns prédios
     meio = len(L)//2
-    left_skyline = mergeEdificio(L[:meio])
-    right_skyline = mergeEdificio(L[meio:])
+    left_skyline = findSkyline(L[:meio])
+    right_skyline = findSkyline(L[meio:])
 
     # Combinando as soluções
     return merge_lines(left_skyline, right_skyline)
 
 
 def merge_lines(left, right):
+    n_l, n_r = len(left), len(right)
+    p_l = p_r = 0
+    curr_y = left_y = right_y = 0
+
+    saida = []
+
     def atualiza_saida(x, y):
         # Se a mudança no horizonte não for vertical adiciona o novo ponto.
         if not saida or saida[-1][0] != x:
@@ -39,12 +45,6 @@ def merge_lines(left, right):
             if(curr_y != y):
                 atualiza_saida(x, y)
                 curr_y = y
-    n_l, n_r = len(left), len(right)
-    p_l = p_r = 0
-    curr_y = left_y = right_y = 0
-
-    saida = []
-
     while p_l < n_l and p_r < n_r:
         # Captura os primeiros pontos superior de dois horizontes.
         point_l, point_r = left[p_l], right[p_r]

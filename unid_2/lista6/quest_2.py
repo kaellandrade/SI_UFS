@@ -18,33 +18,7 @@ def comparador(hl, l, i):
             return i
 
 
-def pontoDomina(p: Point, q: Point) -> bool:
-    '''
-    ENTRADA: Dois pontos p e q
-    SAÍDA: True caso p domine q, False caso contrário.
-
-    OBS: Um ponto p domina outro ponto q se ambas as coordenadas x e y de p
-    forem maiores ou iguais que as respectivas coordenadas de q
-    '''
-    return (p.x >= q.x) and (p.y >= q.y)
-
-
-# Solução ingênua para testes.
-def setMaximalQudratica(points: List[Point]) -> List[Point]:
-    sets = []
-    domina = False
-    for point_i in points:
-        domina = False
-        for point_y in points:
-            if(point_i != point_y):
-                if(pontoDomina(point_y, point_i)):
-                    domina = True
-        if(not domina):
-            sets.append(point_i)
-    return sets
-
-
-def novaSolucao(points: List[Point]) -> List[Point]:
+def pontosMaximais(points: List[Point]) -> List[Point]:
     # ! HeapSort em ordem decrescente. Ou seja, maior cordenada Y e caso de empate maior coordenada x 
     points = Heap(points, comparador).heapSort()
     points_maxi = []
@@ -58,4 +32,4 @@ def novaSolucao(points: List[Point]) -> List[Point]:
 
 
 lista_pontos = [Point(2,4), Point(4,4),Point(5,3), Point(6,2)]
-list(map(print, novaSolucao(lista_pontos)))
+list(map(print, pontosMaximais(lista_pontos)))
