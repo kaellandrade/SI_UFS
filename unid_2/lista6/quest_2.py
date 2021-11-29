@@ -161,5 +161,5 @@ def pontosMaximais(points: List[Point]) -> List[Point]:
     return points_maxi
 
 
-lista_pontos = [Point(2, 4, 'P1'), Point(4, 4, 'P2'), Point(5, 3, 'P3')]
+lista_pontos = [Point(1, 5, 'P1'), Point(2, 4, 'P2'), Point(3, 3, 'P3'),  Point(4, 2, 'P4'),  Point(5, 1, 'P5')]
 list(map(print, pontosMaximais(lista_pontos)))
