@@ -1,6 +1,7 @@
 #!python3.8
-
+from random import randrange
 TOLERANCIA = 3
+
 
 def check_array_valid(arr: list) -> bool:
     for i in range(len(arr)):
@@ -15,4 +16,16 @@ def check_array_valid(arr: list) -> bool:
             return False
     return True
 
-print(check_array_valid([1,2,9,10,21,12,23,8,25,20,27,4]))
+
+def lasVegas(arr: list):
+    result = []
+    while(len(arr)):
+        index = randrange(len(arr))
+        result.insert(0, arr.pop(index))
+        if(not check_array_valid(result)):
+            arr.insert(0, result.pop(0))
+
+    return result
+
+
+print(lasVegas([1, 2, 4, 8, 9, 10, 12, 20, 21, 23, 25, 27]))

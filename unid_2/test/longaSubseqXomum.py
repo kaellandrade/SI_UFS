@@ -1,4 +1,4 @@
-
+#!python3.8
 class LCS:
     def __init__(self, tam=0, dir='*') -> None:
         self.tam = tam
@@ -26,12 +26,13 @@ class LCS:
         return str(self.tam)
 
 
-def longaSubSeq(x, y):
+def longaSubSeq(x, y, k):
     m = len(x)
     n = len(y)
     matrixLcs = [[LCS() for _ in range(n+1)] for _ in range(m+1)]
     for i in range(m+1):
         for j in range(n+1):
+            matrixLcs[i][j] = max(matrixLcs[i - 1][j], matrixLcs[i][j - 1])
             if(i == 0 or j == 0):
                 matrixLcs[i][j].tam = 0
             elif(x[i-1] == y[j-1]):
@@ -43,6 +44,13 @@ def longaSubSeq(x, y):
             else:
                 matrixLcs[i][j].tam = matrixLcs[i][j-1].tam
                 matrixLcs[i][j].dir = 'E'
+
+            if (matrixLcs[i][j].tam >= k) :
+                for a in range(k, matrixLcs[i][j].tam + 1) :
+                     
+                    # update lcs value by adding
+                    # segment length
+                    matrixLcs[i][j] = max(matrixLcs[i][j].tam ,matrixLcs[i - a][j - a].tam + a)
     return matrixLcs
 
 
@@ -58,12 +66,12 @@ def print_LCS(LCS: LCS, X, i, j):
         print_LCS(LCS, X, i, j-1)
 
 
-X = 'ABC'
-Y = 'ACF'
-
+X = 'Micael Andrade'
+Y = 'Micael drade'
+k = 2
 
 i = len(X)
 j = len(Y)
-print_LCS(longaSubSeq(X, Y), X, i, j)
+print_LCS(longaSubSeq(X, Y, k), X, i, j)
 
 # ABCBDCABA
