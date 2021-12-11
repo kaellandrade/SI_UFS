@@ -6,7 +6,7 @@
 
 ## Ordenação
 
-- [ ] Quicksort;
+- [X] Quicksort;
 - [x] Mergesort**O(nlogn)**;
 - [x] Heapsort (está como método dentro do MaxHeap) **O(nlogn)**;
 - [x] Inserção Direta **O(n²)**;
@@ -23,7 +23,7 @@
 
 ## Compactação de Dados.
 
-- [ ] Huffman;
+- [X] Huffman;
 
 ## Outros
 
