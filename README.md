@@ -5,6 +5,7 @@ dentro e fora da sala de aula.
 
 - Semestre: 2021.1 (REMOTO)
 - Professor(a): Leila Silva
+- Linguagem Python 3.8
 <hr/>
 
 ## 1º Unidade
