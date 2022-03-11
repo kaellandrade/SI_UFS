@@ -2,13 +2,15 @@
 
 Um repositório com Scripits das matérias específicas do curso de Sistemas De informação ofertadas pelo Departamento De Computação — DCOMP. Até o momento foram a bordadas as seguintes linguagens/tecnologias
 
-- Haskell — Programação Funcional 2019.1
-- C — Programação Imperativa 2019.2 
-- C — Estruturas de Dados 2020.1 
+- Haskell — Programação Funcional 
+- C — Programação Imperativa
+- C — Estruturas de Dados 
 - Java — POO 2020.1
-- Python3 - Grafos e Algoritmos Computacionais 2020.2
-- SQL - Banco de Dados I 2020.2
+- Python3 - Grafos e Algoritmos Computacionais
+- SQL - Banco de Dados I 
 - Python3 - Projeto e Análise de Algoritmos (PAA)
+- Java - Sistemas Operacionais
+
 NOTA: Cada matéria está contida em uma branch, portanto caso deseje obter todas as matérias clone a branch master. 
 
 ## 💡Dica
