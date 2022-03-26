@@ -3,6 +3,7 @@ import java.security.SecureRandom;
 import java.util.Random;
 
 public class PrintTask implements Runnable{    
+    
     private static final SecureRandom generator = new SecureRandom();
     private final int sleepTime; // Tempo de adormecimento para uma thread
     private final String taskName;

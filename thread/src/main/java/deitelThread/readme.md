@@ -37,8 +37,7 @@ Quando várias threads compartilham um objeto e este é modificado por uma ou ma
 ## Monitores
 - Cada objeto tem um monitor e um `bloqueio de monitor` (ou bloqueio intrínseco).
 
-Para especificar que uma thread deve segurar um monitor de bloqueio para executar um bloco do código, o código deve ser
-colocado em uma instrução synchronized.
+Para especificar que uma thread deve segurar um monitor de bloqueio para executar um bloco do código, o código deve ser colocado em uma instrução synchronized.
 ```java
 synchronized (objeto)
 {
