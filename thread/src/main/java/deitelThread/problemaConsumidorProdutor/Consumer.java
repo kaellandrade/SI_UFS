@@ -1,4 +1,4 @@
-package problemaConsumidorProdutor;
+package deitelThread.problemaConsumidorProdutor;
 import java.security.SecureRandom;
 
 public class Consumer implements Runnable {
@@ -18,11 +18,11 @@ public class Consumer implements Runnable {
                 Thread.sleep(generator.nextInt(3000)); // Sleep random
                 sum += sharedLocation.BlockingGet(); // ler o valor dobuffer
 
-                System.out.printf("\t\t\t%2d\n", sum);
+                // System.out.printf("\t\t\t%2d%n", sum);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
-            System.out.printf("\n%s %d\n%s\n", "Consumer read values totaling",sum, "Terminating Consumer");
+            System.out.printf("%n%s %d%n%s%n", "Consumer read values totaling",sum, "Terminating Consumer");
             
         }
         

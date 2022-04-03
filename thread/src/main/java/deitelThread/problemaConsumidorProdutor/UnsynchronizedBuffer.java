@@ -1,4 +1,4 @@
-package problemaConsumidorProdutor;
+package deitelThread.problemaConsumidorProdutor;
 
 public class UnsynchronizedBuffer implements Buffer {
     private int bufer = -1; // compartilhado pelas threads producer e consumer
@@ -18,7 +18,7 @@ public class UnsynchronizedBuffer implements Buffer {
     @Override
     public int BlockingGet() throws InterruptedException {
         System.out.printf("Consumer reads \t%2d", bufer);
-        return 0;
+        return bufer;
     }
     
 }

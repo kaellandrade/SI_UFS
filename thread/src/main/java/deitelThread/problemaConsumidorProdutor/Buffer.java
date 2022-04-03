@@ -1,4 +1,4 @@
-package problemaConsumidorProdutor;
+package deitelThread.problemaConsumidorProdutor;
 
 public interface Buffer  {
     // Colcoa o valor int no Buffer

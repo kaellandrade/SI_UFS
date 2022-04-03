@@ -1,4 +1,4 @@
-package problemaConsumidorProdutor;
+package deitelThread.problemaConsumidorProdutor;
 import java.security.SecureRandom;
 
 public class Producer implements Runnable {
@@ -18,13 +18,13 @@ public class Producer implements Runnable {
                 Thread.sleep(generator.nextInt(3000)); // Sleep random
                 sharedLocation.BlockingPut(i); // configura valor no buffer
                 sum += i; // incrementa a soma de valores
-                System.out.printf("\t%2d\n", sum);
+                // System.out.printf("\t%2d%n", sum);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
-            System.out.printf("Producer done producing\nTerminating Producer\n");
             
         }
+        System.out.printf("Producer done producing%nTerminating Producer%n");
         
     }
 
