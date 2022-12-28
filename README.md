@@ -7,4 +7,4 @@ dentro e fora da sala de aula.
 - Departamento: DEPARTAMENTO DE COMPUTAÇÃO
 
 # Avaliação Final
-- [Clone da Netflix] (https://github.com/kaellandrade/bd_projeto)
+- (Clone da Netflix) [https://github.com/kaellandrade/bd_projeto]
