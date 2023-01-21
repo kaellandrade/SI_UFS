@@ -10,6 +10,7 @@ Um repositório com Scripits das matérias específicas do curso de Sistemas De 
 - SQL - Banco de Dados I 
 - Python3 - Projeto e Análise de Algoritmos (PAA)
 - Java - Sistemas Operacionais
+- Java - Sistemas Distribuídos
 
 NOTA: Cada matéria está contida em uma branch, portanto caso deseje obter todas as matérias clone a branch master. 
 
