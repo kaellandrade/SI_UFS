@@ -3,7 +3,7 @@ Testes básicos da classe InetAddress
 
 ## Compilação
 
-mvn compiler
+mvn compile
 
 ## Execução 
 
