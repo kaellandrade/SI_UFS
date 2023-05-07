@@ -2,16 +2,16 @@
 
 Um repositório com Scripits das matérias específicas do curso de Sistemas De informação ofertadas pelo Departamento De Computação — DCOMP. Até o momento foram a bordadas as seguintes linguagens/tecnologias
 
-- [Haskell — Programação Funcional](https://github.com/kaellandrade/SI_UFS/tree/programacao_funcional_2019.1)
-- [C — Programação Imperativa](https://github.com/kaellandrade/SI_UFS/tree/programacao_imperativa_2019.2)
-- [C — Estruturas de Dados](https://github.com/kaellandrade/SI_UFS/tree/estruturas_de_dados_2020.1)
-- [Java — POO 2020.1](https://github.com/kaellandrade/SI_UFS/tree/poo_2020.1)
-- [Python - Grafos e Algoritmos Computacionais](https://github.com/kaellandrade/SI_UFS/tree/grafos-algoritmos)
-- [SQL - Banco de Dados I](https://github.com/kaellandrade/SI_UFS/tree/banco_de_dados)
-- [Python - Projeto e Análise de Algoritmos (PAA)](https://github.com/kaellandrade/SI_UFS/tree/PAA)
-- [Java - Sistemas Operacionais](https://github.com/kaellandrade/SI_UFS/tree/sistemasOperacioanais)
-- [Java - Sistemas Distribuídos](https://github.com/kaellandrade/SI_UFS/tree/sistemas-distribuidos)
-- [Python - Inteligência Artificial](https://github.com/kaellandrade/SI_UFS/tree/inteligencia_artifical)
+- [Programação Funcional - Haskell](https://github.com/kaellandrade/SI_UFS/tree/programacao_funcional_2019.1)
+- [Programação Imperativa - C](https://github.com/kaellandrade/SI_UFS/tree/programacao_imperativa_2019.2)
+- [Estruturas de Dados - C](https://github.com/kaellandrade/SI_UFS/tree/estruturas_de_dados_2020.1)
+- [Programação Orientada a Objetos - Java](https://github.com/kaellandrade/SI_UFS/tree/poo_2020.1)
+- [Grafos e Algoritmos Computacionais - Python](https://github.com/kaellandrade/SI_UFS/tree/grafos-algoritmos)
+- [Banco de Dados I - PostgreSQL, Node, CSS, HTML ...](https://github.com/kaellandrade/SI_UFS/tree/banco_de_dados)
+- [Projeto e Análise de Algoritmos (PAA) - Python](https://github.com/kaellandrade/SI_UFS/tree/PAA)
+- [Sistemas Operacionais - Java](https://github.com/kaellandrade/SI_UFS/tree/sistemasOperacioanais)
+- [Sistemas Distribuídos - Java](https://github.com/kaellandrade/SI_UFS/tree/sistemas-distribuidos)
+- [Artificial - Python](https://github.com/kaellandrade/SI_UFS/tree/inteligencia_artifical)
 
 NOTA: Cada matéria está contida em uma branch, portanto caso deseje obter todas as matérias clone a branch master.
 
