@@ -10,7 +10,7 @@ Um repositório com Scripits das matérias específicas do curso de Sistemas De 
 - [Banco de Dados I - PostgreSQL, Node, CSS, HTML ...](https://github.com/kaellandrade/SI_UFS/tree/banco_de_dados)
 - [Projeto e Análise de Algoritmos (PAA) - Python](https://github.com/kaellandrade/SI_UFS/tree/PAA)
 - [Sistemas Operacionais - Java](https://github.com/kaellandrade/SI_UFS/tree/sistemasOperacioanais)
-- [Sistemas Distribuídos - Java](https://github.com/kaellandrade/SI_UFS/tree/sistemas-distribuidos)
+- [Sistemas Distribuídos - Java, RabbitMQ, AWS, Cloud9-AWS](https://github.com/kaellandrade/SI_UFS/tree/sistemas-distribuidos)
 - [Inteligência Artificial - Python](https://github.com/kaellandrade/SI_UFS/tree/inteligencia_artifical)
 
 NOTA: Cada matéria está contida em uma branch, portanto caso deseje obter todas as matérias clone a branch master.
