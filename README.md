@@ -20,6 +20,7 @@ dentro e fora da sala de aula.
 
 ## U2
 
+- [Prova 2](/provas/Prova02.pdf)
 - [Trabalho prático II](https://github.com/kaellandrade/naive-bayes-pwa)
 
 # Ver mais
