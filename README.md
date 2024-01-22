@@ -15,9 +15,9 @@
 
 # 🖥️ Bem-vindo ao Repositório de Materiais do Curso de Sistemas de Informação!
 
-> :books: Este repositório contém listas de exercícios, provas e projetos de cada disciplina do curso de Sistemas de Informação. Cada disciplina está em uma branch diferente, facilitando a navegação e organização dos materiais.
+> :books: Este repositório contém listas de exercícios, provas e projetos de cada disciplina do curso de Sistemas de Informação. Cada disciplina está em uma branch diferente, mas existem projetos que possuem um repositórios específico devido sua complexidade. Isso permite facilitar a navegação e organização dos materiais.
 
-> :heavy_check_mark: Aqui você encontrará uma grande variedade de materiais que podem ser úteis para ajudá-lo a estudar e se preparar para as disciplinas do curso. O objetivo deste repositório é fornecer uma fonte de recursos úteis e acessíveis para todos os estudantes do curso de Sistemas de Informação.
+> :heavy_check_mark: Aqui você encontrará uma grande variedade de materiais que podem ser úteis para ajudá-lo a estudar e se preparar para as disciplinas do curso. O objetivo deste repositório é fornecer uma fonte de recursos úteis e acessíveis para todos os estudantes do curso de Sistemas de Informação e matérias do DCOMP.
 
 ## :exclamation: Navegando pelo Repositório
 
@@ -51,9 +51,9 @@ Se você quiser contribuir com o repositório, sinta-se à vontade para fazer um
 
 ## :arrows_counterclockwise: Feedback
 
-Se você tiver algum feedback ou sugestão sobre o repositório, por favor, sinta-se à vontade para compartilhá-lo (abrindo uma issue). O objetivo é tornar a experiência acadêmica mais positiva e produtiva para todos os estudantes do curso de Sistemas de Informação.
+Se você tiver algum feedback ou sugestão sobre o repositório, por favor, sinta-se à vontade para compartilhá-lo (abrindo uma issue). O objetivo é tornar a experiência acadêmica mais positiva e produtiva para todos os estudantes do cursos ofertados pelo DCOMP.
 
-Esperamos que este repositório seja uma ferramenta útil e eficaz para vocês. Obrigado!
+Esperamos que este repositório seja uma ferramenta útil e eficaz para vocês. Obrigado e bons estudos!
 
 # :ledger: Disciplinas catalogadas
 
@@ -67,3 +67,4 @@ Esperamos que este repositório seja uma ferramenta útil e eficaz para vocês. 
 - [Sistemas Operacionais - Java](https://github.com/kaellandrade/SI_UFS/tree/sistemasOperacioanais)
 - [Sistemas Distribuídos - Java, RabbitMQ, AWS, Cloud9-AWS](https://github.com/kaellandrade/SI_UFS/tree/sistemas-distribuidos)
 - [Inteligência Artificial - Python](https://github.com/kaellandrade/SI_UFS/tree/inteligencia_artifical)
+- [Programação WEB](https://github.com/kaellandrade/programacao-web)
