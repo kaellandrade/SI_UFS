@@ -15,6 +15,8 @@
 
 # 🖥️ Bem-vindo ao Repositório de Materiais do Curso de Sistemas de Informação!
 
+> :exclamation: Aviso Importante: Este projeto não é um baú de cópias prontas! 🧐 Utilize esses materiais como guias, não como atalhos. A jornada do aprendizado é única para cada um, então aproveite cada desafio e descubra seu próprio caminho! 🚀✨
+
 > :books: Este repositório contém listas de exercícios, provas e projetos de cada disciplina do curso de Sistemas de Informação. Cada disciplina está em uma branch diferente, mas existem projetos que possuem um repositórios específico devido sua complexidade. Isso permite facilitar a navegação e organização dos materiais.
 
 > :heavy_check_mark: Aqui você encontrará uma grande variedade de materiais que podem ser úteis para ajudá-lo a estudar e se preparar para as disciplinas do curso. O objetivo deste repositório é fornecer uma fonte de recursos úteis e acessíveis para todos os estudantes do curso de Sistemas de Informação e matérias do DCOMP.
