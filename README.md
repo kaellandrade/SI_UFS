@@ -70,3 +70,4 @@ Esperamos que este repositório seja uma ferramenta útil e eficaz para vocês. 
 - [Sistemas Distribuídos - Java, RabbitMQ, AWS, Cloud9-AWS](https://github.com/kaellandrade/SI_UFS/tree/sistemas-distribuidos)
 - [Inteligência Artificial - Python](https://github.com/kaellandrade/SI_UFS/tree/inteligencia_artifical)
 - [Programação WEB](https://github.com/kaellandrade/programacao-web)
+---
